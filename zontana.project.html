@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zonta Club of Naples — Official Site (Prototype)</title>
+  <meta name="description" content="Zonta Club of Naples — empowering women through service and advocacy. Join, donate, or learn about our scholarships and events." />
+  <style>
+    /* ---------- Simple, clean styles (easy to edit) ---------- */
+    :root{
+      --accent:#a40b18a4;
+      --accent-2:#ecc30e;
+      --muted:#6b6b6b;
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --radius:12px;
+      --max-width:1100px;
+      --gap:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0;
+      background:var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+    }
+    header{
+      background:linear-gradient(90deg,var(--accent), #750327 60%);
+      color:white;
+      padding:18px 12px;
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:18px;}
+    .nav{
+      display:flex;align-items:center;gap:16px;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:54px;height:54px;background:#fff1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px;
+    }
+    nav a{color:white;text-decoration:none;font-weight:600;margin:0 8px}
+    .cta{background:white;color:var(--accent);padding:8px 14px;border-radius:10px;font-weight:700}
+    main{padding:32px 12px;}
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02));
+      border-radius:var(--radius);
+      padding:28px;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:20px;
+      align-items:center;
+      margin-bottom:22px;
+    }
+    .hero h1{margin:0;font-size:28px;color:#073847}
+    .hero p{color:var(--muted);margin-top:8px}
+    .buttons{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block}
+    .btn.secondary{background:var(--accent-2)}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(12,23,24,0.06);}
+    .events ul{list-style:none;padding:0;margin:0}
+    .events li{padding:10px 0;border-bottom:1px dashed #eee}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
+    h2{color:#073847;margin:0 0 8px 0}
+    section{margin-bottom:22px}
+    footer{background:#061b1f;color:#cfeefb;padding:20px;font-size:14px}
+    .muted{color:var(--muted)}
+    .leader{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .leader img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+    form input, form textarea, form select{
+      width:100%;padding:10px;border-radius:8px;border:1px solid #e2e8f0;margin-top:8px;font-size:14px;
+    }
+    .small{font-size:13px;color:var(--muted)}
+    .store-item{display:flex;gap:12px;align-items:center}
+    .store-item img{width:80px;height:60px;object-fit:cover;border-radius:8px}
+    .cart{position:fixed;right:18px;bottom:18px;background:white;border-radius:14px;padding:12px;box-shadow:0 8px 30px rgba(2,12,12,0.12);z-index:60;min-width:260px}
+    .hidden{display:none}
+    /* responsive */
+    @media (max-width:880px){ .hero{grid-template-columns:1fr} nav a{display:none} .nav-right{display:flex;gap:8px} .container{padding:12px} }
+    @media (max-width:480px){ .logo{width:44px;height:44px;font-size:15px} .hero h1{font-size:22px} }
+    /* little helper */
+    .link{color:var(--accent);text-decoration:underline;cursor:pointer}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">ZC</div>
+        <div>
+          <div style="font-weight:800">Zonta Club of Naples</div>
+          <div class="small">Service • Advocacy • Scholarships</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <nav aria-label="Main navigation">
+          <a href="#" data-nav="home">Home</a>
+          <a href="#" data-nav="who">Who We Are</a>
+          <a href="#" data-nav="scholarships">Scholarships</a>
+          <a href="#" data-nav="membership">Membership</a>
+          <a href="#" data-nav="store">Store</a>
+          <a href="#" data-nav="contact">Contact</a>
+        </nav>
+        <div class="nav-right" style="display:flex;align-items:center;gap:8px;">
+          <a class="cta" href="#" id="donateBtn">Donate</a>
+          <a class="btn" href="#" id="joinBtn">Join Now</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- HOME -->
+    <section id="page-home" class="page">
+      <div class="hero">
+        <div>
+          <h1>Welcome to the Zonta Club of Naples</h1>
+          <p>We empower women through service and advocacy. Join our community, support scholarships, and help create lasting local impact.</p>
+          <div class="buttons">
+            <a class="btn" href="#" id="heroJoin">Become a Member</a>
+            <a class="btn secondary" href="#" id="heroDonate">Donate</a>
+            <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
+          </div>
+
+          <div style="margin-top:18px" class="card">
+            <h3 style="margin:0 0 8px 0">Latest News</h3>
+            <p class="small">April 5, 2025 — Our spring fundraiser raised funds for three scholarship winners. Thank you to our volunteers!</p>
+          </div>
+        </div>
+
+        <aside class="card events" aria-labelledby="events-title">
+          <h3 id="events-title">Upcoming Events</h3>
+          <ul id="eventsList">
+            <!-- JS inserts events -->
+          </ul>
+          <div style="margin-top:10px;text-align:center">
+            <a class="link" href="#" data-nav="store">Buy tickets →</a>
+          </div>
+        </aside>
+      </div>
+
+      <section class="card">
+        <h2>What We Do</h2>
+        <p class="muted">We focus on community service, scholarships for local students, and advocacy for women’s rights. Our programs are locally driven and volunteer-powered.</p>
+        <div class="grid-3" style="margin-top:16px">
+          <div class="card">
+            <h4>Scholarships</h4>
+            <p class="small muted">Provide financial support and mentorship for local students.</p>
+          </div>
+          <div class="card">
+            <h4>Fundraising</h4>
+            <p class="small muted">Community events, online campaigns, and partnerships to support our mission.</p>
+          </div>
+          <div class="card">
+            <h4>Volunteer Projects</h4>
+            <p class="small muted">Hands-on service projects with measurable community impact.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section id="page-who" class="page hidden">
+      <div class="card">
+        <h2>Who We Are</h2>
+        <p class="muted">Founded to support women and girls in our community, the Zonta Club of Naples is a 501(c)(3) nonprofit focused on local service, scholarships, and advocacy.</p>
+
+        <h3 style="margin-top:16px">Leadership</h3>
+        <div class="leader">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60" alt="President photo">
+          <div>
+            <strong>Jane Martinez — President</strong>
+            <div class="small muted">Oversees club operations and community partnerships.</div>
+          </div>
+        </div>
+
+        <div class="leader">
+          <img src="https://images.unsplash.com/photo-1545996124-32f8b615a4b9?auto=format&fit=crop&w=200&q=60" alt="Scholarships chair photo">
+          <div>
+            <strong>Maria Gomez — Scholarship Chair</strong>
+            <div class="small muted">Leads scholarship selection and outreach.</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:16px">Our Impact</h3>
+        <p class="muted">Last year we awarded scholarships to three students, hosted two community fundraisers, and partnered with local schools to deliver educational workshops.</p>
+      </div>
+    </section>
+
+    <!-- SCHOLARSHIPS -->
+    <section id="page-scholarships" class="page hidden">
+      <div class="card">
+        <h2>Scholarships</h2>
+        <p class="muted">Learn about current scholarship opportunities, eligibility, and how to apply. Use the button below to download the application form and instructions.</p>
+
+        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+          <button class="btn" id="downloadAppBtn">Download Application</button>
+          <a class="btn secondary" href="#" id="applyOnlineBtn">Apply by Email</a>
+        </div>
+
+        <h3 style="margin-top:18px">Past Recipients</h3>
+        <blockquote class="small muted">"Zonta's scholarship helped me focus on my studies without worrying about tuition." — A. R., 2024 recipient</blockquote>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section id="page-membership" class="page hidden">
+      <div class="card">
+        <h2>Membership</h2>
+        <p class="muted">Joining is simple. Fill the membership form below and submit it directly to our Membership Chair at <a href="mailto:membership@zontanaples.org">membership@zontanaples.org</a>.</p>
+
+        <form id="membershipForm" onsubmit="return submitMembershipForm(event)" style="margin-top:12px">
+          <label>Full Name
+            <input type="text" name="name" required placeholder="Your full name">
+          </label>
+
+          <label>Email
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+
+          <label>Phone
+            <input type="tel" name="phone" placeholder="(optional)">
+          </label>
+
+          <label>Address
+            <input type="text" name="address" placeholder="City, State">
+          </label>
+
+          <label>Membership Type
+            <select name="type">
+              <option>Individual</option>
+              <option>Student</option>
+              <option>Corporate</option>
+            </select>
+          </label>
+
+          <label>Why do you want to join?
+            <textarea name="why" rows="4" placeholder="A short note..."></textarea>
+          </label>
+
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn" type="submit">Send Application</button>
+            <button class="btn secondary" type="button" onclick="downloadMembershipPDF()">Download Printable Form</button>
+          </div>
+          <p class="small muted" style="margin-top:8px">By submitting you agree we can contact you about membership and events. We are a 501(c)(3) nonprofit.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- STORE (E-COMMERCE SIMPLE) -->
+    <section id="page-store" class="page hidden">
+      <div class="card">
+        <h2>Fundraiser & Store</h2>
+        <p class="muted">Buy event tickets or club merchandise. Payments supported: PayPal link (recommended) or choose to pay by check.</p>
+
+        <div style="margin-top:12px" class="grid-3">
+          <div class="card store-item">
+            <img src="https://images.unsplash.com/photo-1558980394-0c9b1d6f4dfb?auto=format&fit=crop&w=400&q=60" alt="Event ticket">
+            <div>
+              <strong>Spring Fundraiser Ticket</strong>
+              <div class="small muted">$25 — Supports scholarships</div>
+              <div style="margin-top:8px">
+                <button class="btn" onclick="addToCart('Spring Ticket',25)">Add to cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card store-item">
+            <img src="https://images.unsplash.com/photo-1520975915677-2a5d9f7a8b13?auto=format&fit=crop&w=400&q=60" alt="Club mug">
+            <div>
+              <strong>Zonta Mug</strong>
+              <div class="small muted">$18</div>
+              <div style="margin-top:8px">
+                <button class="btn" onclick="addToCart('Zonta Mug',18)">Add to cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card store-item">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=60" alt="Donation">
+            <div>
+              <strong>Donate</strong>
+              <div class="small muted">One-time donation</div>
+              <div style="margin-top:8px">
+                <button class="btn" onclick="openDonate()">Give Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="page-contact" class="page hidden">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="muted">Questions? Contact us: <a href="mailto:info@zontanaples.org">info@zontanaples.org</a> or use the form below.</p>
+
+        <form onsubmit="return contactSubmit(event)" style="margin-top:12px">
+          <label>Your Name
+            <input type="text" name="name" required>
+          </label>
+
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+
+          <label>Message
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+
+          <div style="margin-top:10px">
+            <button class="btn" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CART / QUICK CHECKOUT -->
+  <div id="cart" class="cart card hidden" aria-live="polite">
+    <strong>Cart</strong>
+    <div id="cartItems" style="margin-top:8px"></div>
+    <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+      <div><strong>Total:</strong> $<span id="cartTotal">0.00</span></div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" onclick="checkoutPayPal()">Checkout</button>
+        <button class="btn secondary" onclick="checkoutByCheck()">Pay by Check</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <strong>Zonta Club of Naples</strong>
+        <div class="small muted">PO Box 1234 • Naples, FL</div>
+      </div>
+      <div class="small muted">
+        <div>Follow us: <a class="link" href="#" aria-label="Zonta on Facebook">Facebook</a> • <a class="link" href="#" aria-label="Zonta on Instagram">Instagram</a></div>
+        <div style="margin-top:8px">Direct link: <a href="https://www.zonta.org" class="link" target="_blank" rel="noopener">Zonta International</a></div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  /***********************************************
+   * Simple single-file site logic
+   * Edit the content and email addresses below.
+   ***********************************************/
+
+  const events = [
+    {date: "2025-10-15", title: "Monthly Meeting", details: "6:00 PM — Community Center"},
+    {date: "2025-11-05", title: "Fall Fundraiser", details: "7:00 PM — Lakeside Hotel"},
+    {date: "2025-12-10", title: "Scholarship Awards", details: "3:00 PM — City Library"}
+  ];
+
+  // Update events list
+  const eventsList = document.getElementById('eventsList');
+  events.forEach(ev=>{
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${new Date(ev.date).toLocaleDateString()}</strong> — ${ev.title}<div class="small muted">${ev.details}</div>`;
+    eventsList.appendChild(li);
+  });
+
+  // NAVIGATION (single-page)
+  document.querySelectorAll('[data-nav]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const target = a.getAttribute('data-nav');
+      showPage(target);
+    });
+  });
+
+  document.getElementById('heroDonate').addEventListener('click', openDonate);
+  document.getElementById('heroJoin').addEventListener('click', ()=>showPage('membership'));
+  document.getElementById('donateBtn').addEventListener('click', openDonate);
+  document.getElementById('joinBtn').addEventListener('click', ()=>showPage('membership'));
+
+  function showPage(name){
+    document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+    const id = 'page-' + name;
+    const el = document.getElementById(id);
+    if(el) el.classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // default
+  showPage('home');
+
+  /* ---------- Membership form: send via mailto ---------- */
+  function submitMembershipForm(e){
+    e.preventDefault();
+    const f = e.target;
+    const data = new FormData(f);
+    const name = encodeURIComponent(data.get('name') || '');
+    const email = encodeURIComponent(data.get('email') || '');
+    const phone = encodeURIComponent(data.get('phone') || '');
+    const address = encodeURIComponent(data.get('address') || '');
+    const type = encodeURIComponent(data.get('type') || '');
+    const why = encodeURIComponent(data.get('why') || '');
+    // Replace the email below with the real Membership Chair email
+    const to = 'membership@zontanaples.org';
+    const subject = encodeURIComponent('New Membership Application from ' + (data.get('name') || ''));
+    const body = `Name: ${decodeURIComponent(name)}%0D%0AEmail: ${decodeURIComponent(email)}%0D%0APhone: ${decodeURIComponent(phone)}%0D%0AAddress: ${decodeURIComponent(address)}%0D%0AMembership Type: ${decodeURIComponent(type)}%0D%0APersonal Note:%0D%0A${decodeURIComponent(why)}`;
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    return false;
+  }
+
+  // Download a quick printable membership form (basic text file with fields)
+  function downloadMembershipPDF(){
+    const content = `
+Zonta Club of Naples - Membership Form
+
+Full Name:
+Email:
+Phone:
+Address:
+Membership Type: (Individual/Student/Corporate)
+Why do you want to join?
+
+Please email completed form to: membership@zontanaples.org
+    `.trim();
+    const blob = new Blob([content], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'Zonta_Membership_Form.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // Scholarship application download (creates a simple .docx-like text file or .txt)
+  document.getElementById('downloadAppBtn').addEventListener('click', ()=>{
+    const template = `
+Zonta Club of Naples - Scholarship Application
+
+Full Name:
+Date of Birth:
+Address:
+Phone:
+Email:
+High School / College:
+Major / Intended Major:
+GPA:
+Statement (250 words):
+Attachments: transcript, letter of recommendation
+
+Submit via email to: scholarships@zontanaples.org
+    `.trim();
+    const blob = new Blob([template], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'Zonta_Scholarship_Application.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // Apply online button: open mailto with subject
+  document.getElementById('applyOnlineBtn').addEventListener('click', ()=>{
+    const to = 'scholarships@zontanaples.org';
+    const subject = encodeURIComponent('Scholarship Application Submission');
+    window.location.href = `mailto:${to}?subject=${subject}`;
+  });
+
+  /* ---------- Contact form (mailto) ---------- */
+  function contactSubmit(e){
+    e.preventDefault();
+    const f = e.target;
+    const data = new FormData(f);
+    const to = 'info@zontanaples.org'; // replace as needed
+    const subject = encodeURIComponent('Website Contact from ' + (data.get('name')||''));
+    const body = `Message from ${data.get('name')}\n\n${data.get('message')}\n\nEmail: ${data.get('email')}`;
+    window.location.href = `mailto:${to}?subject=${subject}&body=${encodeURIComponent(body)}`;
+    return false;
+  }
+
+  /* ---------- Simple cart (client-side only) ---------- */
+  let cart = [];
+  function addToCart(name, price){
+    cart.push({name, price});
+    renderCart();
+    document.getElementById('cart').classList.remove('hidden');
+  }
+
+  function renderCart(){
+    const el = document.getElementById('cartItems');
+    el.innerHTML = '';
+    let total = 0;
+    cart.forEach((it, idx)=>{
+      total += it.price;
+      const row = document.createElement('div');
+      row.style.display = 'flex'; row.style.justifyContent='space-between'; row.style.alignItems='center'; row.style.marginBottom='8px';
+      row.innerHTML = `<div style="max-width:160px">${it.name}</div><div style="display:flex;gap:8px;align-items:center"><div>$${it.price.toFixed(2)}</div><button class="small" aria-label="Remove" onclick="removeFromCart(${idx})" style="background:none;border:0;color:#888;cursor:pointer">✕</button></div>`;
+      el.appendChild(row);
+    });
+    document.getElementById('cartTotal').textContent = total.toFixed(2);
+    if(cart.length===0){
+      el.innerHTML = '<div class="small muted">Cart is empty</div>';
+      document.getElementById('cart').classList.add('hidden');
+    }
+  }
+
+  function removeFromCart(idx){
+    cart.splice(idx,1);
+    renderCart();
+  }
+
+  function checkoutPayPal(){
+    if(cart.length===0){ alert('Cart is empty.'); return; }
+    const total = cart.reduce((s,i)=>s+i.price,0).toFixed(2);
+    // NOTE: Replace this with your real PayPal/Stripe checkout flow. This is a simple redirect to PayPal.me for example.
+    // For production: implement server-side or PayPal/Stripe Checkout integration.
+    const payPalMeLink = 'https://www.paypal.com/paypalme/YOUR_PAYPAL_USERNAME/' + total; // replace YOUR_PAYPAL_USERNAME
+    if(confirm(`You will be redirected to PayPal to pay $${total}. Continue?`)){
+      window.open(payPalMeLink,'_blank');
+    }
+  }
+
+  function checkoutByCheck(){
+    if(cart.length===0){ alert('Cart is empty.'); return; }
+    const total = cart.reduce((s,i)=>s+i.price,0).toFixed(2);
+    alert(`To pay by check: Please mail a check for $${total} payable to "Zonta Club of Naples" to:\n\nZonta Club of Naples\nPO Box 1234\nNaples, FL\n\nInclude a note with items purchased.`);
+  }
+
+  // helper: open donate quick options
+  function openDonate(){
+    // This opens a donate placeholder. Replace with a real payment link or donate page.
+    const donateUrl = 'https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID'; // replace YOUR_BUTTON_ID
+    if(confirm('Open donation page?')) window.open(donateUrl,'_blank');
+  }
+
+  // small accessibility: keyboard nav (alt + number)
+  document.addEventListener('keydown', (e)=>{
+    if(e.altKey && !e.shiftKey){
+      if(e.key === '1') showPage('home');
+      if(e.key === '2') showPage('who');
+      if(e.key === '3') showPage('scholarships');
+      if(e.key === '4') showPage('membership');
+      if(e.key === '5') showPage('store');
+      if(e.key === '6') showPage('contact');
+    }
+  });
+
+  // init
+  renderCart();
+
+</script>
+</body>
+</html>
