@@ -6,9 +6,7 @@
   <title>Zonta Club of Naples — Official Site (Prototype)</title>
   <meta name="description" content="Zonta Club of Naples — empowering women through service and advocacy. Join, donate, or learn about our scholarships and events." />
   <style>
-    /* ---------- Simple, clean styles (easy to edit) ---------- */
-
-    
+  
     :root{
       --accent:#a40b18a4;   
       --accent-2:#ecc30e;
@@ -36,13 +34,108 @@
       z-index:50;
     }
     .container{max-width:var(--max-width);margin:0 auto;padding:18px;}
+    /* Header and Navigation Layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #c05b5b, #6e0a1e);
+  padding: 10px 40px;
+  color: white;
+}
+
+/* Left side: logo and titles */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.logo {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.site-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.site-subtitle {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-left: 5px;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #ffdfdf;
+}
+
+/* Buttons */
+.donate {
+  border: 1px solid white;
+  border-radius: 6px;
+  padding: 5px 10px;
+  background: white;
+  color: #6e0a1e !important;
+}
+
+.join {
+  background: #6e0a1e;
+  color: white !important;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
     .nav{
       display:flex;align-items:center;gap:16px;justify-content:space-between;
     }
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:54px;height:54px;background:#fff1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px;
+  
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
+    
+    .logo{
+       width:54px;height:54px;background:#fff1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+     a.logo { text-decoration: none; color: inherit; }
     nav a{color:white;text-decoration:none;font-weight:600;margin:0 8px}
     .cta{background:white;color:var(--accent);padding:8px 14px;border-radius:10px;font-weight:700}
     main{padding:32px 12px;}
@@ -90,16 +183,16 @@
 
   <!-- HEADER -->
   <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">ZC</div>
-        <div>
-          <div style="font-weight:800">Zonta Club of Naples</div>
-          <div class="small">Service • Advocacy • Scholarships</div>
-        </div>
-      </div>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="zontana.project.html" class="logo-link">
+        <img src="C:\Users\pmela\Desktop\Zonta_emblem.png" alt="Zonta Club Logo" class="logo">
+      </a>
+      <span class="site-title">Zonta Club of Naples</span>
+      <span class="site-subtitle">Service • Advocacy • Scholarships</span>
+    </div>
 
-      <div style="display:flex;align-items:center;gap:12px">
+       <div style="display:flex;align-items:center;gap:12px">
         <nav aria-label="Main navigation">
           <a href="#" data-nav="home">Home</a>
           <a href="#" data-nav="who">Who We Are</a>
@@ -115,6 +208,7 @@
       </div>
     </div>
   </header>
+
 
   <main class="container" role="main">
     <!-- HOME -->
@@ -556,5 +650,4 @@ Submit via email to: scholarships@zontanaples.org
 </script>
 </body>
 </html>
-
 
