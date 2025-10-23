@@ -1,12 +1,12 @@
 # MJTPR-Solutions
-# 🌺 Zonta Club of Naples Website
+#  Zonta Club of Naples Website
 
 The Zonta Club of Naples website is a simple, elegant, and user-friendly site built to represent the club’s mission, values, and community initiatives.  
 It highlights the organization’s focus on service, advocacy, and scholarships — empowering women through education and volunteerism.
 
 ---
 
-📖 About the Project
+ About the Project
 
 This website was created to:
 - Showcase the Zonta Club of Naples and its mission.
@@ -16,16 +16,16 @@ This website was created to:
 
 ---
 
- 🛠️ Built With
+  Built With
 
 - HTML5 – Structure and layout  
 - CSS– Styling and responsive design  
 ---
 
-🧩 Features
+ Features
  
-- 🧭 Easy Navigation — Links to Home, Who We Are, Scholarships, Membership, Store, Contact, Donate, and Join  
-- 💛 Donate and Join Buttons — Highlighted for visibility and engagement  
+-  Easy Navigation — Links to Home, Who We Are, Scholarships, Membership, Store, Contact, Donate, and Join  
+-  Donate and Join Buttons — Highlighted for visibility and engagement  
 - 📅 Upcoming Events Section — Displays key community and scholarship events  
 - 📰 Latest News Panel— Updates about recent activities and achievements  
 - 📦 Modular Design — Each page can be easily updated or expanded  
