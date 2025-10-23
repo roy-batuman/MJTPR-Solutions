@@ -26,8 +26,8 @@ This website was created to:
  
 -  Easy Navigation — Links to Home, Who We Are, Scholarships, Membership, Store, Contact, Donate, and Join  
 -  Donate and Join Buttons — Highlighted for visibility and engagement  
-- 📅 Upcoming Events Section — Displays key community and scholarship events  
-- 📰 Latest News Panel— Updates about recent activities and achievements  
-- 📦 Modular Design — Each page can be easily updated or expanded  
+-  Upcoming Events Section — Displays key community and scholarship events  
+-  Latest News Panel— Updates about recent activities and achievements  
+-  Modular Design — Each page can be easily updated or expanded  
 
 
