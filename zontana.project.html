@@ -424,9 +424,9 @@ menuBtn.addEventListener('click', () => {
             height: 600px;
             margin: 40px auto;
             perspective: 1000px;
-            background: #dadada;
+            background: #e5dfdf71;
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.137);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -724,15 +724,26 @@ menuBtn.addEventListener('click', () => {
   document.getElementById('joinBtn').addEventListener('click', ()=>showPage('membership'));
 
   function showPage(name){
-    document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
-    const id = 'page-' + name;
-    const el = document.getElementById(id);
-    if(el) el.classList.remove('hidden');
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  const el = document.getElementById('page-' + name);
+  if(el) el.classList.remove('hidden');
+
+  // Store current page in URL hash
+  window.location.hash = name;
+
+  // Scroll to top smoothly
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
 
   // default
-  showPage('home');
+  const initialPage = window.location.hash.replace('#', '') || 'home';
+showPage(initialPage);
+
+window.addEventListener('hashchange', () => {
+  const page = window.location.hash.replace('#', '');
+  showPage(page);
+});
 
   /* ---------- Membership form: send via mailto ---------- */
   function submitMembershipForm(e){
