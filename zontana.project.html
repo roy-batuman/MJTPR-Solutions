@@ -182,7 +182,8 @@
 <body>
 
   <!-- HEADER -->
-  <header>
+  <!-- HEADER -->
+<header>
   <nav class="navbar">
     <div class="nav-left">
       <a href="zontana.project.html" class="logo-link">
@@ -192,22 +193,89 @@
       <span class="site-subtitle">Service • Advocacy • Scholarships</span>
     </div>
 
-       <div style="display:flex;align-items:center;gap:12px">
-        <nav aria-label="Main">
-          <a href="#" data-nav="home">Home</a>
-          <a href="#" data-nav="who">Who We Are</a>
-          <a href="#" data-nav="scholarships">Scholarships</a>
-          <a href="#" data-nav="memberships">Membership</a>
-          <a href="#" data-nav="store">Store</a>
-          <a href="#" data-nav="contact">Contact</a>
-        </nav>
-        <div class="nav-right" style="display:flex;align-items:center;gap:8px;">
-          <a class="cta" href="#" id="donateBtn">Donate</a>
-          <a class="btn" href="#" id="joinBtn">Join Now</a>
-        </div>
+    <div class="nav-right-wrapper" style="display:flex;align-items:center;gap:8px;position:relative;">
+      <!-- Desktop / hidden mobile nav links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#" data-nav="home">Home</a>
+        <a href="#" data-nav="who">Who We Are</a>
+        <a href="#" data-nav="scholarships">Scholarships</a>
+        <a href="#" data-nav="memberships">Membership</a>
+        <a href="#" data-nav="store">Store</a>
+        <a href="#" data-nav="contact">Contact</a>
+      </nav>
+
+      <!-- Buttons -->
+      <div class="nav-right" style="display:flex;align-items:center;gap:8px;">
+        <a class="cta" href="#" id="donateBtn">Donate</a>
+        <a class="btn" href="#" id="joinBtn">Join Now</a>
       </div>
+
+      <!-- Hamburger button -->
+      <button class="menu-btn" aria-label="Menu">&#9776;</button>
     </div>
-  </header>
+  </nav>
+</header>
+
+<style>
+/* Hamburger button */
+.menu-btn {
+  display: none; /* hidden on desktop */
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-left: 8px;
+}
+
+/* Mobile responsive */
+@media (max-width: 880px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--accent); /* your red background */
+    position: absolute;
+    top: 60px;
+    right: 12px;
+    width: 200px; /* make sure it has some width */
+    padding: 12px 16px;
+    border-radius: 8px;
+    z-index: 20;
+  }
+
+  .nav-links a {
+    display: block; /* ensure links are stacked vertically */
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .nav-links.show {
+    display: flex; /* show when hamburger clicked */
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-right {
+    display: none;
+  }
+}
+</style>
+
+<script>
+// Hamburger toggle
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+</script>
+
 
 
   <main class="container" role="main">
@@ -334,16 +402,150 @@
       <div class="card">
         <h2>Scholarships</h2>
         <p class="muted">Learn about current scholarship opportunities, eligibility, and how to apply. Use the button below to download the application form and instructions.</p>
-
-        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-          <button class="btn" id="downloadAppBtn">Download Application</button>
-          <a class="btn secondary" href="#" id="applyOnlineBtn">Apply by Email</a>
+    
+        <!-- Carousel -->
+        <div class="carousel-container">
+          <button class="carousel-btn prev">&#10094;</button>
+          <div class="carousel">
+            <img src="images/Scholarship1.jpeg" alt="Scholarship slider 1">
+            <img src="images/Scholarship2.jpeg" alt="Scholarship slider 2">
+            <img src="images/Scholarship3.jpg" alt="Scholarship slider 3">
+            <img src="images/Scholarship4.jpg" alt="Scholarship slider 4">
+            <img src="images/Scholarship5.jpg" alt="Scholarship slider 5">
+            <img src="images/Scholarship6.jpg" alt="Scholarship slider 6">
+          </div>
+          <button class="carousel-btn next">&#10095;</button>
         </div>
-
-        <h3 style="margin-top:18px">Past Recipients</h3>
-        <blockquote class="small muted">"Zonta's scholarship helped me focus on my studies without worrying about tuition." — A. R., 2024 recipient</blockquote>
+    
+        <style>
+          .carousel-container {
+            width: 90%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 40px auto;
+            perspective: 1000px;
+            background: #dadada;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+          }
+    
+          .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+          }
+    
+          .carousel img {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: scale(0.7);
+          }
+    
+          .carousel img.prev {
+            left: 15%;
+            opacity: 0.5;
+            transform: scale(0.8);
+            z-index: 1;
+          }
+    
+          .carousel img.current {
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+            z-index: 2;
+          }
+    
+          .carousel img.next {
+            left: 85%;
+            transform: translateX(-100%) scale(0.8);
+            opacity: 0.5;
+            z-index: 1;
+          }
+    
+          .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.8);
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0 10px;
+            border-radius: 50%;
+            z-index: 10;
+          }
+    
+          .carousel-btn.prev { left: 10px; }
+          .carousel-btn.next { right: 10px; }
+        </style>
+    
+        <script>
+          const imgs = document.querySelectorAll('.carousel img');
+          let currentIndex = 0;
+    
+          function updateCarousel() {
+            const total = imgs.length;
+            imgs.forEach((img) => img.classList.remove('prev','current','next'));
+    
+            const prevIndex = (currentIndex - 1 + total) % total;
+            const nextIndex = (currentIndex + 1) % total;
+    
+            imgs[prevIndex].classList.add('prev');
+            imgs[currentIndex].classList.add('current');
+            imgs[nextIndex].classList.add('next');
+          }
+    
+          updateCarousel();
+    
+          // Auto rotate every 5 seconds
+          let interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % imgs.length;
+            updateCarousel();
+          }, 5000);
+    
+          // Buttons
+          document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+            clearInterval(interval);
+            currentIndex = (currentIndex + 1) % imgs.length;
+            updateCarousel();
+          });
+    
+          document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
+            clearInterval(interval);
+            currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+            updateCarousel();
+          });
+        </script>
+    
+        <!-- Apply section -->
+        <div class="card">
+          <h2>Apply</h2>
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn" id="downloadAppBtn">Download Application</button>
+            <a class="btn secondary" href="#" id="applyOnlineBtn">Apply by Email</a>
+          </div>
+    
+          <h3 style="margin-top:18px">Past Recipients</h3>
+          <blockquote class="small muted">"Zonta's scholarship helped me focus on my studies without worrying about tuition." — A. R., 2024 recipient</blockquote>
+        </div>
       </div>
     </section>
+    
+      
+  
+    </section>  
 
     <!-- MEMBERSHIP -->
     <section id="page-membership" class="page hidden">
