@@ -397,155 +397,205 @@ menuBtn.addEventListener('click', () => {
 </section>
 
 
-    <!-- SCHOLARSHIPS -->
-    <section id="page-scholarships" class="page hidden">
-      <div class="card">
-        <h2>Scholarships</h2>
-        <p class="muted">Learn about current scholarship opportunities, eligibility, and how to apply. Use the button below to download the application form and instructions.</p>
+   <!-- SCHOLARSHIPS -->
+<section id="page-scholarships" class="page hidden">
+  <div style="width:100%;padding:20px 12px;box-sizing:border-box;">
+
+    <h2 style="text-align:left;">Scholarships</h2>
+    <p class="muted" style="text-align:left;max-width:1000px;margin:8px auto;">
+      Learn about current scholarship opportunities, eligibility, and how to apply. Use the buttons below to download the application form and instructions.
+    </p>
+
+    <!-- Carousel -->
+    <div class="carousel-container-full">
+      <button class="carousel-btn prev">&#10094;</button>
     
-        <!-- Carousel -->
-        <div class="carousel-container">
-          <button class="carousel-btn prev">&#10094;</button>
-          <div class="carousel">
-            <img src="images/Scholarship1.jpeg" alt="Scholarship slider 1">
-            <img src="images/Scholarship2.jpeg" alt="Scholarship slider 2">
-            <img src="images/Scholarship3.jpg" alt="Scholarship slider 3">
-            <img src="images/Scholarship4.jpg" alt="Scholarship slider 4">
-            <img src="images/Scholarship5.jpg" alt="Scholarship slider 5">
-            <img src="images/Scholarship6.jpg" alt="Scholarship slider 6">
-          </div>
-          <button class="carousel-btn next">&#10095;</button>
-        </div>
-    
-        <style>
-          .carousel-container {
-            width: 90%;
-            max-width: 1200px;
-            height: 600px;
-            margin: 40px auto;
-            perspective: 1000px;
-            background: #e5dfdf71;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.137);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-          }
-    
-          .carousel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            position: relative;
-          }
-    
-          .carousel img {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 12px;
-            object-fit: cover;
-            transition: all 0.5s ease;
-            opacity: 0;
-            transform: scale(0.7);
-          }
-    
-          .carousel img.prev {
-            left: 15%;
-            opacity: 0.5;
-            transform: scale(0.8);
-            z-index: 1;
-          }
-    
-          .carousel img.current {
-            left: 50%;
-            transform: translateX(-50%) scale(1);
-            opacity: 1;
-            z-index: 2;
-          }
-    
-          .carousel img.next {
-            left: 85%;
-            transform: translateX(-100%) scale(0.8);
-            opacity: 0.5;
-            z-index: 1;
-          }
-    
-          .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.8);
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0 10px;
-            border-radius: 50%;
-            z-index: 10;
-          }
-    
-          .carousel-btn.prev { left: 10px; }
-          .carousel-btn.next { right: 10px; }
-        </style>
-    
-        <script>
-          const imgs = document.querySelectorAll('.carousel img');
-          let currentIndex = 0;
-    
-          function updateCarousel() {
-            const total = imgs.length;
-            imgs.forEach((img) => img.classList.remove('prev','current','next'));
-    
-            const prevIndex = (currentIndex - 1 + total) % total;
-            const nextIndex = (currentIndex + 1) % total;
-    
-            imgs[prevIndex].classList.add('prev');
-            imgs[currentIndex].classList.add('current');
-            imgs[nextIndex].classList.add('next');
-          }
-    
-          updateCarousel();
-    
-          // Auto rotate every 5 seconds
-          let interval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % imgs.length;
-            updateCarousel();
-          }, 5000);
-    
-          // Buttons
-          document.querySelector('.carousel-btn.next').addEventListener('click', () => {
-            clearInterval(interval);
-            currentIndex = (currentIndex + 1) % imgs.length;
-            updateCarousel();
-          });
-    
-          document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
-            clearInterval(interval);
-            currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
-            updateCarousel();
-          });
-        </script>
-    
-        <!-- Apply section -->
-        <div class="card">
-          <h2>Apply</h2>
-          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-            <button class="btn" id="downloadAppBtn">Download Application</button>
-            <a class="btn secondary" href="#" id="applyOnlineBtn">Apply by Email</a>
-          </div>
-    
-          <h3 style="margin-top:18px">Past Recipients</h3>
-          <blockquote class="small muted">"Zonta's scholarship helped me focus on my studies without worrying about tuition." — A. R., 2024 recipient</blockquote>
-        </div>
+      <div class="carousel-full">
+        <img src="images/Scholarship1.jpeg" alt="Scholarship 1" data-caption="STEM Women Scholarship — Empowering women in science and engineering.">
+        <img src="images/Scholarship2.jpeg" alt="Scholarship 2" data-caption="Zonta Service Award — Recognizing outstanding community contributions.">
+        <img src="images/Scholarship3.jpg" alt="Scholarship 3" data-caption="Future Leaders Grant — Supporting young women in leadership roles.">
+        <img src="images/Scholarship4.jpg" alt="Scholarship 4" data-caption="Education Excellence Fund — Helping students achieve academic success.">
+        <img src="images/Scholarship5.jpg" alt="Scholarship 5" data-caption="Arts & Creativity Scholarship — Encouraging innovation through the arts.">
+        <img src="images/Scholarship6.jpg" alt="Scholarship 6" data-caption="Community Impact Award — For students making a difference locally.">
       </div>
-    </section>
     
-      
-  
-    </section>  
+      <div id="carousel-caption" class="carousel-caption">
+        STEM Women Scholarship — Empowering women in science and engineering.
+      </div>
+    
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+    
+    <style>
+    .carousel-container-full {
+      width: 100%;
+      max-width: 1200px;
+      height: 500px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .carousel-full {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* all images default */
+    .carousel-full img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) scale(0.7);
+      object-fit: cover;
+      border-radius: 12px;
+      opacity: 0;
+      transition: all 0.7s ease;
+    }
+    
+    /* left image */
+    .carousel-full img.prev {
+      left: 15%;
+      width: 260px;
+      height: 200px;
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0.6;
+      z-index: 1;
+    }
+    
+    /* main active image */
+    .carousel-full img.current {
+      left: 50%;
+      width: 600px;
+      height: 350px;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      z-index: 2;
+    }
+    
+    /* right image */
+    .carousel-full img.next {
+      left: 85%;
+      width: 260px;
+      height: 200px;
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0.6;
+      z-index: 1;
+    }
+    
+    /* caption (animated) */
+    .carousel-caption {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75%;
+      text-align: center;
+      background: rgba(255,255,255,0.9);
+      color: #222;
+      font-size: 1rem;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .carousel-caption.show {
+      opacity: 1;
+    }
+    
+    /* nav buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.9);
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 10;
+      transition: background 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+      background: rgba(255, 200, 200, 0.9);
+    }
+    
+    .carousel-btn.prev { left: 25px; }
+    .carousel-btn.next { right: 25px; }
+    </style>
+    
+    <script>
+    const imgsFull = document.querySelectorAll('.carousel-full img');
+    let currentIndexFull = 0;
+    const captionBox = document.getElementById('carousel-caption');
+    
+    function updateCarouselFull() {
+      const total = imgsFull.length;
+      imgsFull.forEach(img => img.classList.remove('prev','current','next'));
+      const prevIndex = (currentIndexFull - 1 + total) % total;
+      const nextIndex = (currentIndexFull + 1) % total;
+      imgsFull[prevIndex].classList.add('prev');
+      imgsFull[currentIndexFull].classList.add('current');
+      imgsFull[nextIndex].classList.add('next');
+    
+      captionBox.classList.remove('show');
+      setTimeout(() => {
+        captionBox.textContent = imgsFull[currentIndexFull].dataset.caption;
+        captionBox.classList.add('show');
+      }, 200);
+    }
+    
+    updateCarouselFull();
+    
+    let intervalFull = setInterval(() => {
+      currentIndexFull = (currentIndexFull + 1) % imgsFull.length;
+      updateCarouselFull();
+    }, 5000);
+    
+    document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+      clearInterval(intervalFull);
+      currentIndexFull = (currentIndexFull + 1) % imgsFull.length;
+      updateCarouselFull();
+    });
+    
+    document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
+      clearInterval(intervalFull);
+      currentIndexFull = (currentIndexFull - 1 + imgsFull.length) % imgsFull.length;
+      updateCarouselFull();
+    });
+    </script>
+    
+
+<!-- Apply section -->
+<div class="card" style="max-width:900px;margin:20px auto;">
+  <h2>Apply</h2>
+  <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;justify-content:center">
+    <button class="btn" id="downloadAppBtn">Download Application</button>
+    <a class="btn secondary" href="#" id="applyOnlineBtn">Apply by Email</a>
+  </div>
+
+  <h3 style="margin-top:18px">Past Recipients</h3>
+  <blockquote class="small muted">
+    "Zonta's scholarship helped me focus on my studies without worrying about tuition." — A. R., 2024 recipient
+  </blockquote>
+</div>
+</div>
+
+</section>
+
 
     <!-- MEMBERSHIP -->
     <section id="page-membership" class="page hidden">
