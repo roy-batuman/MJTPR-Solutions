@@ -5,10 +5,133 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Zonta Club of Naples — Official Site (Prototype)</title>
   <meta name="description" content="Zonta Club of Naples — empowering women through service and advocacy. Join, donate, or learn about our scholarships and events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
   <style>
- 
+    /* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&display=swap');
+
+/* Home Hero Section */
+.home-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, rgba(245,245,245,0.95), rgba(255,255,255,0.9));
+  position: relative;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+/* Left text section */
+.home-hero-left {
+  flex: 1 1 500px;
+  max-width: 600px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease-out forwards 0.3s;
+  animation-delay: 0.2s;
+}
+
+/* Small welcome caption */
+.welcome-caption {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #6b6b6b;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  
+}
+
+/* Main Hero Title */
+.home-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  color: #7c131c; /* accent color */
+}
+
+/* Zonta overlapping */
+.zonta {
+  display: inline-block;
+  font-size: 5rem;
+  position: relative;
+  z-index: 2;
+  margin-right: -20px; /* overlap effect */
+  color: #9e1f2f; 
+}
+
+/* Club of Naples */
+.club {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  font-size: 3.5rem;
+  color: #7c131c;
+}
+
+/* Paragraph text under title */
+.home-hero-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+/* Right image */
+.home-hero-right {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.home-hero-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 880px) {
+  .home-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .home-hero-right {
+    max-width: 100%;
+  }
+  
+  .home-hero-title {
+    font-size: 3rem;
+  }
+  
+  .zonta {
+    font-size: 3.5rem;
+    margin-right: -15px;
+  }
+  
+  .club {
+    font-size: 2.5rem;
+  }
+}
+
+
     :root{
-      --accent:#7c1f27;   
+      --accent:#7c131c;   
       --accent-2:#f4be57;
       --muted:#6b6b6b;
       --bg:#fdf8f0;
@@ -17,13 +140,113 @@
       --max-width:1100px;
       --gap:18px;
     }
+
+
     *{box-sizing:border-box}
     body{
       font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       margin:0;
       background:var(--bg);
-      color:#222;
+      color:#333;
       -webkit-font-smoothing:antialiased;
+    }
+    .page-title{
+      text-align: center;
+      font-size: 2.8em;
+      margin-top:1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    html, body{
+      overflow-x: hidden;
+      margin: 0;
+      padding:0;
+    }
+    
+    /* Carousel container */
+    .carousel {
+      position: relative;
+      width: 100vw;
+      height: 70vh; /* adjust height as desired */
+      overflow: hidden;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      background: #000;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      left: 0;
+    }
+
+    .carousel img {
+      object-fit: contain;
+      width: 100%;
+      height: 70vh;
+      object-fit: contain;
+      object-position: top center;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 2.5s ease-in-out;
+      filter: brightness(95%);
+    }
+
+    .carousel img.active {
+      opacity: 1;
+    }
+    .carousel::after{
+      content:"";
+      position:absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 25%;
+      background:linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+      pointer-events: none;
+    }
+    .carousel-title{
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      font-family: "Cormorant Gsramond", serif;
+      font-size: 3em;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      letter-spacing: 1.5px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards 1s;
+    }
+    .carousel-slide {
+  width: 100%;
+  height: 70vh;
+  background-size: contain;
+  background-position: top center;
+}
+
+
+    /* Optional caption styling */
+    .caption {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 12px 20px;
+      border-radius:10px;
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 80%;
+      opacity: 0;
+      animation: fadeIn 2s forwards 1s;
+    }
+    /*Caption fade-in animation*/
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
     header{
       background:linear-gradient(90deg,var(--accent), #750327 60%);
@@ -39,7 +262,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to right, #c05b5b, #6e0a1e);
+  background: linear-gradient(to right, #6e0a1e, #6e0a1e);
   padding: 10px 40px;
   color: white;
 }
@@ -50,7 +273,7 @@
   align-items: center;
   gap: 10px;
 }
- 
+
 .logo-link {
   display: inline-flex;
   align-items: center;
@@ -126,7 +349,7 @@
     }
     
     .logo{
-       width:54px;height:54px;background:#fff1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px;
+      width:54px;height:54px;background:#fff1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:18px;
     }
     .logo img {
       width: 100%;
@@ -135,10 +358,531 @@
       border-radius: 10px;
       display: block;
     }
-     a.logo { text-decoration: none; color: inherit; }
+    a.logo { text-decoration: none; color: inherit; }
     nav a{color:white;text-decoration:none;font-weight:600;margin:0 8px}
     .cta{background:white;color:var(--accent);padding:8px 14px;border-radius:10px;font-weight:700}
-    main{padding:32px 12px;}
+    main{padding:0;}
+
+    
+      /* Gradient overlay for text readability */
+    .hero-new::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(128, 37, 40, 0.85) 0%, rgba(128, 37, 40, 0.3) 100%);
+      z-index: 2;
+    }
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      width: 100%;
+      padding: 0 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+    
+    /* Animated title styling */
+    .hero-title-main {
+      font-family: 'Cormorant', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--neutral-20);
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: -1px;
+      opacity: 0;
+      animation: fadeSlideUp 1.2s ease-out 0.3s forwards;
+    }
+    
+    .hero-title-main em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-main);
+    }
+    .hero-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--neutral-20);
+      max-width: 600px;
+      margin: 0;
+      letter-spacing: 0.5px;
+      opacity: 0;
+      animation: fadeSlideUp 1.2s ease-out 0.6s forwards;
+    }
+    /* Button group positioning */
+    .hero-buttons-new {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 1.2s ease-out 0.9s forwards;
+    }
+    .btn-hero {
+      padding: 16px 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.5px;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-hero.primary {
+      background: var(--gold-main);
+      color: var(--burgundy-main);
+      box-shadow: 0 4px 20px rgba(245, 189, 71, 0.3);
+    }
+
+    .btn-hero.primary:hover {
+      background: var(--gold-80);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(245, 189, 71, 0.5);
+    }
+
+    .btn-hero.secondary {
+      background: transparent;
+      color: var(--neutral-20);
+      border: 2px solid var(--neutral-20);
+    }
+
+    .btn-hero.secondary:hover {
+      background: var(--neutral-20);
+      color: var(--burgundy-main);
+      transform: translateY(-2px);
+    }
+
+    .btn-hero.tertiary {
+      background: transparent;
+      color: var(--gold-main);
+      text-decoration: underline;
+      padding: 16px 24px;
+      font-weight: 400;
+    }
+      .btn-hero.tertiary:hover {
+      color: var(--gold-80);
+      transform: translateX(5px);
+    }
+
+    /* Animations */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+/*New Info Cards*/
+.info-section {
+      background: var(--neutral-20);
+      padding: 100px 40px;
+    }
+
+    .info-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.2s forwards;
+    }
+
+    .section-title {
+      font-family: 'Cormorant', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--burgundy-main);
+      margin: 0 0 20px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Three column grid for info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 50px 35px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--neutral-40);
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease-out forwards;
+    }
+
+    .info-card:nth-child(1) { animation-delay: 0.3s; }
+    .info-card:nth-child(2) { animation-delay: 0.5s; }
+    .info-card:nth-child(3) { animation-delay: 0.7s; }
+
+    .info-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(128, 37, 40, 0.15);
+      border-color: var(--burgundy-40);
+    }
+
+    .info-card-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 30px;
+      background: linear-gradient(135deg, var(--burgundy-40), var(--burgundy-20));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .info-card-title {
+      font-family: 'Cormorant', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--burgundy-main);
+      margin: 0 0 15px 0;
+    }
+
+    .info-card-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+/*Redisigning Calendar*/
+.events-section {
+      background: linear-gradient(135deg, var(--teal-main) 0%, var(--teal-80) 100%);
+      padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .events-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .events-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .events-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .events-title {
+      font-family: 'Cormorant', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: white;
+      margin: 0 0 20px 0;
+    }
+
+    .events-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .events-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 25px;
+    }
+
+    .event-item {
+      background: rgba(255,255,255,0.95);
+      border-radius: 15px;
+      padding: 30px 40px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      transition: all 0.3s ease;
+      border-left: 5px solid var(--gold-main);
+    }
+
+    .event-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+
+    .event-date-box {
+      min-width: 100px;
+      text-align: center;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--burgundy-main), var(--burgundy-80));
+      border-radius: 12px;
+      color: white;
+    }
+
+    .event-month {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .event-day {
+      font-family: 'Cormorant', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .event-content {
+      flex: 1;
+    }
+
+    .event-title {
+      font-family: 'Cormorant', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--burgundy-main);
+      margin: 0 0 8px 0;
+    }
+
+    .event-details {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .event-cta {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .event-cta-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--gold-main);
+      color: var(--burgundy-main);
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .event-cta-btn:hover {
+      background: var(--gold-80);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245, 189, 71, 0.4);
+    }
+    /*New Card Section*/
+    .news-section {
+      background: var(--neutral-20);
+      padding: 80px 40px;
+    }
+
+    .news-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: 20px;
+      padding: 50px 60px;
+      box-shadow: 0 10px 40px rgba(128, 37, 40, 0.1);
+      border-left: 6px solid var(--orange-main);
+      transition: all 0.3s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(128, 37, 40, 0.15);
+    }
+
+    .news-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--orange-20);
+      color: var(--orange-main);
+      border-radius: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .news-title {
+      font-family: 'Cormorant', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--burgundy-main);
+      margin: 0 0 15px 0;
+    }
+
+    .news-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /*Responsive tweaks for new design*/
+    @media (max-width: 880px) {
+      .hero-new {
+        height: auto;
+        min-height: 500px;
+        padding: 60px 30px;
+      }
+
+      .hero-content-wrapper {
+        padding: 0 30px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-title-main {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .hero-buttons-new {
+        justify-content: center;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .events-title {
+        font-size: 2.2rem;
+      }
+
+      .event-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        background: var(--accent);
+        position: absolute;
+        top: 60px;
+        right: 12px;
+        width: 200px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        z-index: 20;
+      }
+
+      .nav-links a {
+        display: block;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-right {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title-main {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .btn-hero {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .info-card {
+        padding: 35px 25px;
+      }
+
+      .news-card {
+        padding: 35px 30px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    
+
     .hero{
       background:linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02));
       border-radius:var(--radius);
@@ -179,9 +923,7 @@
     .link{color:var(--accent);text-decoration:underline;cursor:pointer}
   </style>
 </head>
-<body>
 
-  <!-- HEADER -->
   <!-- HEADER -->
 <header>
   <nav class="navbar">
@@ -192,7 +934,6 @@
       <span class="site-title">Zonta Club of Naples</span>
       <span class="site-subtitle">Service • Advocacy • Scholarships</span>
     </div>
-
     <div class="nav-right-wrapper" style="display:flex;align-items:center;gap:8px;position:relative;">
       <!-- Desktop / hidden mobile nav links -->
       <nav class="nav-links" aria-label="Main Navigation">
@@ -214,6 +955,8 @@
       <button class="menu-btn" aria-label="Menu">&#9776;</button>
     </div>
   </nav>
+  <body>
+  
 </header>
 
 <style>
@@ -279,58 +1022,95 @@ menuBtn.addEventListener('click', () => {
 
 
   <main class="container" role="main">
+  
     <!-- HOME -->
     <section id="page-home" class="page">
-      <div class="hero">
-        <div>
-          <h1>Welcome to the Zonta Club of Naples</h1>
-          <p>We empower women through service and advocacy. Join our community, support scholarships, and help create lasting local impact.</p>
-          <div class="buttons">
-            <a class="btn" href="#" id="heroJoin">Become a Member</a>
-            <a class="btn secondary" href="#" id="heroDonate">Donate</a>
-            <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
-          </div>
+      <!-- Carousel -->
+  <div class="carousel">
+    <img src="images\100_yr.jpg" class="active" alt="Slide 1" />
+    <img src="images\Screenshot 2025-11-07 001959.png" alt="Slide 2" />
+    <img src="images\100_yr_updated.jpeg" alt="Slide 3" />
+    <!--Overlayed txt tile-->
+    <div class="carousel-title">Zonta Club of Naples</div>
+    <div class="caption">possible caption</div>
+  </div>
+<script>
+const slides = document.querySelectorAll(".carousel img");
+let current = 0;
 
-          <div style="margin-top:18px" class="card">
-            <h3 style="margin:0 0 8px 0">Latest News</h3>
-            <p class="small">April 5, 2025 — Our spring fundraiser raised funds for three scholarship winners. Thank you to our volunteers!</p>
-          </div>
-        </div>
+function showNextSlide() {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}
 
-        <aside class="card events" aria-labelledby="events-title">
-          <h3 id="events-title">Upcoming Events</h3>
-          <ul id="eventsList">
-            <!-- JS inserts events -->
-          </ul>
-          <div style="margin-top:10px;text-align:center">
-            <a class="link" href="#" data-nav="store">Buy tickets →</a>
-          </div>
-        </aside>
+setInterval(showNextSlide, 4000); // change every 4 seconds
+</script>
+
+
+<!-- Hero Section -->
+<section class="home-hero">
+  <div class="home-hero-left">
+    <div class="welcome-caption">Welcome</div>
+    <h1 class="home-hero-title">
+      <span class="zonta">Zonta</span>
+      <span class="club">Club of Naples</span>
+    </h1>
+    <p class="home-hero-text">
+      We empower women through service and advocacy. Join our community, support scholarships, and help create lasting local impact.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn" href="#" id="heroJoin">Become a Member</a>
+      <a class="btn secondary" href="#" id="heroDonate">Donate</a>
+      <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
+    </div>
+  </div>
+  <div class="home-hero-right">
+      <img src="images\100yrlogo.png" alt="Zonta Image">
+    </div>
+</section>
+
+  <!-- Latest News & Upcoming Events -->
+  <div class="hero">
+    <div style="margin-top:18px" class="card">
+      <h3 style="margin:0 0 8px 0">Latest News</h3>
+      <p class="small">April 5, 2025 — Our spring fundraiser raised funds for three scholarship winners. Thank you to our volunteers!</p>
+    </div>
+
+    <aside class="card events" aria-labelledby="events-title">
+      <h3 id="events-title">Upcoming Events</h3>
+      <ul id="eventsList">
+        <!-- JS inserts events -->
+      </ul>
+      <div style="margin-top:10px;text-align:center">
+        <a class="link" href="#" data-nav="store">Buy tickets →</a>
       </div>
+    </aside>
+  </div>
+  <!-- What We Do Section -->
+  <section class="card">
+    <h2>What We Do</h2>
+    <p class="muted">We focus on community service, scholarships for local students, and advocacy for women’s rights. Our programs are locally driven and volunteer-powered.</p>
+    <div class="grid-3" style="margin-top:16px">
+      <div class="card">
+        <h4>Scholarships</h4>
+        <p class="small muted">Provide financial support and mentorship for local students.</p>
+      </div>
+      <div class="card">
+        <h4>Fundraising</h4>
+        <p class="small muted">Community events, online campaigns, and partnerships to support our mission.</p>
+      </div>
+      <div class="card">
+        <h4>Volunteer Projects</h4>
+        <p class="small muted">Hands-on service projects with measurable community impact.</p>
+      </div>
+    </div>
+  </section>
 
-      <section class="card">
-        <h2>What We Do</h2>
-        <p class="muted">We focus on community service, scholarships for local students, and advocacy for women’s rights. Our programs are locally driven and volunteer-powered.</p>
-        <div class="grid-3" style="margin-top:16px">
-          <div class="card">
-            <h4>Scholarships</h4>
-            <p class="small muted">Provide financial support and mentorship for local students.</p>
-          </div>
-          <div class="card">
-            <h4>Fundraising</h4>
-            <p class="small muted">Community events, online campaigns, and partnerships to support our mission.</p>
-          </div>
-          <div class="card">
-            <h4>Volunteer Projects</h4>
-            <p class="small muted">Hands-on service projects with measurable community impact.</p>
-          </div>
-        </div>
-      </section>
-    </section>
- 
-    
+</section>
 
-     <!-- WHO WE ARE -->
+
+<!-- WHO WE ARE -->
 <section id="page-who" class="page hidden">
   <div class="card">
     <h2>Who We Are</h2>
