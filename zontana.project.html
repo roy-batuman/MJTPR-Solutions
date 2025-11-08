@@ -654,6 +654,111 @@
         transform: translateY(0);
       }
     }
+
+    /* INFORMATION SECTION */
+.info-section {
+  width: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, #fff8f1, #fdf4e7);
+  padding: 100px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.info-content {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: center
+}
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.info-image img {
+  flex: 0 1 320px;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.info-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.info-text {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--muted);
+  line-height: 1.8;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  flex: 1 1 500px;
+  color: #3b2f2f;
+}
+
+.info-text.visible {
+  opacity: 1;
+}
+
+.info-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #b6862c;
+  margin-bottom: 20px;
+}
+
+/* Responsive layt */
+@media (max-width: 950px) {
+  .info-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .info-image.left, .info-image.right {
+    order: 0;
+  }
+
+  .info-text {
+    order: 1;
+    margin: 40px 0;
+  }
+
+  .info-title {
+    font-size: 2rem;
+  }
+}
+
+/* Subtle fade animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*Redisigning Calendar*/
 .events-section {
   background: linear-gradient(135deg, var(--burgundy-main), var(--teal-main));
@@ -1308,6 +1413,33 @@ We say NO to violence and YES to equal opportunity and rights for women and girl
   <div class="home-hero-right">
       <img src="images\100yrlogo.png" alt="Zonta Image">
     </div>
+</section>
+<!-- INFORMATION SECTION -->
+<section id="info-section" class="info-section">
+  <div class="info-container">
+    <!-- Left Image -->
+    <div class="info-image left">
+      <img src="images\IMG_2154.jpeg" alt="Community Work">
+    </div>
+
+    <!-- Center Text -->
+    <div class="info-text">
+      <h2 class="info-title">Empowering Women in Our Community</h2>
+      <p>
+        The Zonta Club of Naples is dedicated to building a better world for women and girls. Through our community outreach,
+        scholarship programs, and partnerships with local organizations, we create opportunities for education, leadership,
+        and empowerment. Our members are professionals and advocates who believe in service and equality for all.
+      </p>
+      <p>
+        Together, we work to end violence against women and uplift those in need — making an impact that lasts for generations.
+      </p>
+    </div>
+
+    <!-- Right Image -->
+    <div class="info-image right">
+      <img src="images\IMG_6707.jpg" alt="Empowerment Event">
+    </div>
+  </div>
 </section>
 
   <!-- Latest News -->
@@ -2113,6 +2245,18 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 wwdCards.forEach(card => observer.observe(card));
+// Info section fade-up animation on scroll
+const infoText = document.querySelector('.info-text');
+
+const observerInfo = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      infoText.classList.add('visible');
+    }
+  });
+}, { threshold: 0.3 });
+
+observerInfo.observe(infoText);
 </script>
 </body>
 </html> 
