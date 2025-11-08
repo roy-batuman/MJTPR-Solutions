@@ -17,6 +17,124 @@
     /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&display=swap');
 
+/* WHAT WE DO SECTION */
+.what-we-do {
+  background: var(--bg);
+  padding: 100px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.wwd-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.wwd-intro {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+}
+
+/* Grid layout */
+.wwd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Card styles */
+.wwd-card {
+  perspective: 1000px;
+}
+
+.wwd-card-inner {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.wwd-card:hover .wwd-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Card faces */
+.wwd-card-front, .wwd-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.wwd-card-front {
+  background: white;
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.wwd-img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.wwd-card-front h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin: 10px 0 0;
+  letter-spacing: 0.5px;
+}
+
+/* Back side */
+.wwd-card-back {
+  background: linear-gradient(135deg, var(--accent), #a92f40);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Animation on scroll */
+.wwd-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.wwd-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wwd-card-inner {
+    height: 300px;
+  }
+}
+
 /* Home Hero Section */
 .home-hero {
   position: relative;
@@ -1292,27 +1410,63 @@ We say NO to violence and YES to equal opportunity and rights for women and girl
 
     </aside>
   </div>
-  <!-- What We Do Section -->
-  <section class="card">
-    <h2>What We Do</h2>
-    <p class="muted">We focus on community service, scholarships for local students, and advocacy for women’s rights. Our programs are locally driven and volunteer-powered.</p>
-    <div class="grid-3" style="margin-top:16px">
-      <div class="card">
-        <h4>Scholarships</h4>
-        <p class="small muted">Provide financial support and mentorship for local students.</p>
+  <!-- WHAT WE DO SECTION -->
+<section id="what-we-do" class="what-we-do">
+  <div class="wwd-container">
+    <h2 class="section-title">What We Do</h2>
+    <p class="wwd-intro">
+      Empowering women through <strong>service</strong>, <strong>advocacy</strong>, and <strong>scholarship programs</strong> that uplift our community and create lasting change.
+    </p>
+
+    <div class="wwd-grid">
+      <!-- Card 1 -->
+      <div class="wwd-card">
+        <div class="wwd-card-inner">
+          <div class="wwd-card-front">
+            <img src="images\helping_the_needed.jpg" alt="Service Projects" class="wwd-img">
+            <h3>Service</h3>
+          </div>
+          <div class="wwd-card-back">
+            <p>
+              We lead initiatives that directly improve the lives of women and girls, from local shelters to international aid efforts.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h4>Fundraising</h4>
-        <p class="small muted">Community events, online campaigns, and partnerships to support our mission.</p>
+
+      <!-- Card 2 -->
+      <div class="wwd-card">
+        <div class="wwd-card-inner">
+          <div class="wwd-card-front">
+            <img src="images\diversity_women.jpg" alt="Advocacy" class="wwd-img">
+            <h3>Advocacy</h3>
+          </div>
+          <div class="wwd-card-back">
+            <p>
+              Zonta advocates for gender equality and human rights through education, awareness campaigns, and global partnerships.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h4>Volunteer Projects</h4>
-        <p class="small muted">Hands-on service projects with measurable community impact.</p>
+
+      <!-- Card 3 -->
+      <div class="wwd-card">
+        <div class="wwd-card-inner">
+          <div class="wwd-card-front">
+            <img src="images\Scholarship1.jpeg" alt="Scholarships" class="wwd-img">
+            <h3>Scholarships</h3>
+          </div>
+          <div class="wwd-card-back">
+            <p>
+              Supporting the next generation of women leaders through academic scholarships and professional mentorship.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
+  </div>
 </section>
+
 
 
 <!-- WHO WE ARE -->
@@ -1950,8 +2104,15 @@ Submit via email to: scholarships@zontanaples.org
 
   // init
   renderCart();
+const wwdCards = document.querySelectorAll('.wwd-card');
 
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.3 });
+
+wwdCards.forEach(card => observer.observe(card));
 </script>
 </body>
-</html>
-
+</html> 
