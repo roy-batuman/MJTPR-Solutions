@@ -882,6 +882,12 @@
   transition: all 0.3s ease-in-out;
   border: none;
   z-index: 2;
+  margin: 40px auto 0 auto; /* centers horizontally */
+  display: block;           /* allows margin:auto centering */
+  text-align: center;       /* centers text inside the button */
+  width: fit-content;
+  min-width: 180px;
+  cursor: pointer;
 }
 
 /* Shimmer animation */
@@ -909,7 +915,7 @@
   background: #EC9C5B ;
   color: #fff
 }
-   /*Responsive tweaks for new design*/
+  /*Responsive tweaks for new design*/
     @media (max-width: 880px) {
       .hero-new {
         height: auto;
@@ -1260,17 +1266,29 @@ We say NO to violence and YES to equal opportunity and rights for women and girl
         <div class="event-content">
           <h3 class="event-title">Mentorship Launch</h3>
           <p class="event-details">Official launch of our mentorship program supporting local women entrepreneurs.</p>
+        <!--Event 4-->
+        </div>
+      </li>
+      <li class="event-item">
+        <div class="event-date-box">
+          <div class="event-month">JUN</div>
+          <div class="event-day">20</div>
+        </div>
+        <div class="event-content">
+          <h3 class="event-title">Mentorship Launch</h3>
+          <p class="event-details">Official launch of our mentorship program supporting local women entrepreneurs.</p>
 
         </div>
       </li>
-    </ul>
-</section>
       <ul id="eventsList">
       </ul>
+    </ul>
       <div class="events-cta-">
       <a href="#" data-nav="store" class="btn-tickets">🎟️ Buy Tickets</a>
     </div>
-  </div>
+</section>
+      
+
 
     </aside>
   </div>
