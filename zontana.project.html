@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
 
   <style>
     /* Google Fonts */
@@ -16,25 +19,47 @@
 
 /* Home Hero Section */
 .home-hero {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 60px;
-  padding: 60px 40px;
-  background: linear-gradient(135deg, rgba(245,245,245,0.95), rgba(255,255,255,0.9));
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 2rem 4rem 2rem;
+  margin-top: -5rem;
+  background: transparent;
   flex-wrap: wrap;
   overflow: hidden;
+  min-height: 70vh;
+  z-index: 0;
+}
+/* Subtle world map background */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/image-from-rawpixel-id-6285610-png.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
+/*Keep txt above background*/
+.home-hero-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 2;
 }
 /* Left text section */
 .home-hero-left {
-  flex: 1 1 500px;
-  max-width: 600px;
-  position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 1s ease-out forwards 0.3s;
-  animation-delay: 0.2s;
+  flex: 1 1 55%;
+  min-width: 300px;
 }
 
 /* Small welcome caption */
@@ -42,7 +67,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   color: #6b6b6b;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 10px;
   opacity: 0;
@@ -53,82 +78,89 @@
 /* Main Hero Title */
 .home-hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1.1;
   font-weight: 700;
-  margin: 0;
+  margin: 0.5rem 0 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
   position: relative;
   color: #7c131c; /* accent color */
 }
-
-/* Zonta overlapping */
-.zonta {
+.home-hero-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*Zonta styling*/
+.home-hero-title .zonta {
   display: inline-block;
-  font-size: 5rem;
-  position: relative;
-  z-index: 2;
-  margin-right: -20px; /* overlap effect */
-  color: #9e1f2f; 
+  font-family: 'Parisienne', cursive;
+  color: #a56c00;
+  font-size: 3.6rem;
+  margin-right: 0.4rem;
+}
+/*Club styling*/
+.home-hero-title .club {
+  font-family: 'Cinzel', serif;
+  color: #222;
+  font-size: 2.8rem;
+  display: inline-block;
+  white-space: nowrap;
 }
 
-/* Club of Naples */
-.club {
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  font-size: 3.5rem;
-  color: #7c131c;
-}
-
-/* Paragraph text under title */
+/*Description txt*/
 .home-hero-text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
-  color: #333;
-  margin-top: 20px;
-  line-height: 1.8;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.06;
+  margin-top: 1rem;
+  max-width: 480px;
 }
 
 /* Right image */
-.home-hero-right {
-  flex: 1 1 400px;
-  max-width: 500px;
-}
-
 .home-hero-right img {
-  width: 100%;
+  width: 200px; /* make smaller */
+  max-width: 100%;
   height: auto;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  object-fit: cover;
+  margin-right: 2rem;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+/*sublte zoom effect*/
+.home-hero-right img:hover {
+  transform: scale(1.05);
 }
 
 /* Responsive adjustments */
-@media (max-width: 880px) {
-  .home-hero {
+@media (max-width: 768px) {
+  .home-hero-content {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
+    text-align: center;
   }
-  
-  .home-hero-right {
-    max-width: 100%;
-  }
-  
-  .home-hero-title {
-    font-size: 3rem;
-  }
-  
-  .zonta {
-    font-size: 3.5rem;
-    margin-right: -15px;
-  }
-  
-  .club {
-    font-size: 2.5rem;
+  .home-hero-right img {
+    max-width: 70%;
+    margin-top: 1.5rem;
   }
 }
 
+@media (max-width: 600px) {
+  .home-hero-title {
+    font-size: 2.3rem;
+  }
+
+  .home-hero-title .zonta {
+    font-size: 2.8rem;
+  }
+
+  .home-hero-title .club {
+    font-size: 2.2rem;
+  }
+
+  .home-hero-right img {
+    max-width: 60%;
+  }
+}
 
     :root{
       --accent:#7c131c;   
@@ -321,22 +353,6 @@
   color: #ffdfdf;
 }
 
-/* Buttons */
-.donate {
-  border: 1px solid white;
-  border-radius: 6px;
-  padding: 5px 10px;
-  background: white;
-  color: #6e0a1e !important;
-}
-
-.join {
-  background: #6e0a1e;
-  color: white !important;
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-weight: bold;
-}
 
     .nav{
       display:flex;align-items:center;gap:16px;justify-content:space-between;
@@ -413,304 +429,293 @@
       opacity: 0;
       animation: fadeSlideUp 1.2s ease-out 0.6s forwards;
     }
-    /* Button group positioning */
-    .hero-buttons-new {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeSlideUp 1.2s ease-out 0.9s forwards;
-    }
-    .btn-hero {
-      padding: 16px 36px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      letter-spacing: 0.5px;
-      border: 2px solid transparent;
-      cursor: pointer;
-    }
+  
+    
+/*HERO BUTTONS — ALL SCREENS and updated*/
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
 
-    .btn-hero.primary {
-      background: var(--gold-main);
-      color: var(--burgundy-main);
-      box-shadow: 0 4px 20px rgba(245, 189, 71, 0.3);
-    }
+/* Primary Button — Become a Member */
+.hero-buttons .btn {
+  padding: 16px 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  background: #E18431 ;
+  color:  #005F71 ;
+  box-shadow: 0 6px 20px rgba(128, 0, 32, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
 
-    .btn-hero.primary:hover {
-      background: var(--gold-80);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(245, 189, 71, 0.5);
-    }
+/* Primary hover effect */
+.hero-buttons .btn:hover {
+  background: #9d383b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(162, 0, 59, 0.5);
+  color: #fefefe
+}
 
-    .btn-hero.secondary {
-      background: transparent;
-      color: var(--neutral-20);
-      border: 2px solid var(--neutral-20);
-    }
+/* Add subtle shine animation */
+.hero-buttons .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(157, 81, 77, 0.74) 0%,
+    rgba(181, 108, 101, 0.628) 50%,
+    rgba(206, 149, 141, 0.763) 100%
+    );
+  transform: skewX(-20deg);
+  transition: all 0.7s;
+}
+.hero-buttons .btn:hover::after {
+  left: 125%;
+}
 
-    .btn-hero.secondary:hover {
-      background: var(--neutral-20);
-      color: var(--burgundy-main);
-      transform: translateY(-2px);
-    }
+/* Secondary Button — Donate */
+.hero-buttons .btn.secondary {
+  background: rgba(237, 191, 91, 0.9);;
+  color: var(--burgundy-main);
+  border: 2px solid var(--gold-main);
+  font-weight: 600;
+}
 
-    .btn-hero.tertiary {
-      background: transparent;
-      color: var(--gold-main);
-      text-decoration: underline;
-      padding: 16px 24px;
-      font-weight: 400;
-    }
-      .btn-hero.tertiary:hover {
-      color: var(--gold-80);
-      transform: translateX(5px);
-    }
+.hero-buttons .btn.secondary:hover {
+  background: var(--gold-80); /* slightly lighter gold */
+  color: #29180a;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(245, 189, 71, 0.4);
+}
+
+/* Tertiary Link — Scholarship info */
+.hero-buttons .link {
+  display: inline-block; /* allows padding and background */
+  padding: 14px 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gold-main);
+  text-decoration: none;
+  border: 2px solid var(--gold-main);
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 4px 12px rgba(245, 189, 71, 0.2);
+}
+
+.hero-buttons .link:hover {
+  background: var(--gold-main);
+  color: var(--burgundy-main);
+  transform: translateY(-3xpx);
+  box-shadow: 0 6px 20px rgba(245, 189, 71, 0.4);
+}
 
     /* Animations */
     @keyframes fadeSlideUp {
       from {
-        opacity: 0;
+        opacity: 1;
         transform: translateY(30px);
       }
       to {
-        opacity: 1;
+        opacity: 2;
         transform: translateY(0);
       }
     }
-/*New Info Cards*/
-.info-section {
-      background: var(--neutral-20);
-      padding: 100px 40px;
-    }
-
-    .info-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 80px;
-      opacity: 0;
-      animation: fadeIn 1s ease-out 0.2s forwards;
-    }
-
-    .section-title {
-      font-family: 'Cormorant', serif;
-      font-size: 3rem;
-      font-weight: 400;
-      color: var(--burgundy-main);
-      margin: 0 0 20px 0;
-      letter-spacing: -0.5px;
-    }
-
-    .section-subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-
-    /* Three column grid for info cards */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .info-card {
-      background: white;
-      border-radius: 20px;
-      padding: 50px 35px;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid var(--neutral-40);
-      opacity: 0;
-      animation: fadeSlideUp 0.8s ease-out forwards;
-    }
-
-    .info-card:nth-child(1) { animation-delay: 0.3s; }
-    .info-card:nth-child(2) { animation-delay: 0.5s; }
-    .info-card:nth-child(3) { animation-delay: 0.7s; }
-
-    .info-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(128, 37, 40, 0.15);
-      border-color: var(--burgundy-40);
-    }
-
-    .info-card-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 30px;
-      background: linear-gradient(135deg, var(--burgundy-40), var(--burgundy-20));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-
-    .info-card-title {
-      font-family: 'Cormorant', serif;
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: var(--burgundy-main);
-      margin: 0 0 15px 0;
-    }
-
-    .info-card-text {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.7;
-    }
 /*Redisigning Calendar*/
 .events-section {
-      background: linear-gradient(135deg, var(--teal-main) 0%, var(--teal-80) 100%);
-      padding: 100px 40px;
-      position: relative;
-      overflow: hidden;
-    }
+  background: linear-gradient(135deg, var(--burgundy-main), var(--teal-main));
+  padding: 90px 20px;
+  position: relative;
+  border-radius: 16px;
+  color: rgb(20, 2, 2);
+  overflow: hidden;
+}
 
-    .events-section::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
+/* Header Styling */
+.events-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-    .events-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #270303;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
-    .events-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+.events-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(66, 11, 11, 0.85);
+  margin-top: 8px;
+}
 
-    .events-title {
-      font-family: 'Cormorant', serif;
-      font-size: 3rem;
-      font-weight: 400;
-      color: white;
-      margin: 0 0 20px 0;
-    }
+/* Events Grid */
+.events-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 25px;
+}
 
-    .events-subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.9);
-    }
+/* Event Item (calendar look) */
+.event-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 18px;
+  padding: 30px 40px;
+  border-left: 6px solid var(--gold-main);
+  transition: all 0.3s ease;
+  cursor: default;
+}
 
-    .events-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 25px;
-    }
+.event-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
 
-    .event-item {
-      background: rgba(255,255,255,0.95);
-      border-radius: 15px;
-      padding: 30px 40px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      transition: all 0.3s ease;
-      border-left: 5px solid var(--gold-main);
-    }
+/* Date Box */
+.event-date-box {
+  background: linear-gradient(135deg, var(--burgundy-main), var(--burgundy-80));
+  color: rgb(110, 9, 9);
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px 18px;
+  min-width: 100px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+  position: relative;
+}
 
-    .event-item:hover {
-      transform: translateX(10px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    }
+.event-date-box::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: var(--gold-main);
+  border-radius: 4px;
+}
 
-    .event-date-box {
-      min-width: 100px;
-      text-align: center;
-      padding: 15px;
-      background: linear-gradient(135deg, var(--burgundy-main), var(--burgundy-80));
-      border-radius: 12px;
-      color: white;
-    }
+/* Month + Day Formatting */
+.event-month {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
 
-    .event-month {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
+.event-day {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
 
-    .event-day {
-      font-family: 'Cormorant', serif;
-      font-size: 2.5rem;
-      font-weight: 600;
-      line-height: 1;
-    }
+/* Content */
+.event-content {
+  flex: 1;
+  padding-left: 25px;
+}
 
-    .event-content {
-      flex: 1;
-    }
+.event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--burgundy-main);
+  margin: 0 0 8px 0;
+}
 
-    .event-title {
-      font-family: 'Cormorant', serif;
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--burgundy-main);
-      margin: 0 0 8px 0;
-    }
+.event-details {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .events-list {
+    grid-template-columns: 1fr;
+  }
 
-    .event-details {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      color: var(--muted);
-      font-weight: 300;
-    }
+  .event-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+  }
 
-    .event-cta {
-      margin-top: 40px;
-      text-align: center;
-    }
+  .event-date-box {
+    margin-bottom: 12px;
+  }
 
-    .event-cta-btn {
-      display: inline-block;
-      padding: 16px 40px;
-      background: var(--gold-main);
-      color: var(--burgundy-main);
-      text-decoration: none;
-      border-radius: 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
+  .event-title {
+    font-size: 1.4rem;
+  }
+}
 
-    .event-cta-btn:hover {
-      background: var(--gold-80);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(245, 189, 71, 0.4);
-    }
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .event-day {
+    font-size: 2.2rem;
+  }
+
+  .event-item {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .event-date {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .event-day {
+    font-size: 2rem;
+  }
+
+  .event-info {
+    padding: 15px;
+  }
+}
+  .event-date-box {
+    min-width: 60px;
+    margin-bottom: 12px;
+  }
+
     /*New Card Section*/
     .news-section {
       background: var(--neutral-20);
@@ -720,16 +725,42 @@
     .news-container {
       max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
     .news-card {
       background: white;
       border-radius: 20px;
-      padding: 50px 60px;
+      padding: 40px 30px;
       box-shadow: 0 10px 40px rgba(128, 37, 40, 0.1);
       border-left: 6px solid var(--orange-main);
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
     }
+    .news-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(245, 189, 71, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: all 0.7s;
+}
+
+.news-card:hover::before {
+  left: -50%;
+}
+
 
     .news-card:hover {
       transform: translateY(-5px);
@@ -756,6 +787,10 @@
       font-weight: 500;
       color: var(--burgundy-main);
       margin: 0 0 15px 0;
+      transition: color 0.3s ease;
+    }
+    .news-card:hover .news-title {
+      color: var(--orange-main);
     }
 
     .news-text {
@@ -766,14 +801,30 @@
       line-height: 1.8;
       margin: 0;
     }
+    /* Responsive adjustments */
+@media (max-width: 880px) {
+  .news-section {
+    padding: 60px 20px;
+  }
 
-    /*Responsive tweaks for new design*/
-    @media (max-width: 880px) {
-      .hero-new {
-        height: auto;
-        min-height: 500px;
-        padding: 60px 30px;
-      }
+  .news-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-card {
+    padding: 25px 15px;
+  }
+
+  .news-title {
+    font-size: 1.6rem;
+  }
+
+  .news-text {
+    font-size: 0.95rem;
+  }
+}
 
       .hero-content-wrapper {
         padding: 0 30px;
@@ -788,10 +839,7 @@
       .hero-subtitle {
         font-size: 1.1rem;
       }
-
-      .hero-buttons-new {
-        justify-content: center;
-      }
+      
 
       .info-grid {
         grid-template-columns: 1fr;
@@ -810,6 +858,72 @@
         flex-direction: column;
         text-align: center;
       }
+      /* Centered CTA button */
+.events-cta-wrapper {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* Animated Buy Tickets Button */
+.btn-tickets {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold-main), var(--orange-main));
+  color: rgb(4, 0, 0);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  box-shadow: 0 5px 20px rgba(128, 37, 40, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  z-index: 2;
+}
+
+/* Shimmer animation */
+.btn-tickets::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: #EC9C5B ;
+  transform: skewX(-25deg);
+  transition: 0.6s;
+  z-index: 1;
+  Color: white;
+}
+
+.btn-tickets:hover::before {
+  left: 125%;
+}
+
+.btn-tickets:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(128, 37, 40, 0.4);
+  background: #EC9C5B ;
+  color: #fff
+}
+   /*Responsive tweaks for new design*/
+    @media (max-width: 880px) {
+      .hero-new {
+        height: auto;
+        min-height: 500px;
+        padding: 60px 30px;
+      }
+
+/* Responsive tweaks if needed */
+@media (max-width: 880px) {
+  .btn-tickets {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+}
 
       .nav-links {
         display: none;
@@ -1057,7 +1171,9 @@ setInterval(showNextSlide, 4000); // change every 4 seconds
       <span class="club">Club of Naples</span>
     </h1>
     <p class="home-hero-text">
-      We empower women through service and advocacy. Join our community, support scholarships, and help create lasting local impact.
+      Zonta Club of Naples is part of tens of thousands of professionals worldwide who demand gender equality and the end of violence against women and girls. We seek to eradicate human trafficking, domestic violence, and child marriage so no woman lives in fear. Zonta provides grants, resources, scholarships and services while advocating change, educating the community and helping direct responders and law enforcement.
+
+We say NO to violence and YES to equal opportunity and rights for women and girls of Collier County.
     </p>
     <div class="hero-buttons">
       <a class="btn" href="#" id="heroJoin">Become a Member</a>
@@ -1070,21 +1186,92 @@ setInterval(showNextSlide, 4000); // change every 4 seconds
     </div>
 </section>
 
-  <!-- Latest News & Upcoming Events -->
-  <div class="hero">
-    <div style="margin-top:18px" class="card">
-      <h3 style="margin:0 0 8px 0">Latest News</h3>
-      <p class="small">April 5, 2025 — Our spring fundraiser raised funds for three scholarship winners. Thank you to our volunteers!</p>
+  <!-- Latest News -->
+<section class="news-section">
+  <div class="news-container">
+    <!--News Card 1-->
+    <div class="news-card">
+      <div class="news-badge">Annauncements</div>
+      <h3 class="news-title">Spring Fundraiser Success</h3>
+      <p class="news-text">
+        April 5, 2025 — Our spring fundraiser raised funds for three scholarship winners. Thank you to our volunteers!
+      </p>
+      <a href="#" class="link"> Read More →</a>
+    </div>
+<!--News Card 2-->
+    <div class="news-card">
+      <div class="news-badge">Event</div>
+      <h3 class="news-title">New Community Program</h3>
+      <p class="news-text">
+        Zonta Club of Naples is launching a mentoring program for local women entrepreneurs starting this summer.
+      </p>
+      <a href="#" class="link"> Read More →</a>
+    </div>
+<!--News Card 3-->
+    <div class="news-card">
+      <div class="news-badge">Update</div>
+      <h3 class="news-title">New Community Program</h3>
+      <p class="news-text">
+        Highlights from our latest board meeting. New initiatives approved, scholarships updated, and upcoming events planned.
+      </p>
+      <a href="#" class="link"> Read More →</a>
+    </div>
+  </div>
+</section>
+<!-- Upcoming Events Section -->
+<section class="events-section">
+  <div class="events-container">
+    <div class="events-header">
+      <h2 class="section-title" style="color:rgb(30, 17, 17);">Upcoming Events</h2>
+      <p class="events-subtitle">Stay updated on our latest programs, meetings, and special events.</p>
     </div>
 
-    <aside class="card events" aria-labelledby="events-title">
-      <h3 id="events-title">Upcoming Events</h3>
+    <ul class="events-list">
+      <!-- Event 1 -->
+      <li class="event-item">
+        <div class="event-date-box">
+          <div class="event-month">APR</div>
+          <div class="event-day">05</div>
+        </div>
+        <div class="event-content">
+          <h3 class="event-title">Spring Fundraiser</h3>
+          <p class="event-details">Join us for our annual Spring Fundraiser to support local scholarships. Networking and refreshments included.</p>
+        </div>
+      </li>
+
+      <!-- Event 2 -->
+      <li class="event-item">
+        <div class="event-date-box">
+          <div class="event-month">MAY</div>
+          <div class="event-day">14</div>
+        </div>
+        <div class="event-content">
+          <h3 class="event-title">Board Meeting</h3>
+          <p class="event-details">Monthly board meeting discussing upcoming projects, member initiatives, and community programs.</p>
+        </div>
+      </li>
+
+      <!-- Event 3 -->
+      <li class="event-item">
+        <div class="event-date-box">
+          <div class="event-month">JUN</div>
+          <div class="event-day">20</div>
+        </div>
+        <div class="event-content">
+          <h3 class="event-title">Mentorship Launch</h3>
+          <p class="event-details">Official launch of our mentorship program supporting local women entrepreneurs.</p>
+
+        </div>
+      </li>
+    </ul>
+</section>
       <ul id="eventsList">
-        <!-- JS inserts events -->
       </ul>
-      <div style="margin-top:10px;text-align:center">
-        <a class="link" href="#" data-nav="store">Buy tickets →</a>
-      </div>
+      <div class="events-cta-">
+      <a href="#" data-nav="store" class="btn-tickets">🎟️ Buy Tickets</a>
+    </div>
+  </div>
+
     </aside>
   </div>
   <!-- What We Do Section -->
@@ -1177,7 +1364,7 @@ setInterval(showNextSlide, 4000); // change every 4 seconds
 </section>
 
 
-   <!-- SCHOLARSHIPS -->
+<!-- SCHOLARSHIPS -->
 <section id="page-scholarships" class="page hidden">
   <div style="width:100%;padding:20px 12px;box-sizing:border-box;">
 
@@ -1318,6 +1505,7 @@ setInterval(showNextSlide, 4000); // change every 4 seconds
     </style>
     
     <script>
+      
     const imgsFull = document.querySelectorAll('.carousel-full img');
     let currentIndexFull = 0;
     const captionBox = document.getElementById('carousel-caption');
@@ -1356,6 +1544,22 @@ setInterval(showNextSlide, 4000); // change every 4 seconds
       currentIndexFull = (currentIndexFull - 1 + imgsFull.length) % imgsFull.length;
       updateCarouselFull();
     });
+    
+// Animate hero title when scrolled into view
+const heroTitle = document.querySelector('.home-hero-title');
+
+function revealOnScroll() {
+  const rect = heroTitle.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 100) {
+    heroTitle.classList.add('visible');
+    window.removeEventListener('scroll', revealOnScroll);
+  }
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // trigger if already in view
+
+
     </script>
     
 
@@ -1526,9 +1730,7 @@ setInterval(showNextSlide, 4000); // change every 4 seconds
    ***********************************************/
 
   const events = [
-    {date: "2025-10-15", title: "Monthly Meeting", details: "6:00 PM — Community Center"},
-    {date: "2025-11-05", title: "Fall Fundraiser", details: "7:00 PM — Lakeside Hotel"},
-    {date: "2025-12-10", title: "Scholarship Awards", details: "3:00 PM — City Library"}
+
   ];
 
   // Update events list
