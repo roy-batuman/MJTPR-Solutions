@@ -79,3 +79,14 @@ a { text-decoration: none; color: inherit; }
 form { display:flex; flex-direction:column; gap:12px; padding:20px; max-width:500px; background:white; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:4px; }
 form input, form textarea, form select { padding:10px; border:1px solid #ccc; font-size:1rem; border-radius:2px; font-weight:500; }
 form button { align-self:flex-start; }
+
+/* ------------------ Page content ---------------- */
+
+.page { display: block; }
+.page.hidden { display: none; }
+
+.page-content { padding: 60px 0; text-align: center; max-width: 900px; margin: auto; }
+.section-title { font-size: 2.5rem; font-weight: 900; color: #ff4a6a; margin-bottom: 20px; }
+.page-content p { font-size: 1.1rem; margin-bottom: 16px; }
+.page-content a.btn { margin-top: 20px; }
+
