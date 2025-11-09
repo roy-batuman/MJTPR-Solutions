@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zonta Club of Naples</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
     <nav class="navbar">
       <div class="nav-left">
-        <a href="index.html" class="logo-link">
+        <a href="#" class="logo-link">
           <img src="images/zonta100yrLogo.png" alt="Zonta Club Logo" class="logo">
         </a>
         <span class="site-title">Zonta Club of Naples</span>
@@ -36,123 +37,142 @@
   </header>
 
   <main class="container" role="main">
-    <!-- HOME -->
+
+    <!-- HOME PAGE -->
     <section id="page-home" class="page">
-      <!-- Carousel -->
-      <div class="carousel">
-        <img src="images/100_yr.jpg" class="active" alt="Slide 1" />
-        <img src="images/Screenshot 2025-11-07 001959.png" alt="Slide 2" />
-        <img src="images/100_yr_updated.jpeg" alt="Slide 3" />
-        <div class="carousel-title">Zonta Club of Naples</div>
-        <div class="caption">Empowering Women • Ending Violence</div>
+      <div class="hero">
+        <img src="images/hero.jpg" alt="Zonta Club Hero Image" class="hero-img">
+        <div class="hero-text">
+          <h1>Empowering Women, Changing Communities</h1>
+          <p>Join us in service, advocacy, and scholarships for women worldwide.</p>
+        </div>
       </div>
 
-      <!-- Hero Section -->
-      <section class="home-hero">
-        <div class="home-hero-left">
-          <div class="welcome-caption">Welcome</div>
-          <h1 class="home-hero-title">
-            <span class="zonta">Zonta</span> <span class="club">Club of Naples</span>
-          </h1>
-          <p class="home-hero-text">
-            Zonta Club of Naples is part of tens of thousands of professionals worldwide demanding gender equality and an end to violence against women and girls. We eradicate human trafficking, domestic violence, and child marriage. Zonta provides grants, scholarships, and resources while advocating change and educating the community.
-          </p>
-          <div class="hero-buttons">
-            <a class="btn" href="#" id="heroJoin">Become a Member</a>
-            <a class="btn secondary" href="#" id="heroDonate">Donate</a>
-            <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
+      <section class="info-section">
+        <h2>What We Do</h2>
+        <div class="wwd-cards">
+          <div class="wwd-card">
+            <img src="images/service.jpg" alt="Service">
+            <h3>Service Projects</h3>
+            <p>We support initiatives that improve local communities.</p>
           </div>
-        </div>
-        <div class="home-hero-right">
-          <img src="images/100yrlogo.png" alt="Zonta Image">
+          <div class="wwd-card">
+            <img src="images/advocacy.jpg" alt="Advocacy">
+            <h3>Advocacy</h3>
+            <p>We promote gender equality and women's rights worldwide.</p>
+          </div>
+          <div class="wwd-card">
+            <img src="images/scholarship.jpg" alt="Scholarships">
+            <h3>Scholarships</h3>
+            <p>We provide financial support to empower future female leaders.</p>
+          </div>
         </div>
       </section>
 
-      <!-- Info Section -->
-      <section id="info-section" class="info-section">
-        <div class="info-container">
-          <div class="info-image left">
-            <img src="images/IMG_2154.jpeg" alt="Community Work">
+      <section class="news-events">
+        <h2>Upcoming Events</h2>
+        <div class="event">
+          <img src="images/event1.jpg" alt="Event 1">
+          <div class="event-info">
+            <h3>Annual Gala</h3>
+            <p>March 15, 2026 - Join us for our annual fundraising gala.</p>
           </div>
-          <div class="info-text">
-            <h2 class="info-title">Empowering Women in Our Community</h2>
-            <p>The Zonta Club of Naples is dedicated to building a better world for women and girls through community outreach, scholarships, and partnerships. Our members believe in service and equality for all.</p>
-            <p>Together, we work to end violence and uplift those in need, making an impact that lasts generations.</p>
-          </div>
-          <div class="info-image right">
-            <img src="images/IMG_6707.jpg" alt="Empowerment Event">
+        </div>
+        <div class="event">
+          <img src="images/event2.jpg" alt="Event 2">
+          <div class="event-info">
+            <h3>Scholarship Awards</h3>
+            <p>April 10, 2026 - Celebrate the achievements of our scholarship recipients.</p>
           </div>
         </div>
       </section>
     </section>
 
-    <!-- WHO WE ARE -->
-<section id="page-who" class="page hidden">
-  <div class="page-content">
-    <h1 class="section-title">Who We Are</h1>
-    <p>The Zonta Club of Naples is a group of professional women working to advance the status of women locally and globally. We advocate for gender equality, fight violence against women, and support educational opportunities through scholarships and mentorship.</p>
-    <p>Our mission is rooted in service, advocacy, and empowerment, making lasting change in our community and beyond.</p>
-  </div>
-</section>
+    <!-- WHO WE ARE PAGE -->
+    <section id="page-who" class="page hidden">
+      <h2>Who We Are</h2>
+      <p>The Zonta Club of Naples is part of a global organization dedicated to empowering women through service and advocacy. Our members come from diverse backgrounds but share a passion for improving our communities and supporting women worldwide.</p>
+      <img src="images/who.jpg" alt="Our Members" class="page-img">
+    </section>
 
-<!-- SCHOLARSHIPS -->
-<section id="page-scholarships" class="page hidden">
-  <div class="page-content">
-    <h1 class="section-title">Scholarships</h1>
-    <p>We provide scholarships to women pursuing higher education, particularly in fields where women are underrepresented. Our goal is to empower future leaders, innovators, and changemakers.</p>
-    <p>Scholarship applications are reviewed by our committee, and awards are based on merit, leadership, and commitment to community service.</p>
-    <a class="btn" href="#">Apply Now</a>
-  </div>
-</section>
+    <!-- SCHOLARSHIPS PAGE -->
+    <section id="page-scholarships" class="page hidden">
+      <h2>Scholarships</h2>
+      <p>We award scholarships to women pursuing higher education and leadership development. Our scholarship programs focus on empowering women in STEM, business, and community leadership roles.</p>
+      <img src="images/scholarship-main.jpg" alt="Scholarships" class="page-img">
+      <ul>
+        <li><strong>Young Women in STEM:</strong> $5,000 annual award</li>
+        <li><strong>Leadership Development:</strong> $3,000 annual award</li>
+        <li><strong>Community Impact:</strong> $2,500 annual award</li>
+      </ul>
+    </section>
 
-<!-- MEMBERSHIP -->
-<section id="page-memberships" class="page hidden">
-  <div class="page-content">
-    <h1 class="section-title">Membership</h1>
-    <p>Joining Zonta Club of Naples means becoming part of a powerful network of professional women. Members engage in advocacy, mentorship, and community projects that create meaningful impact.</p>
-    <p>Membership benefits include networking opportunities, leadership development, and the ability to directly influence positive change for women locally and globally.</p>
-    <a class="btn" href="#">Join Today</a>
-  </div>
-</section>
+    <!-- MEMBERSHIP PAGE -->
+    <section id="page-memberships" class="page hidden">
+      <h2>Membership</h2>
+      <p>Become a member and join a network of inspiring women dedicated to service and advocacy. Members gain access to leadership opportunities, networking events, and the chance to make a tangible impact in the community.</p>
+      <img src="images/membership.jpg" alt="Membership" class="page-img">
+      <a href="#" class="cta">Join Now</a>
+    </section>
 
-<!-- STORE -->
-<section id="page-store" class="page hidden">
-  <div class="page-content">
-    <h1 class="section-title">Store</h1>
-    <p>Support our mission while showing your pride! Browse our merchandise including apparel, accessories, and memorabilia. All proceeds go directly to our community projects and scholarships.</p>
-    <a class="btn" href="#">Visit Store</a>
-  </div>
-</section>
+    <!-- STORE PAGE -->
+    <section id="page-store" class="page hidden">
+      <h2>Store</h2>
+      <p>Support our mission by purchasing official Zonta Club merchandise. Proceeds fund scholarships and service projects.</p>
+      <div class="store-items">
+        <div class="store-item">
+          <img src="images/tshirt.jpg" alt="T-shirt">
+          <h3>Zonta T-shirt</h3>
+          <p>$25.00</p>
+          <button onclick="addToCart('Zonta T-shirt', 25)">Add to Cart</button>
+        </div>
+        <div class="store-item">
+          <img src="images/mug.jpg" alt="Mug">
+          <h3>Zonta Mug</h3>
+          <p>$12.00</p>
+          <button onclick="addToCart('Zonta Mug', 12)">Add to Cart</button>
+        </div>
+      </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="page-contact" class="page hidden">
-  <div class="page-content">
-    <h1 class="section-title">Contact Us</h1>
-    <p>Have questions or want to get involved? Reach out to us via email or phone, or visit us at our office. We welcome new members, volunteers, and supporters.</p>
-    <ul>
-      <li>Email: <a href="mailto:info@zontaclubnaples.org" class="link">info@zontaclubnaples.org</a></li>
-      <li>Phone: (239) 555-1234</li>
-      <li>Address: PO Box 1234, Naples, FL</li>
-    </ul>
-    <a class="btn" href="mailto:info@zontaclubnaples.org">Email Us</a>
-  </div>
-</section>
+    <!-- CONTACT PAGE -->
+    <section id="page-contact" class="page hidden">
+      <h2>Contact Us</h2>
+      <p>Reach out to us for membership inquiries, volunteer opportunities, or general questions.</p>
+      <form id="contactForm">
+        <label for="name">Name:</label>
+        <input id="name" type="text" required>
+        <label for="email">Email:</label>
+        <input id="email" type="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" rows="4" required></textarea>
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+    </section>
 
   </main>
 
+  <!-- CART -->
+  <div id="cart" class="cart card hidden">
+    <h3>Cart</h3>
+    <div id="cartItems"></div>
+    <div>Total: $<span id="cartTotal">0</span></div>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container footer-container">
+    <div class="container">
       <div>
         <strong>Zonta Club of Naples</strong>
         <div class="small muted">PO Box 1234 • Naples, FL</div>
       </div>
       <div class="small muted">
-        <div>Follow us: <a href="#" class="link">Facebook</a> • <a href="#" class="link">Instagram</a></div>
-        <div style="margin-top:8px"><a href="https://www.zonta.org" class="link" target="_blank" rel="noopener">Zonta International</a></div>
+        <div>Follow us: <a class="link" href="#">Facebook</a> • <a class="link" href="#">Instagram</a></div>
+        <div style="margin-top:8px">Direct link: <a href="https://www.zonta.org" target="_blank" rel="noopener">Zonta International</a></div>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
