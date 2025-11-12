@@ -99,8 +99,8 @@ input, select, textarea {
 
 	body, input, textarea, select {
 		font-family: 'Source Sans Pro';
-		font-weight: 300;
-		color: #777;
+		font-weight: 500;
+		color: #000000;
 		line-height: 1.65em;
 		font-size: 15pt;
 	}
@@ -108,18 +108,19 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 600;
 		text-transform: uppercase;
-		color: #888;
+		color: #000000;
 	}
 
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		color: inherit;
 		text-decoration: none;
 		border: 0;
+		font-weight: 500
 	}
 
 	h2 {
 		font-size: 1.65em;
-		font-weight: 400;
+		font-weight: 600;
 		letter-spacing: 4px;
 		margin: 0 0 1.5em 0;
 		line-height: 1.75em;
@@ -136,7 +137,7 @@ input, select, textarea {
 		-webkit-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 		-ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 		transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-		color: #666;
+		color: #000000;
 		text-decoration: none;
 		border-bottom: solid 1px #ddd;
 	}
@@ -149,17 +150,17 @@ input, select, textarea {
 		}
 
 		a:hover {
-			color: #ed786a;
+			color: #9c1b04;
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 
 			a:hover strong {
-				color: #ed786a;
+				color: #9c1b04;
 			}
 
 	strong, b {
 		font-weight: 600;
-		color: #666;
+		color: #000000;
 	}
 
 	em, i {
@@ -1769,7 +1770,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		position: relative;
 		display: inline-block;
-		background: #ed786a;
+		background: #9c1b04;
 		color: #fff !important;
 		text-transform: uppercase;
 		border-radius: 4px;
@@ -1917,7 +1918,7 @@ input, select, textarea {
 		#header h1 {
 			font-family: 'Arvo';
 			font-weight: 700;
-			color: #ed786a;
+			color: #9c1b04;
 			text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
 			font-size: 3em;
 			letter-spacing: 13px;
@@ -2001,13 +2002,13 @@ input, select, textarea {
 
 			#nav > ul > li.active > a:before,
 			#nav > ul > li:hover > a:before {
-				background: #ED786A;
+				background: #9c1b04;
 				color: #fff;
 			}
 
 			#nav > ul > li.active > a > span,
 			#nav > ul > li:hover > a > span {
-				color: #ED786A;
+				color: #9c1b04;
 			}
 
 	.dropotron {
@@ -2074,7 +2075,7 @@ input, select, textarea {
 				-webkit-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 				-ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 				transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-				color: #ed786a;
+				color: #9c1b04;
 			}
 
 /* Features */
@@ -2428,7 +2429,7 @@ input, select, textarea {
 						text-align: center;
 						line-height: 40px;
 						font-size: 18px;
-						color: #aaa;
+						color: #AB1B03;
 					}
 
 					#titleBar .toggle:active:before {
