@@ -4,6 +4,23 @@
  ******************************************************/
 
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== Fade-in for flyers & other fade-in elements =====
+(function () {
+  const items = document.querySelectorAll(".fade-in");
+  if (!items || items.length === 0) return; // nothing to do
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  items.forEach(el => observer.observe(el));
+})();
+
   /* =========================================================
      HAMBURGER MENU
   ========================================================= */
@@ -82,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (donateBtn) donateBtn.addEventListener("click", openDonate);
   if (heroDonate) heroDonate.addEventListener("click", openDonate);
 
+  
   /* =========================================================
      MEMBERSHIP FORM
   ========================================================= */
@@ -277,3 +295,16 @@ Submit via email to: scholarships@zontanaples.org
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll();
 });
+// Fade-in on scroll for info section
+const infoSection = document.querySelector('.info-section');
+
+function revealInfo() {
+  const rect = infoSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 100) {
+    infoSection.classList.add('visible');
+  }
+}
+
+window.addEventListener('scroll', revealInfo);
+revealInfo();
+

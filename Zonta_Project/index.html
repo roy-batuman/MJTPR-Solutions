@@ -8,6 +8,17 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  
   <style>
     @font-face {
       font-family: "Callisto MT";
@@ -55,36 +66,109 @@
   <!-- MAIN CONTENT -->
   <main class="container">
     <!-- HOME -->
-    <section id="page-home" class="page">
-      <div class="carousel">
-        <img src="images/100_yr.jpg" class="active" alt="Slide 1" />
-        <img src="images/Screenshot 2025-11-07 001959.png" alt="Slide 2" />
-        <img src="images/100_yr_updated.jpeg" alt="Slide 3" />
-        <div class="carousel-title">Zonta Club of Naples</div>
-        <div class="caption">Possible caption</div>
+<section id="page-home" class="page">
+
+  <!-- CAROUSEL -->
+  <div class="carousel">
+    <img src="images/100_yr.jpg" class="active" alt="Slide 1" />
+    <img src="images/Screenshot 2025-11-07 001959.png" alt="Slide 2" />
+    <img src="images/100_yr_updated.jpeg" alt="Slide 3" />
+    <div class="carousel-title">Zonta Club of Naples</div>
+    <div class="caption">Possible caption</div>
+  </div>
+
+  <!-- HERO SECTION (NOW IN RIGHT PLACE) -->
+  <section class="home-hero">
+    <div class="home-hero-content">
+      <div class="home-hero-left">
+        <div class="welcome-caption">Welcome</div>
+
+        <h1 class="home-hero-title">
+          <span class="zonta">Zonta</span>
+          <span class="club">Club of Naples</span>
+        </h1>
+
+        <p class="home-hero-text">
+          Zonta Club of Naples is part of tens of thousands of professionals worldwide who demand gender equality and the end of violence against women and girls.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn" href="#" id="heroJoin">Become a Member</a>
+          <a class="btn secondary" href="#" id="heroDonate">Donate</a>
+          <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
+        </div>
       </div>
 
-      <section class="home-hero">
-        <div class="home-hero-left">
-          <div class="welcome-caption">Welcome</div>
-          <h1 class="home-hero-title">
-            <span class="zonta">Zonta</span>
-            <span class="club">Club of Naples</span>
-          </h1>
-          <p class="home-hero-text">
-            Zonta Club of Naples is part of tens of thousands of professionals worldwide who demand gender equality and the end of violence against women and girls.
-          </p>
-          <div class="hero-buttons">
-            <a class="btn" href="#" id="heroJoin">Become a Member</a>
-            <a class="btn secondary" href="#" id="heroDonate">Donate</a>
-            <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
-          </div>
-        </div>
-        <div class="home-hero-right">
-          <img src="images/100yrlogo.png" alt="Zonta Image">
-        </div>
-      </section>
-    </section>
+      <div class="home-hero-right">
+        <img src="images/100yrlogo.png" alt="Zonta Image">
+      </div>
+    </div>
+  </section>
+<!-- INFORMATION SECTION -->
+<section class="info-section">
+  <div class="info-inner">
+
+    <div class="info-text-block">
+      <h2 class="info-title">Empowering Women, Creating Change</h2>
+
+      <p class="info-description">
+        The Zonta Club of Naples is dedicated to building a better world for women and girls. Through our community outreach, scholarship programs, and partnerships with local organizations, we create opportunities for education, leadership, and empowerment. Our members are professionals and advocates who believe in service and equality for all.
+
+Together, we work to end violence against women and uplift those in need — making an impact that lasts for generations.
+      </p>
+    </div>
+
+    <div class="info-images">
+      <img src="images\diversity_women.jpg" alt="Zonta Activity" class="info-img left-img">
+      <img src="images\IMG_2154.jpeg" alt="Zonta Members" class="info-img right-img">
+    </div>
+
+  </div>
+</section>
+<!--INFORMATION BAR-->
+<section class="info-bar">
+  <div class="info-item fade-in">
+    <i class="fas fa-calendar-alt"></i>
+    <h3>Events & News</h3>
+    <p>Stay updated with our latest activities.</p>
+  </div>
+
+  <div class="info-item fade-in">
+    <i class="fas fa-hand-holding-heart"></i>
+    <h3>Our Causes</h3>
+    <p>Learn about the missions we support.</p>
+  </div>
+
+  <div class="info-item fade-in">
+    <i class="fas fa-users"></i>
+    <h3>Who We Are</h3>
+    <p>Meet the members behind the organization.</p>
+  </div>
+
+</section>
+
+<!-- FLYERS: place under the .info-bar -->
+<section class="flyer-section">
+  <div class="flyer fade-in">
+    <div class="flyer-img">
+      <img src="images\volunteer_photo.png" alt="Volunteer Flyer">
+    </div>
+    <h2>Volunteer With Us</h2>
+    <p>Join our dedicated community making an impact through service and advocacy.</p>
+  </div>
+
+  <div class="flyer fade-in">
+    <div class="flyer-img">
+      <img src="images\advocacy_flyer.png" alt="Advocacy Flyer">
+    </div>
+    <h2>Advocacy & Impact</h2>
+    <p>Learn how Zonta advances women's rights and supports global initiatives.</p>
+  </div>
+</section>
+
+
+</section>
+
 
     <!-- WHO WE ARE -->
     <section id="page-who" class="page hidden">
