@@ -18,11 +18,84 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  
   <style>
     @font-face {
       font-family: "Callisto MT";
       src: local("Callisto MT"), local("CallistoMT");
+    }
+
+    /* ================== SCHOLARSHIPS TOP CARD ================== */
+    .scholarships-top-card {
+      background: #FFE3B6; /* same as header */
+      width: 100vw;
+      padding: 40px 20px;
+      text-align: center;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      left: 50%;
+      position: relative;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .scholarships-top-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: #802528;
+      margin-bottom: 12px;
+    }
+
+    .scholarships-top-card p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      color: #802528;
+      opacity: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .scholarships-top-card .card-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .scholarships-top-card .btn {
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    /* Download Application — darker yellow */
+    .scholarships-top-card .download-btn {
+      background: #d8a300;
+      color: #fff;
+    }
+
+    .scholarships-top-card .download-btn:hover {
+      background: #b37a00;
+    }
+
+    /* Apply by Email — red same as header */
+    .scholarships-top-card .apply-btn {
+      background: #b43b4b;
+      color: #fff;
+    }
+
+    .scholarships-top-card .apply-btn:hover {
+      background: #802528;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .scholarships-top-card .card-buttons {
+        flex-direction: column;
+      }
     }
   </style>
 
@@ -66,109 +139,100 @@
   <!-- MAIN CONTENT -->
   <main class="container">
     <!-- HOME -->
-<section id="page-home" class="page">
+    <section id="page-home" class="page">
 
-  <!-- CAROUSEL -->
-  <div class="carousel">
-    <img src="images/100_yr.jpg" class="active" alt="Slide 1" />
-    <img src="images/Screenshot 2025-11-07 001959.png" alt="Slide 2" />
-    <img src="images/100_yr_updated.jpeg" alt="Slide 3" />
-    <div class="carousel-title">Zonta Club of Naples</div>
-    <div class="caption">Possible caption</div>
-  </div>
+      <!-- CAROUSEL -->
+      <div class="carousel">
+        <img src="images/100_yr.jpg" class="active" alt="Slide 1" />
+        <img src="images/Screenshot 2025-11-07 001959.png" alt="Slide 2" />
+        <img src="images/100_yr_updated.jpeg" alt="Slide 3" />
+        <div class="carousel-title">Zonta Club of Naples</div>
+        <div class="caption">Possible caption</div>
+      </div>
 
-  <!-- HERO SECTION (NOW IN RIGHT PLACE) -->
-  <section class="home-hero">
-    <div class="home-hero-content">
-      <div class="home-hero-left">
-        <div class="welcome-caption">Welcome</div>
-
-        <h1 class="home-hero-title">
-          <span class="zonta">Zonta</span>
-          <span class="club">Club of Naples</span>
-        </h1>
-
-        <p class="home-hero-text">
-          Zonta Club of Naples is part of tens of thousands of professionals worldwide who demand gender equality and the end of violence against women and girls.
-        </p>
-
-        <div class="hero-buttons">
-          <a class="btn" href="#" id="heroJoin">Become a Member</a>
-          <a class="btn secondary" href="#" id="heroDonate">Donate</a>
-          <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
+      <!-- HERO SECTION -->
+      <section class="home-hero">
+        <div class="home-hero-content">
+          <div class="home-hero-left">
+            <div class="welcome-caption">Welcome</div>
+            <h1 class="home-hero-title">
+              <span class="zonta">Zonta</span>
+              <span class="club">Club of Naples</span>
+            </h1>
+            <p class="home-hero-text">
+              Zonta Club of Naples is part of tens of thousands of professionals worldwide who demand gender equality and the end of violence against women and girls.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn" href="#" id="heroJoin">Become a Member</a>
+              <a class="btn secondary" href="#" id="heroDonate">Donate</a>
+              <a class="link" href="#" data-nav="scholarships">Scholarship info</a>
+            </div>
+          </div>
+          <div class="home-hero-right">
+            <img src="images/100yrlogo.png" alt="Zonta Image">
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="home-hero-right">
-        <img src="images/100yrlogo.png" alt="Zonta Image">
-      </div>
-    </div>
-  </section>
-<!-- INFORMATION SECTION -->
-<section class="info-section">
-  <div class="info-inner">
-
-    <div class="info-text-block">
-      <h2 class="info-title">Empowering Women, Creating Change</h2>
-
-      <p class="info-description">
-        The Zonta Club of Naples is dedicated to building a better world for women and girls. Through our community outreach, scholarship programs, and partnerships with local organizations, we create opportunities for education, leadership, and empowerment. Our members are professionals and advocates who believe in service and equality for all.
+      <!-- INFORMATION SECTION -->
+      <section class="info-section">
+        <div class="info-inner">
+          <div class="info-text-block">
+            <h2 class="info-title">Empowering Women, Creating Change</h2>
+            <p class="info-description">
+              The Zonta Club of Naples is dedicated to building a better world for women and girls. Through our community outreach, scholarship programs, and partnerships with local organizations, we create opportunities for education, leadership, and empowerment. Our members are professionals and advocates who believe in service and equality for all.
 
 Together, we work to end violence against women and uplift those in need — making an impact that lasts for generations.
-      </p>
-    </div>
+            </p>
+          </div>
 
-    <div class="info-images">
-      <img src="images\diversity_women.jpg" alt="Zonta Activity" class="info-img left-img">
-      <img src="images\IMG_2154.jpeg" alt="Zonta Members" class="info-img right-img">
-    </div>
+          <div class="info-images">
+            <img src="images\diversity_women.jpg" alt="Zonta Activity" class="info-img left-img">
+            <img src="images\IMG_2154.jpeg" alt="Zonta Members" class="info-img right-img">
+          </div>
+        </div>
+      </section>
 
-  </div>
-</section>
-<!--INFORMATION BAR-->
-<section class="info-bar">
-  <div class="info-item fade-in">
-    <i class="fas fa-calendar-alt"></i>
-    <h3>Events & News</h3>
-    <p>Stay updated with our latest activities.</p>
-  </div>
+      <!-- INFORMATION BAR -->
+      <section class="info-bar">
+        <div class="info-item fade-in">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Events & News</h3>
+          <p>Stay updated with our latest activities.</p>
+        </div>
 
-  <div class="info-item fade-in">
-    <i class="fas fa-hand-holding-heart"></i>
-    <h3>Our Causes</h3>
-    <p>Learn about the missions we support.</p>
-  </div>
+        <div class="info-item fade-in">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h3>Our Causes</h3>
+          <p>Learn about the missions we support.</p>
+        </div>
 
-  <div class="info-item fade-in">
-    <i class="fas fa-users"></i>
-    <h3>Who We Are</h3>
-    <p>Meet the members behind the organization.</p>
-  </div>
+        <div class="info-item fade-in">
+          <i class="fas fa-users"></i>
+          <h3>Who We Are</h3>
+          <p>Meet the members behind the organization.</p>
+        </div>
+      </section>
 
-</section>
+      <!-- FLYERS -->
+      <section class="flyer-section">
+        <div class="flyer fade-in">
+          <div class="flyer-img">
+            <img src="images/advocacy-sym-5.jpg" alt="Volunteer Flyer">
+          </div>
+          <h2>Volunteer With Us</h2>
+          <p>Join our dedicated community making an impact through service and advocacy.</p>
+        </div>
 
-<!-- FLYERS: place under the .info-bar -->
-<section class="flyer-section">
-  <div class="flyer fade-in">
-    <div class="flyer-img">
-      <img src="images/advocacy-sym-5.jpg" alt="Volunteer Flyer">
-    </div>
-    <h2>Volunteer With Us</h2>
-    <p>Join our dedicated community making an impact through service and advocacy.</p>
-  </div>
-
-  <div class="flyer fade-in">
-    <div class="flyer-img">
-      <img src="images/100_yr.jpg" alt="Advocacy Flyer">
-    </div>
-    <h2>Advocacy & Impact</h2>
-    <p>Learn how Zonta advances women's rights and supports global initiatives.</p>
-  </div>
-</section>
-
-
-</section>
-
+        <div class="flyer fade-in">
+          <div class="flyer-img">
+            <img src="images/100_yr.jpg" alt="Advocacy Flyer">
+          </div>
+          <h2>Advocacy & Impact</h2>
+          <p>Learn how Zonta advances women's rights and supports global initiatives.</p>
+        </div>
+      </section>
+    </section>
 
     <!-- WHO WE ARE -->
     <section id="page-who" class="page hidden">
@@ -180,74 +244,86 @@ Together, we work to end violence against women and uplift those in need — mak
       </div>
     </section>
 
-  <!-- SCHOLARSHIPS -->
-<section id="page-scholarships" class="page hidden">
+    <!-- SCHOLARSHIPS -->
+    <section id="page-scholarships" class="page hidden">
 
- <!-- SCHOLARSHIPS HEADER -->
-<div class="scholarships-header">
-  <h1>Scholarships</h1>
-  <p>We Have Proven over the Years that by Working Together Across Political and Social Boundaries – We Can Make a Difference!</p>
-</div>
+      <!-- SCHOLARSHIPS HEADER -->
+      <div class="scholarships-header">
+        <h1>Scholarships</h1>
+        <p>We’ve proven over the years that by working together across political and social boundaries, we can make a difference!</p>
+      </div>
 
+      <!-- SCHOLARSHIP GALLERY -->
+      <div class="scholarships-section">
+        <div class="scholarship-gallery">
 
-  <!-- SEPARATE SECTION FOR THE GALLERY -->
-  <div class="scholarships-section">
-    <div class="scholarship-gallery">
-
-      <div class="flip-card top">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/Scholarship1.jpeg" alt="">
-            <div class="caption">Scholarship 1</div>
+          <div class="flip-card top">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/Scholarship1.jpeg" alt="">
+                <div class="caption">Scholarship 1</div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Scholarship 1</h3>
+                <p>This scholarship empowers students with strong leadership and academic courage.</p>
+              </div>
+            </div>
           </div>
-          <div class="flip-card-back">
-            <h3>Scholarship 1</h3>
-            <p>This scholarship empowers students with strong leadership and academic courage.</p>
+
+          <div class="flip-card middle">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="caption caption-top">Featured Scholarship</div>
+                <img src="images/Scholarship2.jpeg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <h3>Featured Scholarship</h3>
+                <p>This award supports bold students who show vision, integrity, and perseverance.</p>
+              </div>
+            </div>
           </div>
+
+          <div class="flip-card top">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/Scholarship3.jpg" alt="">
+                <div class="caption">Scholarship 3</div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Scholarship 3</h3>
+                <p>An encouragement grant for students committed to service and excellence.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card top">
+            <div class="flip-card-inner">
+               <div class="flip-card-front">
+                 <img src="images/Scholarship4.jpg" alt="">
+                 <div class="caption">Scholarship 4</div>
+              </div>
+                <div class="flip-card-back">
+                 <h3>Scholarship 4</h3>
+                 <p>This scholarship supports students with exceptional community service and academic achievement.</p>
+                </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
 
-      <div class="flip-card middle">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div class="caption caption-top">Featured Scholarship</div>
-            <img src="images/Scholarship2.jpeg" alt="">
-          </div>
-          <div class="flip-card-back">
-            <h3>Featured Scholarship</h3>
-            <p>This award supports bold students who show vision, integrity, and perseverance.</p>
-          </div>
+      <!-- TOP CARD (EDGE-TO-EDGE) -->
+      <div class="top-card scholarships-top-card">
+        <h2>Scholarships</h2>
+        <p>Learn about current scholarship opportunities, eligibility, and how to apply.</p>
+        <div class="card-buttons">
+          <button class="btn download-btn" id="downloadAppBtn">Download Application</button>
+          <a class="btn apply-btn" href="#" id="applyOnlineBtn">Apply by Email</a>
         </div>
       </div>
 
-      <div class="flip-card top">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="images/Scholarship3.jpg" alt="">
-            <div class="caption">Scholarship 3</div>
-          </div>
-          <div class="flip-card-back">
-            <h3>Scholarship 3</h3>
-            <p>An encouragement grant for students committed to service and excellence.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-   <!-- TOP CARD (title + buttons) -->
-  <div class="card" style="background:#eeebe8;">
-    <h2>Scholarships</h2>
-    <p>Learn about current scholarship opportunities, eligibility, and how to apply.</p>
-    <div style="margin-top:12px">
-      <button class="btn" id="downloadAppBtn">Download Application</button>
-      <a class="btn secondary" href="#" id="applyOnlineBtn">Apply by Email</a>
-    </div>
-  </div>
-
-</section>
-
+    </section>
 
     <!-- MEMBERSHIP -->
     <section id="page-membership" class="page hidden">

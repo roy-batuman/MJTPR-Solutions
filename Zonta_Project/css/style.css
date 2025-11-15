@@ -903,20 +903,12 @@ footer .container {
   perspective: 1200px;
 }
 
-.flip-card.top {
-  transform: translateY(-12px);
-}
-
-.flip-card.middle {
-  transform: translateY(14px);
-}
-
 /* outer margin card */
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 400px;
-  background: #e7d5b9;
+  background: #cdc9ca;  /*e7d5b9*/
   border-radius: 16px;
   box-shadow: 0 8px 22px rgba(0,0,0,0.15);
   transition: transform 0.8s;
@@ -959,7 +951,7 @@ footer .container {
   padding: 10px 12px;
   font-weight: 600;
   text-align: center;
-  background: #f2ece2;
+  background: #f7f5f5;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
@@ -1002,20 +994,27 @@ footer .container {
   flex-wrap: wrap;
 }
 
-/* Scholarships Page Header */
+/* Scholarships Page Header Full Width */
 .scholarships-header {
-  background: #eeebe8;
+  background: #FFE3B6;   /* keep your color */
   padding: 40px 20px;
   text-align: center;
-  border-radius: 16px;
   margin-bottom: 30px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 100vw;          /* full viewport width */
+  border-radius: 0;      /* remove rounded corners */
+  box-shadow: none;      /* remove shadow */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .scholarships-header h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.8rem;
-  color: #222;
+  color: #802528; 
+;
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
@@ -1023,6 +1022,6 @@ footer .container {
 .scholarships-header p {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.15rem;
-  color: #222;
+  color: #802528;
   opacity: 0.95;
 }
