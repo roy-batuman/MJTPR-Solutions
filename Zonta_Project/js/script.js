@@ -308,3 +308,32 @@ function revealInfo() {
 window.addEventListener('scroll', revealInfo);
 revealInfo();
 
+
+
+// ====================== MINI CAROUSELS FOR SCHOLARSHIPS ======================
+document.querySelectorAll('.mini-carousel').forEach((carousel) => {
+  const imgs = carousel.querySelectorAll('.mini-carousel-inner img');
+  const prevBtn = carousel.querySelector('.mini-prev');
+  const nextBtn = carousel.querySelector('.mini-next');
+  const caption = carousel.querySelector('.mini-caption');
+  let currentIndex = 0;
+
+  function updateMiniCarousel() {
+    imgs.forEach((img, i) => {
+      img.style.display = i === currentIndex ? 'block' : 'none';
+    });
+    caption.textContent = imgs[currentIndex].dataset.caption;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateMiniCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateMiniCarousel();
+  });
+
+  updateMiniCarousel(); // initialize
+});
