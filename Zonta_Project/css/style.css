@@ -1154,60 +1154,36 @@ footer .container {
 
 /* ===== IMAGE STYLING ===== */
 .scholarship-row img {
-  width: 260px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 0; /* sharp corners */
-  border: 4px solid #b43b4b;  /* red border */
+  width: 100%;        /* fill width of container */
+  height: 300px;      /* taller images to fill row */
+  object-fit: cover;  /* maintain aspect ratio and crop excess */
+  border-radius: 8px; /* subtle rounded corners */
+  border: none;       /* remove red border */
 }
 
-/* Mini-carousel styles */
 .mini-carousel {
   position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 15px;
+  width: 450px;
+  max-width: 100%;
+  margin: 0 auto 20px;
   overflow: hidden;
-  border-radius: 16px; /* smooth corners */
-}
-
-.mini-carousel-inner {
-  position: relative;
-  width: 100%;
-  height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background: #fff;
+  font-family: "Poppins", sans-serif;
 }
 
 .mini-carousel-inner img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  opacity: 0;
-  transition: all 0.5s ease;
+  width: 100%;          /* full width of container */
+  height: 250px;        /* increased height */
+  object-fit: cover;    /* fill container nicely */
+  border-radius: 8px;   /* subtle rounding */
+  border: none;         /* remove borders */
+  transition: transform 0.3s ease;
 }
 
 .mini-carousel-inner img.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-.mini-caption {
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,0.85);
-  color: #b43b4b; /* red text */
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 8px;
-  text-align: center;
-  width: 90%;
+  transform: scale(1.05);  /* slight zoom effect for active image */
 }
 
 .mini-prev,
@@ -1218,20 +1194,47 @@ footer .container {
   background: rgba(255,255,255,0.8);
   border: none;
   font-size: 1.5rem;
-  padding: 5px 10px;
   cursor: pointer;
+  padding: 6px 10px;
   border-radius: 50%;
-  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 2;
 }
 
-.mini-prev { left: 5px; }
-.mini-next { right: 5px; }
+.mini-prev { left: 8px; }
+.mini-next { right: 8px; }
 
-/* Scholarship title style */
+.mini-caption {
+  text-align: center;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.scholarship-info { margin-top: 6px; }
+
 .scholarship-title {
-  color: #b43b4b;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #c1272d;
+  margin: 0 0 6px 0;
 }
+
+.scholarship-action .info-btn {
+  background: #c1272d;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.scholarship-action .info-btn:hover {
+  background: #a11f25;
+}
+
 

@@ -307,33 +307,29 @@ function revealInfo() {
 
 window.addEventListener('scroll', revealInfo);
 revealInfo();
-
-
-
-// ====================== MINI CAROUSELS FOR SCHOLARSHIPS ======================
-document.querySelectorAll('.mini-carousel').forEach((carousel) => {
-  const imgs = carousel.querySelectorAll('.mini-carousel-inner img');
-  const prevBtn = carousel.querySelector('.mini-prev');
-  const nextBtn = carousel.querySelector('.mini-next');
+document.querySelectorAll('.mini-carousel').forEach(carousel => {
+  const inner = carousel.querySelector('.mini-carousel-inner');
+  const images = inner.querySelectorAll('img');
   const caption = carousel.querySelector('.mini-caption');
-  let currentIndex = 0;
+  let index = 0;
 
-  function updateMiniCarousel() {
-    imgs.forEach((img, i) => {
-      img.style.display = i === currentIndex ? 'block' : 'none';
-    });
-    caption.textContent = imgs[currentIndex].dataset.caption;
+  function updateCarousel() {
+    inner.style.transform = `translateX(-${index * 100}%)`;
+    caption.textContent = images[index].dataset.caption;
   }
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
-    updateMiniCarousel();
+  carousel.querySelector('.mini-next').addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    updateCarousel();
   });
 
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % imgs.length;
-    updateMiniCarousel();
+  carousel.querySelector('.mini-prev').addEventListener('click', () => {
+    index = (index - 1 + images.length) % images.length;
+    updateCarousel();
   });
 
-  updateMiniCarousel(); // initialize
+  updateCarousel(); // initialize
 });
+
+
+
