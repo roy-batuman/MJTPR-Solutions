@@ -239,7 +239,7 @@ header {
   overflow: hidden;
   min-height: 70vh;
   z-index: 999!important;
-   margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
   padding-bottom: 1rem !important;  /* reduces extra height */
   min-height: auto !important;      /* lets height fit content */
 }
@@ -325,8 +325,8 @@ header {
   font-size: 1.05rem;
   color: #444;
   line-height: 1.06;
-  margin-top: 1rem;
-  max-width: 480px;
+  margin-top: 3rem;
+  max-width: 500px;
 }
 
 /* Right image */
@@ -334,7 +334,7 @@ header {
   width: 200px; /* make smaller */
   max-width: 100%;
   height: auto;
-  margin-right: 2rem;
+  margin-right: 4rem;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
 }
 /*sublte zoom effect*/
@@ -642,7 +642,7 @@ font-family: 'Cormorant', serif;
   }
 }
 /* ================================
-   FULL-WIDTH INFO BAR
+  FULL-WIDTH INFO BAR
 ================================ */
 .info-bar {
   width: 100%;
@@ -701,7 +701,7 @@ font-family: 'Cormorant', serif;
 
 /* Icon styling */
 .info-icon img {
-  width: 60px;
+  width: 80px;
   height: 60px;
   object-fit: contain;
   margin-bottom: 15px;
@@ -1235,6 +1235,68 @@ footer .container {
 
 .scholarship-action .info-btn:hover {
   background: #a11f25;
+}
+/* -----------------------------
+   WHO WE ARE – INFORMATION BAR
+--------------------------------*/
+.who-info-bar {
+  width: 100%;
+  background: linear-gradient(to right, #f8f5ef, #f2e7d8);
+  border-left: 6px solid #b48a2c;
+  padding: 40px 20px;
+  margin: 30px 0;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.who-info-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #6a4a00;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.who-info-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  color: #5a4a3a;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* -----------------------------
+  FADE-IN ON SCROLL
+--------------------------------*/
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .who-info-title {
+    font-size: 1.65rem;
+  }
+
+  .who-info-text {
+    font-size: 1.15rem;
+  }
+
+  .who-info-bar {
+    padding: 30px 15px;
+  }
 }
 
 
