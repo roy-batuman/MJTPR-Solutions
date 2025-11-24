@@ -313,6 +313,13 @@ document.querySelectorAll('.mini-carousel').forEach(carousel => {
   const caption = carousel.querySelector('.mini-caption');
   let index = 0;
 
+  // Auto-slide every 5 seconds
+setInterval(() => {
+  index = (index + 1) % images.length;
+  updateCarousel();
+}, 5000);
+
+
   function updateCarousel() {
     inner.style.transform = `translateX(-${index * 100}%)`;
     caption.textContent = images[index].dataset.caption;
