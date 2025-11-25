@@ -854,6 +854,7 @@ footer {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   margin-top: 40px;
+
 }
 
 footer .container {
@@ -994,28 +995,28 @@ footer .container {
   gap: 30px;
   flex-wrap: wrap;
 }
-
 /* Scholarships Page Header Full Width */
 .scholarships-header {
-  background: #FFE3B6;   /* keep your color */
+  background: #FFE3B6;
   padding: 40px 20px;
   text-align: center;
-  margin-bottom: 30px;
-  width: 100vw;          /* full viewport width */
-  border-radius: 0;      /* remove rounded corners */
-  box-shadow: none;      /* remove shadow */
+  margin-bottom: 0;
+  width: 100vw;
+  border-radius: 0;
+  box-shadow: none;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  padding-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .scholarships-header h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.8rem;
-  color: #802528; 
-;
+  font-size: 3rem;
+  color: #802528;
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
@@ -1027,10 +1028,33 @@ footer .container {
   opacity: 0.95;
 }
 
-.scholarship-section {
-  width: 100%;
-  margin-top: 40px;
+/* LIGHT YELLOW BACKGROUND */
+.scholarship-gallery-bg {
+  background: #fff6e8;
+  padding: 30px 20px;
+  margin: 0 auto;
+  width: 1000px;       /* slightly wider */
+  max-width: 95%;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
+
+/* CONTENT INSIDE BACKGROUND */
+.scholarship-section {
+  max-width: 950px;    /* match or slightly smaller than bg width */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* REMOVE BORDER-BOTTOM FOR LAST SCHOLARSHIP ROW */
+.scholarship-row:last-child {
+  border-bottom: none;
+}
+
+
 
 .scholarship-row {
   display: grid;
@@ -1043,9 +1067,9 @@ footer .container {
 
 .scholarship-row img {
   width: 100%;
-  height: 330px;        /* bigger image */
+  height: 300px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .scholarship-info {
@@ -1056,131 +1080,66 @@ footer .container {
 
 .scholarship-info h3 {
   margin: 0 0 10px 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.scholarship-info p {
-  margin: 0;
-  color: #444;
-}
-
-.scholarship-action {
-  display: flex;
-  align-items: start;
-  justify-content: end;
-}
-
-.info-btn {
-  background: #7c1f27;   /* your red */
-  color: #fff;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.info-btn:hover {
-  opacity: 0.9;
-}
-
-
-.scholarship-section {
-  width: 100%;
-  margin-top: 40px;
-}
-
-.scholarship-row {
-  display: grid;
-  grid-template-columns: 40% 45% 15%;
-  gap: 20px;
-  align-items: start;
-  padding: 30px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.scholarship-row img {
-  width: 100%;
-  height: 330px;        /* bigger image */
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.scholarship-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.scholarship-info h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.scholarship-info p {
-  margin: 0;
-  color: #444;
-}
-
-.scholarship-action {
-  display: flex;
-  align-items: start;
-  justify-content: end;
-}
-
-.info-btn {
-  background: #7c1f27;   /* your red */
-  color: #fff;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.info-btn:hover {
-  opacity: 0.9;
-}
-
-/* ===== SCHOLARSHIP ROW TITLE UPDATES ===== */
-.scholarship-row h3 {
   font-size: 1.6rem;
-  color: #b43b4b;   /* same red as button */
+  color: #b43b4b;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
-/* ===== IMAGE STYLING ===== */
-.scholarship-row img {
-  width: 100%;        /* fill width of container */
-  height: 300px;      /* taller images to fill row */
-  object-fit: cover;  /* maintain aspect ratio and crop excess */
-  border-radius: 8px; /* subtle rounded corners */
-  border: none;       /* remove red border */
+.scholarship-info p {
+  margin: 0;
+  color: #444;
+  
+}
+
+/* SHIFT MORE INFO BUTTON LEFT */
+.scholarship-action {
+  display: flex;
+  align-items: start;
+  justify-content: flex-start; /* changed from end to start */
+  gap: 10px; /* optional spacing if you want multiple buttons */
+  
+}
+
+
+.info-btn {
+  background: #c1272d;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+  
+  
+}
+
+.info-btn:hover {
+  background: #a11f25;
+}
+
+/* MINI CAROUSEL */
+.mini-carousel {
+  position: relative;
+  width: 450px;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .mini-carousel-inner {
   display: flex;
   transition: transform 0.4s ease;
-  width: 100%; /* remove max-content */
+  width: 100%;
 }
 
 .mini-carousel-inner img {
   flex-shrink: 0;
-  width: 100%;  /* fills carousel width */
+  width: 100%;
   height: 250px;
   object-fit: contain;
   border-radius: 8px;
-}
-
-
-
-
-
-.mini-carousel-inner img.active {
-  transform: scale(1.05);  /* slight zoom effect for active image */
 }
 
 .mini-prev,
@@ -1191,27 +1150,16 @@ footer .container {
   background: transparent;
   border: none;
   font-size: 2rem;
-  color: #FFE3B6;               /* yellow fill matching section */
-  -webkit-text-stroke: 1px #c1272d; /* red outline around arrow */
+  color: #FFE3B6;
+  -webkit-text-stroke: 1px #c1272d;
   cursor: pointer;
   z-index: 5;
-  line-height: 1;
   user-select: none;
+  
 }
 
 .mini-prev { left: 10px; }
 .mini-next { right: 10px; }
-
-
-.mini-carousel {
-  position: relative;
-  width: 450px;
-  max-width: 100%;
-  margin: 0 auto 20px;
-  overflow: hidden;   /* this keeps the buttons inside the container */
-  border-radius: 8px;
-}
-
 
 .mini-caption {
   text-align: center;
@@ -1221,32 +1169,89 @@ footer .container {
   font-weight: 500;
   border-radius: 6px;
   margin-top: 6px;
+  
 }
 
+ /* ================== SCHOLARSHIPS TOP CARD ================== */
+    .scholarships-top-card {
+      background: #FFE3B6; /* same as header */
+      width: 100vw;
+      padding: 40px 20px;
+      text-align: center;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      left: 50%;
+      position: relative;
+      border-radius: 0;
+      box-shadow: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.224);
+      
+      
+    }
+
+    .scholarships-top-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: #802528;
+      margin-bottom: 12px;
+    }
+
+    .scholarships-top-card p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      color: #802528;
+      opacity: 0.95;
+      margin-bottom: 20px;
+    }
+
+    .scholarships-top-card .card-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .scholarships-top-card .btn {
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    /* Download Application — darker yellow */
+    .scholarships-top-card .download-btn {
+      background: #d8a300;
+      color: #fff;
+    }
+
+    .scholarships-top-card .download-btn:hover {
+      background: #b37a00;
+    }
+
+    /* Apply by Email — red same as header */
+    .scholarships-top-card .apply-btn {
+      background: #b43b4b;
+      color: #fff;
+    }
+
+    .scholarships-top-card .apply-btn:hover {
+      background: #802528;
+    }
 
 
-.scholarship-info { margin-top: 6px; }
 
+/* MATCHES YOUR STRUCTURE */
 .scholarship-title {
   font-size: 1.2rem;
   color: #c1272d;
   margin: 0 0 6px 0;
+  
 }
 
-.scholarship-action .info-btn {
-  background: #c1272d;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s ease;
-}
-
-.scholarship-action .info-btn:hover {
-  background: #a11f25;
-}
 /* -----------------------------
    WHO WE ARE – INFORMATION BAR
 --------------------------------*/

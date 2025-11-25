@@ -24,72 +24,7 @@
       src: local("Callisto MT"), local("CallistoMT");
     }
 
-    /* ================== SCHOLARSHIPS TOP CARD ================== */
-    .scholarships-top-card {
-      background: #FFE3B6; /* same as header */
-      width: 100vw;
-      padding: 40px 20px;
-      text-align: center;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      left: 50%;
-      position: relative;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .scholarships-top-card h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: #802528;
-      margin-bottom: 12px;
-    }
-
-    .scholarships-top-card p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
-      color: #802528;
-      opacity: 0.95;
-      margin-bottom: 20px;
-    }
-
-    .scholarships-top-card .card-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    /* Buttons */
-    .scholarships-top-card .btn {
-      padding: 12px 28px;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-    }
-
-    /* Download Application — darker yellow */
-    .scholarships-top-card .download-btn {
-      background: #d8a300;
-      color: #fff;
-    }
-
-    .scholarships-top-card .download-btn:hover {
-      background: #b37a00;
-    }
-
-    /* Apply by Email — red same as header */
-    .scholarships-top-card .apply-btn {
-      background: #b43b4b;
-      color: #fff;
-    }
-
-    .scholarships-top-card .apply-btn:hover {
-      background: #802528;
-    }
+   
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -474,117 +409,119 @@ Together, we work to end violence against women and uplift those in need — mak
 </section>
 
 
-    <!-- SCHOLARSHIPS -->
-    <section id="page-scholarships" class="page hidden">
+  <!-- SCHOLARSHIPS -->
+<section id="page-scholarships" class="page hidden">
 
-      <!-- SCHOLARSHIPS HEADER -->
-      <div class="scholarships-header">
-        <h1>Scholarships</h1>
-        <p>We’ve proven over the years that by working together across political and social boundaries, we can make a difference!</p>
+  <!-- SCHOLARSHIPS HEADER -->
+  <div class="scholarships-header">
+    <h1>SCHOLARSHIPS</h1>
+    <p>We’ve proven over the years that by working together across political and social boundaries, we can make a difference!</p>
+  </div>
+
+  <!-- YELLOW BACKGROUND (ATTACHED TO HEADER + BOTTOM CARD) -->
+  <div class="scholarship-gallery-bg">
+
+    <section class="scholarship-section">
+
+      <!-- SCHOLARSHIP 1 -->
+      <div class="scholarship-row">
+        <div class="mini-carousel">
+          <button class="mini-prev">&#10094;</button>
+          <div class="mini-carousel-inner">
+            <img src="images/YWLAcarousel1.jpg" alt="Scholarship 1 Image 1" data-caption="YWPA Scholarship — Empowering women in science and engineering.">
+            <img src="images/Scholarship2.jpeg" alt="Scholarship 1 Image 2" data-caption="YWPA Scholarship — Lab work experience.">
+            <img src="images/Scholarship3.jpg" alt="Scholarship 1 Image 3" data-caption="YWPA Scholarship — Networking events.">
+          </div>
+          <div class="mini-caption">Young Woman in Public Affairs — Empowering women in science and engineering.</div>
+          <button class="mini-next">&#10095;</button>
+        </div>
+        <div class="scholarship-info">
+          <h3 class="scholarship-title">Zonta Young Women in Leadership Award</h3>
+          <p>This scholarship supports students pursuing degrees in science, technology, engineering, or mathematics.</p>
+        </div>
+          <div class="scholarship-action">
+          <a href="https://www.zonta.org/Web/Web/Programs/Education/Zonta_Young_Women_in_Leadership_Award.aspx?hkey=95bdfa33-5efe-457e-b3bb-9e9e59500161" class="info-btn" target="_blank">More Info</a>
+      </div>
       </div>
 
-      <section class="scholarship-section">
-<!-- SCHOLARSHIP 1 -->
-<div class="scholarship-row">
-  <div class="mini-carousel">
-    <button class="mini-prev">&#10094;</button>
-    <div class="mini-carousel-inner">
-      <img src="images/YWLAcarousel1.jpg" alt="Scholarship 1 Image 1" data-caption="YWPA Scholarship — Empowering women in science and engineering.">
-      <img src="images/Scholarship2.jpeg" alt="Scholarship 1 Image 2" data-caption="YWPA Scholarship — Lab work experience.">
-      <img src="images/Scholarship3.jpg" alt="Scholarship 1 Image 3" data-caption="YWPA Scholarship — Networking events.">
+      <!-- SCHOLARSHIP 2 -->
+      <div class="scholarship-row">
+        <div class="mini-carousel">
+          <button class="mini-prev">&#10094;</button>
+          <div class="mini-carousel-inner">
+            <img src="images/STEMawardCarousel1.png" alt="Scholarship 2 Image 1" data-caption="Women in Business Award — Leadership in entrepreneurship.">
+            <img src="images/YWLAcarousel2.jpg" alt="Scholarship 2 Image 2" data-caption="Women in Business Award — Networking events.">
+            <img src="images/Scholarship4.jpg" alt="Scholarship 2 Image 3" data-caption="Women in Business Award — Mentorship programs.">
+          </div>
+          <div class="mini-caption">Women in Business Award — Leadership in entrepreneurship.</div>
+          <button class="mini-next">&#10095;</button>
+        </div>
+        <div class="scholarship-info">
+          <h3 class="scholarship-title">Zonta Women in STEM Award</h3>
+          <p>Awarded to students demonstrating leadership and interest in entrepreneurship or business careers.</p>
+       </div>
+          <div class="scholarship-action">
+          <a href="https://www.zonta.org/Web/Web/Programs/Education/Zonta_Women_in_STEM_Award.aspx?hkey=93b52ab5-ef2f-401b-8774-b6143ad02da1" class="info-btn" target="_blank">More Info</a>
+      </div>
+      </div>
+
+      <!-- SCHOLARSHIP 3 -->
+      <div class="scholarship-row">
+        <div class="mini-carousel">
+          <button class="mini-prev">&#10094;</button>
+          <div class="mini-carousel-inner">
+            <img src="images/ZWBLcarousel1.png" alt="Scholarship 3 Image 1" data-caption="Community Service Scholarship — Outstanding volunteer work.">
+            <img src="images/Scholarship5.jpg" alt="Scholarship 3 Image 2" data-caption="Community Service Scholarship — Local outreach programs.">
+            <img src="images/Scholarship6.jpg" alt="Scholarship 3 Image 3" data-caption="Community Service Scholarship — Leadership in service.">
+          </div>
+          <div class="mini-caption">Community Service Scholarship — Outstanding volunteer work.</div>
+          <button class="mini-next">&#10095;</button>
+        </div>
+        <div class="scholarship-info">
+          <h3 class="scholarship-title">Zonta Women in Business Leadership Award</h3>
+          <p>Recognizes students with outstanding dedication to volunteer work and public service.</p>
+        </div>
+          <div class="scholarship-action">
+          <a href="https://www.zonta.org/Web/Web/Programs/Education/Zonta_Women_in_Business_Leadership_Award.aspx?hkey=5fb4f07a-f30d-42ad-bb53-7cb802f1eb7c" class="info-btn" target="_blank">More Info</a>
+      </div>
+      </div>
+
+      <!-- SCHOLARSHIP 4 -->
+      <div class="scholarship-row">
+        <div class="mini-carousel">
+          <button class="mini-prev">&#10094;</button>
+          <div class="mini-carousel-inner">
+            <img src="images/ameliaEarthhartCarousel1.png" alt="Scholarship 4 Image 1" data-caption="Arts & Humanities Scholarship — Encouraging cultural exploration.">
+            <img src="images/ameliaEarthhartCarousel2.png" alt="Scholarship 4 Image 2" data-caption="Arts & Humanities Scholarship — Literature and fine arts focus.">
+            <img src="images/ameliaEarthhartCarousel3.png" alt="Scholarship 4 Image 3" data-caption="Arts & Humanities Scholarship — Creative expression opportunities.">
+          </div>
+          <div class="mini-caption">Arts & Humanities Scholarship — Encouraging cultural exploration.</div>
+          <button class="mini-next">&#10095;</button>
+        </div>
+        <div class="scholarship-info">
+          <h3 class="scholarship-title">Amelia Earhart Fellowship</h3>
+          <p>Supports students studying the fine arts, literature, history, or cultural studies.</p>
+        </div>
+          <div class="scholarship-action">
+          <a href="https://www.zonta.org/Web/Web/Programs/Education/Amelia_Earhart_Fellowship.aspx?hkey=87230eef-bcc2-4e78-97bc-97f0cdd281ac" class="info-btn" target="_blank">More Info</a>
+      </div>
+      </div>
+
+  
+  </div> <!-- END OF YELLOW BACKGROUND -->
+
+  <!-- TOP CARD (EDGE-TO-EDGE) -->
+  <div class="top-card scholarships-top-card">
+    <h2>Get More Information</h2>
+    <p>Learn about current scholarship opportunities, eligibility, and how to apply.</p>
+    <div class="card-buttons">
+      <button class="btn download-btn" id="downloadAppBtn">Call Us</button>
+      <a class="btn apply-btn" href="#" id="applyOnlineBtn">Email Us</a>
     </div>
-    <div class="mini-caption">Young Woman in Public Affairs — Empowering women in science and engineering.</div>
-    <button class="mini-next">&#10095;</button>
   </div>
-  <div class="scholarship-info">
-    <h3 class="scholarship-title">Young Women in Public Affairs</h3>
-    <p>This scholarship supports students pursuing degrees in science, technology, engineering, or mathematics.</p>
-  </div>
-  <div class="scholarship-action">
-    <button class="info-btn">More Info</button>
-  </div>
-</div>
-
-<!-- SCHOLARSHIP 2 -->
-<div class="scholarship-row">
-  <div class="mini-carousel">
-    <button class="mini-prev">&#10094;</button>
-    <div class="mini-carousel-inner">
-      <img src="images/STEMawardCarousel1.png" alt="Scholarship 2 Image 1" data-caption="Women in Business Award — Leadership in entrepreneurship.">
-      <img src="images/YWLAcarousel2.jpg" alt="Scholarship 2 Image 2" data-caption="Women in Business Award — Networking events.">
-      <img src="images/Scholarship4.jpg" alt="Scholarship 2 Image 3" data-caption="Women in Business Award — Mentorship programs.">
-    </div>
-    <div class="mini-caption">Women in Business Award — Leadership in entrepreneurship.</div>
-    <button class="mini-next">&#10095;</button>
-  </div>
-  <div class="scholarship-info">
-    <h3 class="scholarship-title">Sally Sitta Award</h3>
-    <p>Awarded to students demonstrating leadership and interest in entrepreneurship or business careers.</p>
-  </div>
-  <div class="scholarship-action">
-    <button class="info-btn">More Info</button>
-  </div>
-</div>
-
-<!-- SCHOLARSHIP 3 -->
-<div class="scholarship-row">
-  <div class="mini-carousel">
-    <button class="mini-prev">&#10094;</button>
-    <div class="mini-carousel-inner">
-      <img src="images/ZWBLcarousel1.png" alt="Scholarship 3 Image 1" data-caption="Community Service Scholarship — Outstanding volunteer work.">
-      <img src="images/Scholarship5.jpg" alt="Scholarship 3 Image 2" data-caption="Community Service Scholarship — Local outreach programs.">
-      <img src="images/Scholarship6.jpg" alt="Scholarship 3 Image 3" data-caption="Community Service Scholarship — Leadership in service.">
-    </div>
-    <div class="mini-caption">Community Service Scholarship — Outstanding volunteer work.</div>
-    <button class="mini-next">&#10095;</button>
-  </div>
-  <div class="scholarship-info">
-    <h3 class="scholarship-title">Young Women in Public Affairs</h3>
-    <p>Recognizes students with outstanding dedication to volunteer work and public service.</p>
-  </div>
-  <div class="scholarship-action">
-    <button class="info-btn">More Info</button>
-  </div>
-</div>
-
-<!-- SCHOLARSHIP 4 -->
-<div class="scholarship-row">
-  <div class="mini-carousel">
-    <button class="mini-prev">&#10094;</button>
-    <div class="mini-carousel-inner">
-      <img src="images/ameliaEarthhartCarousel1.png" alt="Scholarship 4 Image 1" data-caption="Arts & Humanities Scholarship — Encouraging cultural exploration.">
-      <img src="images/ameliaEarthhartCarousel2.png" alt="Scholarship 4 Image 2" data-caption="Arts & Humanities Scholarship — Literature and fine arts focus.">
-      <img src="images/ameliaEarthhartCarousel3.png" alt="Scholarship 4 Image 3" data-caption="Arts & Humanities Scholarship — Creative expression opportunities.">
-    </div>
-    <div class="mini-caption">Arts & Humanities Scholarship — Encouraging cultural exploration.</div>
-    <button class="mini-next">&#10095;</button>
-  </div>
-  <div class="scholarship-info">
-    <h3 class="scholarship-title">Amelia Earhart</h3>
-    <p>Supports students studying the fine arts, literature, history, or cultural studies.</p>
-  </div>
-  <div class="scholarship-action">
-    <button class="info-btn">More Info</button>
-  </div>
-</div>
-
-
 
 </section>
 
-
-
-      <!-- TOP CARD (EDGE-TO-EDGE) -->
-      <div class="top-card scholarships-top-card">
-        <h2>Get More Information</h2>
-        <p>Learn about current scholarship opportunities, eligibility, and how to apply.</p>
-        <div class="card-buttons">
-          <button class="btn download-btn" id="downloadAppBtn">Virtual Assistant</button>
-          <a class="btn apply-btn" href="#" id="applyOnlineBtn">Contact Us</a>
-        </div>
-      </div>
-
-    </section>
 
     <!-- MEMBERSHIP -->
     <section id="page-membership" class="page hidden">
