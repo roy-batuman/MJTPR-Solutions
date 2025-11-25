@@ -1413,6 +1413,14 @@ footer .container {
   perspective: 1200px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.flip-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* centers ALL rows */
+  gap: 40px;
+  margin-top: 30px;
+}
+
 
 .flip-card-inner {
   width: 100%;
