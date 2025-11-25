@@ -349,6 +349,52 @@ document.addEventListener("scroll", () => {
     }
   });
 });
+/* -----------------------------
+ OUR MISSION SLIDESHOW LOGIC
+------------------------------ */
+
+let missionSlideIndex = 0;
+const missionSlides = document.querySelectorAll(".mission-slides img");
+const dots = document.querySelectorAll(".mission-dots .dot");
+
+function showMissionSlide(n) {
+  missionSlides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+  });
+
+  missionSlides[n].classList.add("active");
+  dots[n].classList.add("active");
+}
+
+function nextMissionSlide() {
+  missionSlideIndex = (missionSlideIndex + 1) % missionSlides.length;
+  showMissionSlide(missionSlideIndex);
+}
+
+function prevMissionSlide() {
+  missionSlideIndex =
+    (missionSlideIndex - 1 + missionSlides.length) % missionSlides.length;
+  showMissionSlide(missionSlideIndex);
+}
+
+// Auto-play
+setInterval(nextMissionSlide, 5000);
+
+// Buttons
+document.querySelector(".mission-next").addEventListener("click", nextMissionSlide);
+document.querySelector(".mission-prev").addEventListener("click", prevMissionSlide);
+
+// Dots
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    missionSlideIndex = i;
+    showMissionSlide(i);
+  });
+});
+
+// Initialize
+showMissionSlide(0);
 
 
 

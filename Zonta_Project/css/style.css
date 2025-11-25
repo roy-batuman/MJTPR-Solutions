@@ -39,6 +39,11 @@ header {
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* BE ABOVE ALL SECTIONS */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -225,6 +230,12 @@ header {
 /* ================================================
   HERO SECTION
 ================================================== */
+.hero {
+  position: relative; 
+  z-index: 1;         /* Must be LOWER than nav */
+  margin-top: 80px;   /* Same height as your nav bar */
+}
+
 .home-hero {
   position: relative !important;
   display: block !important;
@@ -238,7 +249,7 @@ header {
   flex-wrap: wrap;
   overflow: hidden;
   min-height: 70vh;
-  z-index: 999!important;
+  z-index: 1!important;
   margin-bottom: 0 !important;
   padding-bottom: 1rem !important;  /* reduces extra height */
   min-height: auto !important;      /* lets height fit content */
@@ -845,7 +856,7 @@ font-family: 'Cormorant', serif;
 }
 
 /* ================================================
-   FOOTER
+  FOOTER
 ================================================== */
 footer {
   background: var(--primary);
@@ -865,7 +876,7 @@ footer .container {
 }
 
 /* ================================================
-   ANIMATIONS
+  ANIMATIONS
 ================================================== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -1253,17 +1264,14 @@ footer .container {
 }
 
 /* -----------------------------
-   WHO WE ARE – INFORMATION BAR
+  WHO WE ARE – INFORMATION BAR
 --------------------------------*/
 .who-info-bar {
   width: 100%;
   background: linear-gradient(to right, #f8f5ef, #f2e7d8);
   border-left: 6px solid #b48a2c;
   padding: 40px 20px;
-  margin: 30px 0;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* Title */
@@ -1502,5 +1510,177 @@ footer .container {
   font-weight: 400;
   margin: 0;
 }
+/* --- Our Mission Section --- */
+.mission-section {
+  padding: 60px 30px;
+  text-align: center;
+  background: #fff; /* clean separate section */
+  margin-top: 40px;
+  border-top: 1px solid rgba(200, 150, 50, 0.25); /* soft divider */
+}
 
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #b8860b; /* gold accent heading */
+  letter-spacing: 1px;
+}
 
+.mission-text {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* optional subtle fade-in */
+.mission-section {
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-in-out;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+/* ----------------------------- */
+/*   OUR MISSION SLIDE SHOW      */
+/* ----------------------------- */
+
+.mission-slideshow {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.mission-slides img {
+  width: 100%;
+  display: none;
+  border-radius: 12px;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.mission-slides img.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Navigation arrows */
+.mission-prev,
+.mission-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 20, 5, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.mission-prev:hover,
+.mission-next:hover {
+  background: rgba(212, 175, 55, 0.8);
+}
+
+.mission-prev {
+  left: 10px;
+}
+
+.mission-next {
+  right: 10px;
+}
+
+/* Dots */
+.mission-dots {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.mission-dots .dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background 0.4s ease;
+}
+
+.mission-dots .dot.active {
+  background-color: #b8860b; /* gold */
+}
+/* ----------------------------- */
+/*   Mission Section Buttons     */
+/* ----------------------------- */
+.mission-buttons {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.mission-btn {
+  padding: 14px 28px;
+  background: #db7369 ; /* gold */
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.mission-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: #FACA6E;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.mission-btn.donate {
+  background: #F5BD47 ;
+}
+
+.mission-btn.donate:hover {
+  background: #db7369;
+}
+
+/* ----------------------------- */
+/*     Social Media Buttons      */
+/* ----------------------------- */
+.mission-socials {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background: #f8f7f3;
+  border: 2px solid #eebc5f;
+  color: #eebc5f;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: #eebc5f;
+  color: white;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
