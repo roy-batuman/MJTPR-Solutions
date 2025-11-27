@@ -995,6 +995,9 @@ footer .container {
   font-family: "Georgia", serif;
 }
 
+/* ================== SCHOLARSHIP PAGE CSS ================== */
+
+/* SCHOLARSHIPS SECTION */
 .scholarships-section {
   margin-top: 30px;
   margin-bottom: 40px;
@@ -1006,6 +1009,7 @@ footer .container {
   gap: 30px;
   flex-wrap: wrap;
 }
+
 /* Scholarships Page Header Full Width */
 .scholarships-header {
   background: #FFE3B6;
@@ -1044,7 +1048,7 @@ footer .container {
   background: #fff6e8;
   padding: 30px 20px;
   margin: 0 auto;
-  width: 1000px;       /* slightly wider */
+  width: 1000px;
   max-width: 95%;
   box-sizing: border-box;
   border-radius: 12px;
@@ -1055,25 +1059,131 @@ footer .container {
 
 /* CONTENT INSIDE BACKGROUND */
 .scholarship-section {
-  max-width: 950px;    /* match or slightly smaller than bg width */
+  max-width: 950px;
   width: 100%;
   margin: 0 auto;
 }
 
-/* REMOVE BORDER-BOTTOM FOR LAST SCHOLARSHIP ROW */
-.scholarship-row:last-child {
-  border-bottom: none;
+/* ================== SCHOLARSHIP INFO BAR ================== */
+.scholarship-info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  position: relative;
+  padding: 30px 20px 30px 20px;
+  background: linear-gradient(to right, #f8f5ef, #f2e7d8);
+  border-left: 6px solid #b48a2c;
+  border-radius: 8px;
+  gap: 20px;
 }
 
+/* Card wrapper with subtle shadow */
+.scholarship-info-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  border: 3px solid rgba(0,0,0,0.1);
+}
 
+/* INFO BAR TITLE */
+.info-bar-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-.scholarship-row {
-  display: grid;
-  grid-template-columns: 40% 45% 15%;
+.info-bar-title h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #6a4a00;
+}
+
+/* BIG IMAGE */
+.big {
+  width: 45%;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin-right: 20px;
+}
+
+/* RIGHT SIDE CONTAINER */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* TEXT AREA */
+.text-area {
+  max-width: 100%;
+}
+
+.text-area p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  color: #5a4a3a;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* SMALL IMAGES + BUTTON WRAPPER */
+.small-images-wrapper {
+  display: flex;
+  align-items: flex-end;
   gap: 20px;
-  align-items: start;
-  padding: 30px 0;
-  border-bottom: 1px solid #ddd;
+}
+
+/* SMALL IMAGES HORIZONTAL STACK */
+.small-images {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.small-images .small {
+  max-height: 150px;
+  object-fit: contain;
+  border: 2px solid #6a4a00;
+  border-radius: 6px;
+  flex: 1;
+}
+
+/* GET MORE INFO BUTTON */
+.get-info-btn {
+  background-color: #6a4a00;
+  color: #f8f5ef;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.get-info-btn:hover {
+  opacity: 0.85;
+}
+
+/* ================== SCHOLARSHIP ROWS AS HORIZONTAL CARDS ================== */
+.scholarship-row {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(to right, #f8f5ef, #f2e7d8);
+  border-left: 6px solid #b48a2c;
+  border-radius: 8px;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
 .scholarship-row img {
@@ -1086,7 +1196,9 @@ footer .container {
 .scholarship-info {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex: 1;
+  gap: 15px;
 }
 
 .scholarship-info h3 {
@@ -1099,18 +1211,14 @@ footer .container {
 .scholarship-info p {
   margin: 0;
   color: #444;
-  
 }
 
-/* SHIFT MORE INFO BUTTON LEFT */
 .scholarship-action {
   display: flex;
-  align-items: start;
-  justify-content: flex-start; /* changed from end to start */
-  gap: 10px; /* optional spacing if you want multiple buttons */
-  
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
 }
-
 
 .info-btn {
   background: #c1272d;
@@ -1121,8 +1229,6 @@ footer .container {
   cursor: pointer;
   font-size: 0.95rem;
   transition: background 0.3s ease;
-  
-  
 }
 
 .info-btn:hover {
@@ -1166,7 +1272,6 @@ footer .container {
   cursor: pointer;
   z-index: 5;
   user-select: none;
-  
 }
 
 .mini-prev { left: 10px; }
@@ -1180,88 +1285,145 @@ footer .container {
   font-weight: 500;
   border-radius: 6px;
   margin-top: 6px;
-  
 }
 
- /* ================== SCHOLARSHIPS TOP CARD ================== */
-    .scholarships-top-card {
-      background: #FFE3B6; /* same as header */
-      width: 100vw;
-      padding: 40px 20px;
-      text-align: center;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      left: 50%;
-      position: relative;
-      border-radius: 0;
-      box-shadow: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.224);
-      
-      
-    }
+/* ================== SCHOLARSHIPS TOP CARD ================== */
+.scholarships-top-card {
+  background: #FFE3B6;
+  width: 100vw;
+  padding: 40px 20px;
+  text-align: center;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  left: 50%;
+  position: relative;
+  border-radius: 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.224);
+}
 
-    .scholarships-top-card h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #802528;
-      margin-bottom: 12px;
-    }
+.scholarships-top-card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: #802528;
+  margin-bottom: 12px;
+}
 
-    .scholarships-top-card p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
-      color: #802528;
-      opacity: 0.95;
-      margin-bottom: 20px;
-    }
+.scholarships-top-card p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  color: #802528;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
 
-    .scholarships-top-card .card-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.scholarships-top-card .card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    /* Buttons */
-    .scholarships-top-card .btn {
-      padding: 12px 28px;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-    }
+.scholarships-top-card .btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
 
-    /* Download Application — darker yellow */
-    .scholarships-top-card .download-btn {
-      background: #d8a300;
-      color: #fff;
-    }
+.scholarships-top-card .download-btn {
+  background: #d8a300;
+  color: #fff;
+}
 
-    .scholarships-top-card .download-btn:hover {
-      background: #b37a00;
-    }
+.scholarships-top-card .download-btn:hover {
+  background: #b37a00;
+}
 
-    /* Apply by Email — red same as header */
-    .scholarships-top-card .apply-btn {
-      background: #b43b4b;
-      color: #fff;
-    }
+.scholarships-top-card .apply-btn {
+  background: #b43b4b;
+  color: #fff;
+}
 
-    .scholarships-top-card .apply-btn:hover {
-      background: #802528;
-    }
+.scholarships-top-card .apply-btn:hover {
+  background: #802528;
+}
 
-
-
-/* MATCHES YOUR STRUCTURE */
+/* GENERAL MATCH */
 .scholarship-title {
   font-size: 1.2rem;
   color: #c1272d;
   margin: 0 0 6px 0;
-  
 }
+
+/* FADE-IN ANIMATION */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .scholarship-info-bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px 20px 15px;
+    gap: 15px;
+  }
+
+  .big {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .right-side {
+    width: 100%;
+  }
+
+  .small-images-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .small-images {
+    gap: 10px;
+    width: 100%;
+  }
+
+  .small-images .small {
+    width: 50%;
+    height: auto;
+  }
+
+  .get-info-btn {
+    width: auto;
+  }
+
+  .info-bar-title h3 {
+    font-size: 1.65rem;
+  }
+
+  .text-area p {
+    font-size: 1.15rem;
+  }
+
+  .scholarship-row {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
 
 /* -----------------------------
   WHO WE ARE – INFORMATION BAR
