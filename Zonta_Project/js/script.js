@@ -395,7 +395,21 @@ dots.forEach((dot, i) => {
 
 // Initialize
 showMissionSlide(0);
+//Reveal event cards on scroll
+const eventCards = document.querySelectorAll('.event-card');
 
+function revealEvents() {
+  const trigger = window.innerHeight * 0.85;
 
+  eventCards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if (top < trigger) {
+      card.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealEvents);
+revealEvents();
 
 
