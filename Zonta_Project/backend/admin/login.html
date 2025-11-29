@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<div class="login-container">
+  <h1 class="login-title">Admin Login</h1>
+
+  <!-- Email login -->
+  <input id="email" type="email" placeholder="Email" class="login-input">
+  <input id="password" type="password" placeholder="Password" class="login-input">
+  <button id="emailLoginBtn" class="btn gold-btn">Login with Email</button>
+
+  <div class="divider">or</div>
+
+  <!-- OAuth buttons -->
+  <button id="googleBtn" class="btn google-btn">Sign in with Google</button>
+  <button id="appleBtn" class="btn apple-btn">Sign in with Apple</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="login.js"></script>
+</body>
+</html>

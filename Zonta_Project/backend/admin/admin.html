@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Zonta Club of Naples</title>
+
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="images/zonta100yrLogo.png" alt="logo" class="brand-logo">
+        <div class="brand-title">Zonta Admin</div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-tab="dashboard">Dashboard</button>
+        <button class="nav-item" data-tab="events">Events</button>
+        <button class="nav-item" data-tab="scholarships">Scholarships</button>
+        <button class="nav-item" data-tab="members">Members</button>
+        <button class="nav-item" data-tab="announcements">Announcements</button>
+        <div class="spacer"></div>
+        <div id="signedInAs" class="signed-in">Not signed in</div>
+        <div class="auth-controls">
+          <button id="signInBtn" class="btn">Sign In</button>
+          <button id="signOutBtn" class="btn secondary hidden">Sign Out</button>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-left">
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <div class="top-right" id="topActions"></div>
+      </header>
+
+      <section class="content" id="content">
+        <div class="card" id="loginCard">
+          <h2>Sign in to manage content</h2>
+          <p class="notice">Use e-mail (magic link), Google or Apple. Make sure OAuth providers are configured in Supabase.</p>
+
+          <div class="row">
+            <input id="emailInput" class="input" placeholder="you@domain.com" />
+            <button class="btn" id="emailSignIn">Send Magic Link</button>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px;">
+            <button class="btn" id="googleSignIn">Sign in with Google</button>
+            <button class="btn" id="appleSignIn">Sign in with Apple</button>
+          </div>
+
+          <p class="notice" style="margin-top:12px">You must be marked as <code>is_admin = true</code> in the <code>profiles</code> table to access admin features.</p>
+        </div>
+
+        <!-- Admin area – hidden until authorized -->
+        <div id="adminArea" class="hidden">
+          <!-- dynamic content injected here -->
+        </div>
+
+        <div class="card">
+          <h3>Quick Notes</h3>
+          <ul>
+            <li>Create a <code>profiles</code> table: <code>id</code> (uuid/text), <code>is_admin boolean</code>.</li>
+            <li>Make sure your events, scholarships and members tables exist with sensible columns (example schema in admin.js).</li>
+            <li>RLS: allow users to read their own profile; allow writes only to admins (recommended).</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Built for Zonta Club — Admin
+      </footer>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-card card">
+      <h3 id="modalTitle">Form</h3>
+      <div id="modalBody"></div>
+      <div class="center">
+        <button class="btn" id="modalSave">Save</button>
+        <button class="btn secondary" id="modalCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js" type="module"></script>
+</body>
+</html>
