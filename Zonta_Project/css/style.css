@@ -1078,11 +1078,14 @@ footer .container {
 
 /* ================== SCHOLARSHIP PAGE CSS ================== */
 
+
 /* SCHOLARSHIPS SECTION */
 .scholarships-section {
   margin-top: 30px;
   margin-bottom: 40px;
 }
+
+
 
 .scholarship-gallery {
   display: flex;
@@ -1180,6 +1183,7 @@ footer .container {
   border-radius: 8px;
   flex-shrink: 0;
   align-self: stretch;
+  align-items: flex-end;
   margin-right: 20px;
    border: 2px solid #6a4a00;
 }
@@ -1221,7 +1225,7 @@ footer .container {
 }
 
 .small-images .small {
-  max-height: 150px;
+  max-height: 166px;
   object-fit: contain;
   border: 2px solid #6a4a00;
   border-radius: 6px;
@@ -1245,6 +1249,35 @@ footer .container {
 .get-info-btn:hover {
   opacity: 0.85;
 }
+
+
+.scholarship-divider {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* space between lines and title */
+  margin: 50px 0; /* vertical spacing to match scholarship rows */
+}
+
+.scholarship-divider .line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(212, 175, 55, 0.8),
+      transparent
+  );
+}
+
+.scholarship-divider h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  color: rgba(212, 175, 55, 0.95);
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0;
+}
+
 
 /* ================== SCHOLARSHIP ROWS AS HORIZONTAL CARDS ================== */
 
@@ -1283,7 +1316,8 @@ footer .container {
   overflow: hidden;
   border-radius: 10px;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background:none ;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,0.3);
 }
 
 .mini-carousel-inner {
@@ -1331,12 +1365,13 @@ footer .container {
   margin-top: 6px;
   color: #6a4a00;
   font-family: "Montserrat", sans-serif;
-
+  border-color:#6a4a00 ;
   min-height: 3em;       /* ensures enough space for 2 lines */
   line-height: 1.5em;    /* line height */
   display: flex;
   align-items: center;    /* vertically centers single-line captions */
   justify-content: center;
+  box-shadow: #222;
 }
 
 
