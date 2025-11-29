@@ -1,0 +1,64 @@
+body {
+  background: #f7f5f0;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  width: 350px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-title {
+  color: #b89b33;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1c7ae;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 7px;
+}
+
+.gold-btn {
+  background: #c9a43a;
+  color: white;
+}
+
+.google-btn {
+  background: #db4437;
+  color: white;
+}
+
+.apple-btn {
+  background: black;
+  color: white;
+}
+
+.divider {
+  margin: 10px 0;
+  color: #777;
+}
