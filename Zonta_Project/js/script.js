@@ -425,4 +425,181 @@ const observer = new IntersectionObserver((entries) => {
 
 observeElements.forEach(el => observer.observe(el));
 
+// PDF DOWNLOAD BUTTON
+document.getElementById("downloadPDFBtn").addEventListener("click", async () => {
+  const { jsPDF } = window.jspdf;
+
+  const form = document.getElementById("zontaApplicationForm");
+
+  const pdf = new jsPDF("p", "pt", "letter");
+
+  pdf.html(form, {
+    callback: function (pdf) {
+      pdf.save("Zonta_Application.pdf");
+    },
+    x: 20,
+    y: 20,
+    width: 560
+  });
+});
+
+//supabase linkage for pdf
+document.getElementById("zontaApplicationForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const payload = Object.fromEntries(formData.entries());
+  payload.areas = formData.getAll("areas");
+
+  const response = await fetch("https://YOUR_PROJECT_ID.supabase.co/functions/v1/membership-application", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  if (response.ok) {
+    alert("Your application has been submitted!");
+  } else {
+    alert("There was an error submitting your form.");
+  }
+});
+// ================= MEMBERSHIP APPLICATION LOGIC =================
+(function () {
+  const form = document.getElementById("zontaApplicationForm");
+  if (!form) return; // safety
+
+  const errorBox = document.getElementById("appError");
+  const successBox = document.getElementById("appSuccess");
+  const pdfBtn = document.getElementById("downloadPDFBtn");
+  const honeypot = document.getElementById("websiteField");
+
+  function showError(msg) {
+    if (!errorBox) return alert(msg);
+    errorBox.style.display = "block";
+    errorBox.textContent = msg;
+  }
+
+  function showSuccess(msg) {
+    if (!successBox) return alert(msg);
+    successBox.style.display = "block";
+    successBox.textContent = msg;
+  }
+
+  function clearMessages() {
+    if (errorBox) {
+      errorBox.style.display = "none";
+      errorBox.textContent = "";
+    }
+    if (successBox) {
+      successBox.style.display = "none";
+      successBox.textContent = "";
+    }
+    // clear red borders
+    form.querySelectorAll(".error").forEach(el => el.classList.remove("error"));
+  }
+
+  function validateForm() {
+    clearMessages();
+
+    let valid = true;
+    const fullName = form.fullName;
+    const email = form.email;
+    const phone = form.phone;
+    const address = form.address;
+    const occupation = form.occupation;
+    const reason = form.reason;
+
+    const requiredFields = [fullName, email, phone, address, occupation, reason];
+
+    requiredFields.forEach(f => {
+      if (!f.value.trim()) {
+        valid = false;
+        f.classList.add("error");
+      }
+    });
+
+    const emailVal = email.value.trim();
+    if (emailVal && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailVal)) {
+      valid = false;
+      email.classList.add("error");
+      showError("Please enter a valid email address.");
+      return false;
+    }
+
+    if (!valid) {
+      showError("Please fill in all required fields.");
+    }
+
+    return valid;
+  }
+
+  // Submit handler
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearMessages();
+
+    // Honeypot check (bots)
+    if (honeypot && honeypot.value.trim() !== "") {
+      // Pretend success, but do nothing.
+      showSuccess("Thank you! Your application has been received.");
+      form.reset();
+      return;
+    }
+
+    if (!validateForm()) return;
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload.areas = formData.getAll("areas");
+
+    try {
+      const res = await fetch(
+        "https://YOUR_PROJECT_ID.supabase.co/functions/v1/membership-application",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!res.ok) {
+        showError("There was an error submitting your application. Please try again.");
+        return;
+      }
+
+      showSuccess("Your application has been submitted successfully!");
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      showError("Network error. Please try again.");
+    }
+  });
+
+  // PDF Download button
+  if (pdfBtn) {
+    pdfBtn.addEventListener("click", async () => {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF("p", "pt", "letter");
+
+      // Clone form so we don't show buttons in a weird way
+      const clone = form.cloneNode(true);
+      clone.querySelectorAll("button").forEach(btn => btn.remove());
+      // put in temp container
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "20px";
+      wrapper.appendChild(clone);
+
+      await pdf.html(wrapper, {
+        callback: (doc) => {
+          doc.save("Zonta_Membership_Application.pdf");
+        },
+        x: 20,
+        y: 20,
+        width: 560,
+        windowWidth: 800
+      });
+    });
+  }
+})();
+
 
