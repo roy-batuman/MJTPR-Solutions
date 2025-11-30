@@ -412,4 +412,17 @@ function revealEvents() {
 window.addEventListener('scroll', revealEvents);
 revealEvents();
 
+//Scroll Animation 
+const observeElements = document.querySelectorAll(".fade-in-section");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+});
+
+observeElements.forEach(el => observer.observe(el));
+
 

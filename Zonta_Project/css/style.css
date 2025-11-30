@@ -2005,3 +2005,278 @@ footer .container {
   transform: translateY(-4px) scale(1.08);
   box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
+/* -----------------------------
+    MEMBERSHIP PAGE
+------------------------------*/
+
+/* Header */
+.membership-header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 40px;
+  padding: 40px 20px;
+}
+
+.membership-title {
+  font-size: 3rem;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.gold-accent {
+  color: #b8860b;
+  font-weight: 600;
+}
+
+.membership-subtext {
+  font-size: 1.15rem;
+  color: #5a4a3a;
+  line-height: 1.6;
+}
+
+/* Intro Section */
+.membership-intro {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  padding: 20px;
+  align-items: center;
+}
+
+.membership-img img {
+  width: 100%;
+  border-radius: 14px;
+  border: 2px solid rgba(212,175,55,0.6);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.membership-text h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #7a5a1a;
+  font-family: "Playfair Display", serif;
+}
+
+.membership-text p {
+  font-size: 1.15rem;
+  color: #4d3b29;
+  line-height: 1.6;
+}
+
+.membership-list {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  color: #444;
+  list-style: none;
+  padding-left: 0;
+}
+
+.membership-list li {
+  margin-bottom: 8px;
+}
+
+/* Benefits */
+.membership-benefits {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.benefits-title {
+  font-size: 2.2rem;
+  color: #b8860b;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 25px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  background: #fefbf5;
+  padding: 24px 20px;
+  border-radius: 14px;
+  border: 2px solid rgba(212,175,55,0.5);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: all 0.35s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,0.85);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* Apply Section */
+.membership-apply {
+  text-align: center;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px 20px;
+}
+
+.apply-title {
+  font-size: 2.2rem;
+  color: #b8860b;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 10px;
+}
+
+.apply-text {
+  font-size: 1.15rem;
+  color: #4d3b29;
+  margin-bottom: 25px;
+}
+
+.apply-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.gold-btn {
+  background: #b8860b;
+  color: white;
+}
+
+.outline-btn {
+  border: 2px solid #b8860b;
+  color: #b8860b;
+  background: transparent;
+}
+
+.apply-note {
+  margin-top: 18px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Fade animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s ease-out;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .membership-intro {
+    grid-template-columns: 1fr;
+  }
+}
+/* ------------------------------
+   Z-Club & Golden Z Club Section
+--------------------------------*/
+.zclub-section {
+  padding: 60px 20px;
+  margin-top: 40px;
+  text-align: center;
+  background: #fffdf9;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.zclub-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #7c131c;
+  margin-bottom: 15px;
+}
+
+.zclub-title .gold-accent {
+  color: #b38b2b;
+  font-family: "Great Vibes", cursive;
+  font-size: 3.2rem;
+  margin-right: 8px;
+}
+
+.zclub-description {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Grid layout */
+.zclub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.zclub-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.zclub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+}
+
+.zclub-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.zclub-card h3 {
+  font-size: 1.4rem;
+  color: #7c131c;
+  margin-bottom: 10px;
+}
+
+.zclub-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Button */
+.zclub-button-wrapper {
+  margin-top: 35px;
+}
+
+.zclub-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #b38b2b;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all .3s ease;
+}
+
+.zclub-btn:hover {
+  background: #a17922;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(179, 139, 43, 0.4);
+}
