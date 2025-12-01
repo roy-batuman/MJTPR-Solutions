@@ -4,43 +4,34 @@
  ******************************************************/
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Fade-in for flyers & other fade-in elements =====
-(function () {
-  const items = document.querySelectorAll(".fade-in");
-  if (!items || items.length === 0) return; // nothing to do
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.25 });
+  // ===== FADE-IN ELEMENTS =====
+  (function () {
+    const items = document.querySelectorAll(".fade-in, .fade-in-section");
+    if (!items || items.length === 0) return;
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    items.forEach(el => observer.observe(el));
+  })();
 
-  items.forEach(el => observer.observe(el));
-})();
-
-  /* =========================================================
-     HAMBURGER MENU
-  ========================================================= */
+  // ===== HAMBURGER MENU =====
   const menuBtn = document.querySelector(".menu-btn");
   const navLinks = document.querySelector(".nav-links");
-
   if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
+    menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
   }
 
-  /* =========================================================
-     CAROUSEL (HOME)
-  ========================================================= */
+  // ===== CAROUSEL =====
   const slides = document.querySelectorAll(".carousel img");
-  if (slides.length > 0) {
+  if (slides.length) {
     let current = 0;
     slides[current].classList.add("active");
-
     setInterval(() => {
       slides[current].classList.remove("active");
       current = (current + 1) % slides.length;
@@ -48,50 +39,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 4000);
   }
 
-  /* =========================================================
-     SINGLE-PAGE NAVIGATION (TABS)
-  ========================================================= */
-  const navButtons = document.querySelectorAll("[data-nav]");
+  // ===== SINGLE-PAGE NAVIGATION =====
   const pages = document.querySelectorAll(".page");
+  const navButtons = document.querySelectorAll("[data-nav]");
 
-  function showPage(name) {
-    pages.forEach((p) => p.classList.add("hidden"));
-    const el = document.getElementById("page-" + name);
-    if (el) el.classList.remove("hidden");
-
-    // Update hash for history/back button support
-    window.location.hash = name;
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  function hideAllPages() {
+    pages.forEach(p => p.style.display = "none");
   }
 
-  // Attach navigation listeners
-  navButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+  function showPage(name) {
+    hideAllPages();
+    const el = document.getElementById("page-" + name);
+    if (el) el.style.display = "block";
+    window.location.hash = name;
+    window.scrollTo({ top: 0 });
+  }
+
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
       e.preventDefault();
-      const target = btn.getAttribute("data-nav");
-      showPage(target);
-      if (navLinks.classList.contains("show")) navLinks.classList.remove("show"); // close mobile menu
+      showPage(btn.getAttribute("data-nav"));
+      if (navLinks && navLinks.classList.contains("show")) navLinks.classList.remove("show");
     });
   });
 
-  // Handle initial page load
   const initialPage = window.location.hash.replace("#", "") || "home";
   showPage(initialPage);
 
-  // Listen for hash changes
   window.addEventListener("hashchange", () => {
     const page = window.location.hash.replace("#", "");
     showPage(page);
   });
 
-  /* =========================================================
-     HERO BUTTONS
-  ========================================================= */
+  // ===== HERO BUTTONS =====
   const joinBtn = document.getElementById("joinBtn");
-  const donateBtn = document.getElementById("donateBtn");
   const heroJoin = document.getElementById("heroJoin");
+  const donateBtn = document.getElementById("donateBtn");
   const heroDonate = document.getElementById("heroDonate");
 
   if (joinBtn) joinBtn.addEventListener("click", () => showPage("membership"));
@@ -99,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (donateBtn) donateBtn.addEventListener("click", openDonate);
   if (heroDonate) heroDonate.addEventListener("click", openDonate);
 
+ 
   
   /* =========================================================
      MEMBERSHIP FORM
@@ -601,5 +585,35 @@ document.getElementById("zontaApplicationForm").addEventListener("submit", async
     });
   }
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const shopPage = document.getElementById("page-shop");
+  const shopContainer = document.getElementById("shopContainer");
+
+  const products = [
+    { name: "T-Shirt", price: 25.00, img: "tshirt.jpg" },
+    { name: "Mug", price: 12.50, img: "mug.jpg" },
+    { name: "Hat", price: 18.00, img: "hat.jpg" }
+  ];
+
+  products.forEach(p => {
+    const div = document.createElement("div");
+    div.style.width = "150px";
+    div.style.textAlign = "center";
+    div.innerHTML = `
+      <img src="${p.img}" alt="${p.name}" style="width:100%;">
+      <h3>${p.name}</h3>
+      <p>$${p.price.toFixed(2)}</p>
+      <button>Add to Cart</button>
+    `;
+    div.querySelector("button").addEventListener("click", () => {
+      alert(`${p.name} added to cart!`);
+    });
+    shopContainer.appendChild(div);
+  });
+
+});
+
 
 

@@ -39,9 +39,10 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
 
 <body>
   <!-- HEADER -->
@@ -61,8 +62,9 @@
           <a href="#" data-nav="who">Who We Are</a>
           <a href="#" data-nav="scholarships">Scholarships</a>
           <a href="#" data-nav="membership">Membership</a>
-          <a href="#" data-nav="store">Store</a>
           <a href="#" data-nav="contact">Contact</a>
+          <a href="#" data-nav="shop">Store</a>
+
         </nav>
         <div class="nav-right">
           <a class="cta" href="#" id="donateBtn">Donate</a>
@@ -228,7 +230,7 @@ Together, we work to end violence against women and uplift those in need — mak
     </section>
 
   <!-- WHO WE ARE -->
-<section id="page-who" class="page hidden">
+<section id="page-who" class="page">
 <section class="who-header fade-in-section">
   <h1 class="who-title">
     <span class="cursive">Who</span> We Are
@@ -509,7 +511,7 @@ Together, we work to end violence against women and uplift those in need — mak
 </section>
 
   <!-- SCHOLARSHIPS -->
-<section id="page-scholarships" class="page hidden">
+<section id="page-scholarships" class="page">
 
   <!-- SCHOLARSHIPS HEADER -->
   <section class="who-header fade-in-section">
@@ -873,83 +875,16 @@ Together, we work to end violence against women and uplift those in need — mak
   </form>
 </section>
 
+<div id="page-shop" class="page" style="display:none;">
+  <h2>Shop Our Items</h2>
+  <div id="shopContainer" style="display:flex; gap:20px; flex-wrap:wrap;"></div>
+</div>
+
+
 </section>
 
-
-    <!-- STORE -->
-    <section id="page-store" class="page hidden">
-      <div class="card">
-        <h2>Fundraiser & Store</h2>
-        <p>Buy event tickets or merchandise.</p>
-      </div>
-
-    <!-- SCHOLARSHIP GALLERY -->
-      <div class="scholarships-section">
-        <div class="scholarship-gallery">
-
-          <div class="flip-card top">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/Scholarship1.jpeg" alt="">
-                <div class="caption">Scholarship 1</div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Scholarship 1</h3>
-                <p>This scholarship empowers students with strong leadership and academic courage.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flip-card middle">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <div class="caption caption-top">Featured Scholarship</div>
-                <img src="images/Scholarship2.jpeg" alt="">
-              </div>
-              <div class="flip-card-back">
-                <h3>Featured Scholarship</h3>
-                <p>This award supports bold students who show vision, integrity, and perseverance.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flip-card top">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/Scholarship3.jpg" alt="">
-                <div class="caption">Scholarship 3</div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Scholarship 3</h3>
-                <p>An encouragement grant for students committed to service and excellence.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="flip-card top">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="images/Scholarship4.jpg" alt="">
-                <div class="caption">Scholarship 4</div>
-              </div>
-                <div class="flip-card-back">
-                <h3>Scholarship 4</h3>
-                <p>This scholarship supports students with exceptional community service and academic achievement.</p>
-                </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-    
-
-
-    </section>
-
     <!-- CONTACT -->
-    <section id="page-contact" class="page hidden">
+    <section id="page-contact" class="page">
       <div class="card">
         <h2>Contact</h2>
         <p class="muted">Questions? Contact us at <a href="mailto:info@zontanaples.org">info@zontanaples.org</a>.</p>

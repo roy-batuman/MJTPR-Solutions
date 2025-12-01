@@ -2405,3 +2405,197 @@ input.error, textarea.error {
     padding: 40px 16px;
   }
 }
+
+/* ----------------------------
+  GENERAL STORE STYLING
+---------------------------- */
+.page {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.store-header {
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.store-header.visible {
+  opacity: 1;
+}
+
+.store-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.store-title .cursive {
+  font-family: 'Cursive', sans-serif;
+}
+
+.store-subtext {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ----------------------------
+  SECTION DIVIDER
+---------------------------- */
+.section-divider-store {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.section-divider-store .line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.section-divider-store h2 {
+  margin: 0 15px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* ----------------------------
+  STORE ROW
+---------------------------- */
+.store-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  gap: 20px;
+  align-items: center;
+}
+
+.store-info {
+  flex: 1 1 300px;
+}
+
+.store-item-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.store-action {
+  flex: 0 0 120px;
+}
+
+.info-btn {
+  display: inline-block;
+  background-color: #7c1f27;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.info-btn:hover {
+  background-color: #f4be57;
+  color: #000;
+}
+
+/* ----------------------------
+  MINI-CAROUSEL
+---------------------------- */
+.mini-carousel {
+  position: relative;
+  flex: 1 1 300px;
+  overflow: hidden;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.mini-carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.mini-carousel img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.mini-caption {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.mini-prev,
+.mini-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(124, 31, 39, 0.7);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.mini-prev:hover,
+.mini-next:hover {
+  background-color: rgba(244, 190, 87, 0.9);
+  color: #000;
+}
+
+.mini-prev {
+  left: 10px;
+}
+
+.mini-next {
+  right: 10px;
+}
+
+/* ----------------------------
+  RESPONSIVE
+---------------------------- */
+@media (max-width: 768px) {
+  .store-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .store-info, .store-action, .mini-carousel {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .mini-prev, .mini-next {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ----------------------------
+  FADE-IN SECTION
+---------------------------- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
