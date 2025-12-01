@@ -2690,3 +2690,232 @@ input.error, textarea.error {
 .btn-buy:hover {
   background:#5f1820;
 }
+/* =========================================================
+   ZONTA STORE — STYLING
+========================================================= */
+
+.store-intro {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.store-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  color: #7c131c;
+}
+
+.store-title .gold-accent {
+  font-family: "Great Vibes", cursive;
+  color: #c9a33a;
+  font-size: 3.3rem;
+}
+
+.store-subtext {
+  max-width: 850px;
+  margin: 10px auto;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Toolbar */
+.store-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff7ea;
+  padding: 14px 20px;
+  border-radius: 14px;
+  margin-top: 10px;
+  border: 1px solid rgba(201,163,58,0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.store-tagline {
+  display: flex;
+  align-items: center;
+  font-size: .95rem;
+  color: #744219;
+  gap: 10px;
+}
+
+.cart-toggle-btn {
+  display: flex; gap: 8px; align-items: center;
+  background: #7c131c; color: #fff;
+  padding: 8px 18px; border-radius: 999px;
+  border: none; cursor: pointer;
+  font-weight: 600;
+}
+
+.cart-count-badge {
+  background: #f4be57;
+  color: #7c131c;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: .75rem;
+}
+
+/* Products Grid */
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  padding: 30px 0 80px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  padding: 12px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-img-wrap {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #7c131c;
+  margin-top: 8px;
+}
+
+.product-description {
+  font-size: .95rem;
+  color: #666;
+  min-height: 45px;
+}
+
+.product-footer-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.product-price {
+  color: #c9a33a;
+  font-weight: 700;
+}
+
+.add-cart-btn, .more-info-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: .85rem;
+}
+
+.add-cart-btn { background: #7c131c; color: white; }
+.more-info-btn { background: #fff2d6; color: #7c131c; }
+
+/* Cart Panel */
+.cart-panel {
+  position: fixed;
+  top: 0; right: -400px;
+  width: 340px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+  z-index: 5000;
+  padding: 18px;
+  transition: .3s ease;
+}
+.cart-panel.open { right: 0; }
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-body { overflow-y: auto; height: calc(100vh - 200px); }
+
+.cart-items { margin-top: 10px; }
+.cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 10px 0; }
+
+.cart-total-row {
+  display: flex; justify-content: space-between;
+  font-weight: 600;
+}
+
+.cart-checkout-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 999px;
+  background: #e18431;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Modal */
+.overlay-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.35);
+  visibility: hidden; opacity: 0;
+  transition: .3s;
+  z-index: 4000;
+}
+
+.overlay-backdrop.show {
+  visibility: visible; opacity: 1;
+}
+
+.product-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 6000;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-modal.open { display: flex; }
+
+.product-modal-inner {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 750px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.product-modal-content {
+  display: flex;
+  gap: 20px;
+}
+
+.product-modal-image {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product-modal-info h2 { color: #7c131c; }
+.product-modal-price { color: #c9a33a; font-weight: 700; }
+
+.product-modal-add-btn {
+  background: #7c131c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}

@@ -876,56 +876,107 @@ Together, we work to end violence against women and uplift those in need — mak
 </section>
 </section>
 </section>
-<!-- STORE -->
 
-<div id="page-shop" class="page">
-  <header class="store-header fade-in">
-    <h1 class="store-title">Zonta Club of Naples Store</h1>
-    <p class="store-subtitle">
-      100% of proceeds support scholarships, community outreach, and advocacy programs that
-      empower women and girls in Collier County.
+<!-- ================================
+   STORE PAGE — Zonta Club of Naples
+================================ -->
+<section id="page-store" class="page hidden">
+
+  <!-- INTRO -->
+  <div class="store-intro fade-in-section">
+    <h1 class="store-title">
+      <span class="gold-accent">Zonta</span> Store & Fundraiser
+    </h1>
+    <p class="store-subtext">
+      Every purchase directly supports our mission to empower women and girls locally and globally.
+      Funds raised help provide scholarships, advocacy programs, and community service efforts.
     </p>
-  </header>
+  </section>
 
-  <section class="store-container fade-in-section">
-    <div class="product-grid">
+  <!-- TOOLBAR -->
+  <div class="store-toolbar">
+    <div class="store-tagline">
+      <i class="fas fa-hand-holding-heart"></i>
+      Your purchase supports women & girls in Collier County.
+    </div>
+    <button id="openCartBtn" class="cart-toggle-btn">
+      <i class="fas fa-shopping-bag"></i>
+      <span>View Cart</span>
+      <span id="cartCount" class="cart-count-badge">0</span>
+    </button>
+  </div>
 
-      <!-- PRODUCT CARD 1 -->
-      <div class="product-card fade-in">
-        <img src="images/sample_product_1.jpg" alt="Zonta Tote Bag">
-        <h3>Zonta Tote Bag</h3>
-        <p class="price">$25</p>
-        <p class="description">
-          Durable, elegant, and perfect for everyday use — featuring the Zonta emblem.
-        </p>
-        <button class="btn-buy">Learn More</button>
+  <!-- PRODUCTS GRID -->
+  <section class="store-grid-section fade-in-section">
+    <div id="productsContainer" class="store-grid"></div>
+  </section>
+
+  <!-- CART SLIDE-OUT PANEL -->
+  <aside id="cartPanel" class="cart-panel">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCartBtn" class="cart-close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <div id="cartItemsContainer" class="cart-items"></div>
+      <div id="cartEmptyMessage" class="cart-empty-message">
+        Your cart is empty.
       </div>
+    </div>
 
-      <!-- PRODUCT CARD 2 -->
-      <div class="product-card fade-in">
-        <img src="images/sample_product_2.jpg" alt="Anniversary Pin">
-        <h3>100-Year Anniversary Pin</h3>
-        <p class="price">$15</p>
-        <p class="description">A beautiful commemorative pin celebrating Zonta’s legacy.</p>
-        <button class="btn-buy">Learn More</button>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
       </div>
+      <button id="checkoutBtn" class="cart-checkout-btn">
+        Proceed to Checkout
+      </button>
+      <p class="cart-note">
+        Payments processed securely (Stripe, Apple Pay, Google Pay).
+      </p>
+    </div>
+  </aside>
 
-      <!-- PRODUCT CARD 3 -->
-      <div class="product-card fade-in">
-        <img src="images/sample_product_3.jpg" alt="Zonta T-Shirt">
-        <h3>Zonta T-Shirt</h3>
-        <p class="price">$20</p>
-        <p class="description">
-          Soft cotton shirt with the official Zonta branding. Multiple sizes available.
-        </p>
-        <button class="btn-buy">Learn More</button>
+  <!-- OVERLAY BACKDROP -->
+  <div id="overlayBackdrop" class="overlay-backdrop"></div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="productModal" class="product-modal">
+    <div class="product-modal-inner">
+      <button id="closeModalBtn" class="modal-close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="product-modal-content">
+        <div class="product-modal-image-wrap">
+          <img id="modalProductImage" class="product-modal-image" src="" alt="">
+        </div>
+        <div class="product-modal-info">
+          <h2 id="modalProductName"></h2>
+          <p id="modalProductPrice" class="product-modal-price">$0.00</p>
+          <p id="modalProductDescription" class="product-modal-description"></p>
+          <div class="product-modal-meta">
+            <span id="modalProductTag"></span>
+          </div>
+
+          <div class="product-modal-actions">
+            <label class="qty-label">
+              Quantity:
+              <input id="modalProductQty" type="number" min="1" value="1">
+            </label>
+            <button id="modalAddToCartBtn" class="product-modal-add-btn">Add to Cart</button>
+          </div>
+        </div>
       </div>
 
     </div>
-  </section>
+  </div>
+
 </div>
-
-
 
 </section>
 

@@ -1,64 +1,348 @@
-body {
-  background: #f7f5f0;
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* ============================================================
+   ZONTA ADMIN PANEL — Elegant Dashboard Styling
+   Colors: Burgundy, Soft Gold, Warm Beige
+   Typography: Poppins / Callisto MT / System fallback
+=============================================================== */
+
+:root {
+  --brand: #7c1f27;
+  --brand-dark: #5c121b;
+  --gold: #f4be57;
+  --cream: #fdf8f0;
+  --text: #333;
+  --gray: #777;
+  --light-gray: #eaeaea;
+
+  --radius: 12px;
+  --shadow: 0 4px 14px rgba(0,0,0,0.12);
+  --transition: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
-.login-container {
-  width: 350px;
-  background: white;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+html, body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: "Poppins", "Montserrat", "Segoe UI", sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   LAYOUT WRAPPER
+=============================================================== */
+
+#app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR
+=============================================================== */
+
+.sidebar {
+  width: 260px;
+  background: var(--brand);
+  color: white;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 18px rgba(0,0,0,0.15);
+}
+
+.brand {
   text-align: center;
+  margin-bottom: 35px;
 }
 
-.login-title {
-  color: #b89b33;
-  font-size: 28px;
-  margin-bottom: 20px;
-  font-family: "Playfair Display", serif;
+.brand-logo {
+  width: 85px;
+  height: auto;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
 }
 
-.login-input {
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff5e9;
+}
+
+/* Sidebar nav items */
+.nav-item {
+  display: block;
   width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: 1px solid #d1c7ae;
-  font-size: 16px;
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  color: white;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: var(--transition);
 }
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.nav-item.active {
+  background: var(--gold);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+/* Signed in message */
+.signed-in {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.auth-controls .btn {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   MAIN AREA
+=============================================================== */
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.topbar {
+  background: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--brand-dark);
+}
+
+/* Main content */
+.content {
+  padding: 20px 26px;
+  overflow-y: auto;
+}
+
+/* ============================================================
+   CARDS
+=============================================================== */
+
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  margin-bottom: 26px;
+}
+
+.card h3 {
+  margin-bottom: 14px;
+  color: var(--brand-dark);
+}
+
+/* ============================================================
+   BUTTONS
+=============================================================== */
 
 .btn {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
+  background: var(--brand);
+  color: white;
   border: none;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: var(--radius);
   cursor: pointer;
-  margin-top: 7px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
 }
 
-.gold-btn {
-  background: #c9a43a;
+.btn:hover {
+  background: var(--brand-dark);
+}
+
+.btn.secondary {
+  background: #999;
+}
+
+.btn.secondary:hover {
+  background: #777;
+}
+
+button.small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: var(--radius);
+  background: var(--brand);
   color: white;
+  border: none;
+  cursor: pointer;
 }
 
-.google-btn {
-  background: #db4437;
-  color: white;
+button.small.danger {
+  background: #b22c2c;
 }
 
-.apple-btn {
-  background: black;
-  color: white;
+button.small:hover {
+  opacity: 0.85;
 }
 
-.divider {
-  margin: 10px 0;
-  color: #777;
+#topActions .btn {
+  margin-left: 10px;
+}
+
+/* ============================================================
+   LIST ITEMS (Events, Members, Scholarships, etc.)
+=============================================================== */
+
+.list .item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 12px;
+  background: #fffdf8;
+  border-radius: var(--radius);
+  border: 1px solid #efe3d4;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+
+.list .item:hover {
+  background: #fff5e9;
+  transform: translateX(4px);
+}
+
+.list .meta {
+  flex-grow: 1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================
+   INPUTS & FORMS
+=============================================================== */
+
+.input,
+textarea.input,
+select.input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  border-radius: var(--radius);
+  border: 1px solid #c2b6a5;
+  font-size: 1rem;
+  transition: var(--transition);
+  background: #fffdf8;
+}
+
+.input:focus,
+textarea.input:focus {
+  border-color: var(--brand);
+  outline: none;
+  background: white;
+}
+
+/* ============================================================
+   NOTICE TEXT
+=============================================================== */
+
+.notice {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+/* ============================================================
+   MODAL
+=============================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  padding: 20px;
+  z-index: 99;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-card {
+  max-width: 520px;
+  width: 100%;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ============================================================
+   FOOTER
+=============================================================== */
+
+.footer {
+  padding: 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+/* ============================================================
+   RESPONSIVE
+=============================================================== */
+
+@media (max-width: 840px) {
+  .sidebar {
+    width: 210px;
+  }
+}
+
+@media (max-width: 680px) {
+  #app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 12px;
+  }
+
+  .nav-item {
+    flex-shrink: 0;
+    width: auto;
+    padding: 10px 14px;
+  }
 }

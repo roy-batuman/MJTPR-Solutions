@@ -675,3 +675,216 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/* =========================================
+   ZONTA STORE — FRONT-END LOGIC
+========================================= */
+
+const storeProducts = [
+  {
+    id: "mask-1",
+    name: "Zonta Face Mask",
+    price: 12.00,
+    description: "Reusable mask with Zonta emblem.",
+    tag: "Support Item",
+    image: "images/zonta_mask.jpg"
+  },
+  {
+    id: "mug-1",
+    name: "Zonta Coffee Mug",
+    price: 18.00,
+    description: "Ceramic mug supporting women’s empowerment.",
+    tag: "Popular Item",
+    image: "images/zonta_mug.jpg"
+  },
+  {
+    id: "ticket-1",
+    name: "Fundraising Gala Ticket",
+    price: 75.00,
+    description: "Entry to our annual fundraising gala.",
+    tag: "Event Ticket",
+    image: "images/Event-pic1.jpg"
+  }
+];
+
+let cartItems = [];
+
+/* ---------- DOM ELEMENTS ---------- */
+const productsContainer = document.getElementById("productsContainer");
+const cartPanel = document.getElementById("cartPanel");
+const openCartBtn = document.getElementById("openCartBtn");
+const closeCartBtn = document.getElementById("closeCartBtn");
+const overlay = document.getElementById("overlayBackdrop");
+const cartCount = document.getElementById("cartCount");
+const cartItemsContainer = document.getElementById("cartItemsContainer");
+const cartEmptyMessage = document.getElementById("cartEmptyMessage");
+const cartTotal = document.getElementById("cartTotal");
+const checkoutBtn = document.getElementById("checkoutBtn");
+
+// Modal
+const productModal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalProductImage");
+const modalName = document.getElementById("modalProductName");
+const modalPrice = document.getElementById("modalProductPrice");
+const modalDesc = document.getElementById("modalProductDescription");
+const modalTag = document.getElementById("modalProductTag");
+const modalQty = document.getElementById("modalProductQty");
+const modalAddBtn = document.getElementById("modalAddToCartBtn");
+const closeModalBtn = document.getElementById("closeModalBtn");
+
+let modalProduct = null;
+
+/* ---------- RENDER PRODUCTS ---------- */
+function renderProducts() {
+  productsContainer.innerHTML = storeProducts
+    .map(
+      p => `
+      <div class="product-card" data-id="${p.id}">
+        <div class="product-img-wrap">
+          <img src="${p.image}" class="product-img">
+        </div>
+        <h3 class="product-name">${p.name}</h3>
+        <p class="product-description">${p.description}</p>
+
+        <div class="product-footer-row">
+          <div class="product-price">$${p.price.toFixed(2)}</div>
+          <div>
+            <button class="more-info-btn" data-action="details">Details</button>
+            <button class="add-cart-btn" data-action="add">Add</button>
+          </div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+}
+
+/* ---------- ADD TO CART ---------- */
+function addToCart(id, qty = 1) {
+  const product = storeProducts.find(p => p.id === id);
+  if (!product) return;
+  
+  const existing = cartItems.find(i => i.id === id);
+  if (existing) existing.qty += qty;
+  else cartItems.push({ ...product, qty });
+
+  updateCart();
+}
+
+/* ---------- UPDATE CART UI ---------- */
+function updateCart() {
+  const count = cartItems.reduce((sum, i) => sum + i.qty, 0);
+  cartCount.textContent = count;
+
+  if (cartItems.length === 0) {
+    cartItemsContainer.innerHTML = "";
+    cartEmptyMessage.style.display = "block";
+    cartTotal.textContent = "$0.00";
+    return;
+  }
+
+  cartEmptyMessage.style.display = "none";
+
+  cartItemsContainer.innerHTML = cartItems
+    .map(
+      i => `
+      <div class="cart-item">
+        <div>
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-meta">$${i.price.toFixed(2)} each</div>
+        </div>
+        <div class="cart-item-actions">
+          <input type="number" data-id="${i.id}" class="cart-qty-input" min="1" value="${i.qty}">
+          <button data-remove="${i.id}" class="cart-remove-btn">Remove</button>
+          <div class="cart-item-price">$${(i.price * i.qty).toFixed(2)}</div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+
+  cartTotal.textContent =
+    "$" +
+    cartItems.reduce((sum, i) => sum + i.price * i.qty, 0).toFixed(2);
+}
+
+/* ---------- OPEN / CLOSE CART ---------- */
+function openCart() {
+  cartPanel.classList.add("open");
+  overlay.classList.add("show");
+}
+
+function closeCart() {
+  cartPanel.classList.remove("open");
+  overlay.classList.remove("show");
+}
+
+/* ---------- PRODUCT MODAL ---------- */
+function openModal(id) {
+  const p = storeProducts.find(x => x.id === id);
+  modalProduct = p;
+
+  modalImg.src = p.image;
+  modalName.textContent = p.name;
+  modalPrice.textContent = "$" + p.price.toFixed(2);
+  modalDesc.textContent = p.description;
+  modalTag.textContent = p.tag;
+  modalQty.value = 1;
+
+  productModal.classList.add("open");
+  overlay.classList.add("show");
+}
+
+function closeModal() {
+  productModal.classList.remove("open");
+  overlay.classList.remove("show");
+}
+
+/* ---------- EVENT LISTENERS ---------- */
+productsContainer.addEventListener("click", e => {
+  const card = e.target.closest(".product-card");
+  if (!card) return;
+
+  const id = card.dataset.id;
+  const action = e.target.dataset.action;
+
+  if (action === "add") addToCart(id);
+  if (action === "details") openModal(id);
+});
+
+cartItemsContainer.addEventListener("input", e => {
+  if (!e.target.classList.contains("cart-qty-input")) return;
+  const id = e.target.dataset.id;
+  const item = cartItems.find(i => i.id === id);
+  item.qty = parseInt(e.target.value);
+  updateCart();
+});
+
+cartItemsContainer.addEventListener("click", e => {
+  if (!e.target.dataset.remove) return;
+  const id = e.target.dataset.remove;
+  cartItems = cartItems.filter(i => i.id !== id);
+  updateCart();
+});
+
+openCartBtn.addEventListener("click", openCart);
+closeCartBtn.addEventListener("click", closeCart);
+overlay.addEventListener("click", () => {
+  closeCart();
+  closeModal();
+});
+
+closeModalBtn.addEventListener("click", closeModal);
+
+modalAddToCartBtn.addEventListener("click", () => {
+  addToCart(modalProduct.id, parseInt(modalQty.value));
+  closeModal();
+  openCart();
+});
+
+checkoutBtn.addEventListener("click", () => {
+  alert("Checkout system will be activated once Stripe is connected.");
+});
+
+/* ---------- INIT ---------- */
+renderProducts();
+updateCart();

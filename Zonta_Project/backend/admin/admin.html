@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Zonta Admin — Control Panel</title>
 
-  <!-- Supabase JS -->
+  <!-- Supabase JS (UMD) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
 
   <!-- Stylesheet -->
@@ -14,11 +14,10 @@
 
 <body>
 <div id="app">
-
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="brand">
-      <img src="images/zonta100yrLogo.png" alt="logo" class="brand-logo" />
+      <img src="images/zonta100yrLogo.png" alt="Zonta logo" class="brand-logo" />
       <div class="brand-title">Zonta Admin</div>
     </div>
 
@@ -29,6 +28,7 @@
       <button class="nav-item" data-tab="members">Members</button>
       <button class="nav-item" data-tab="announcements">Announcements</button>
       <button class="nav-item" data-tab="applications">Applications</button>
+      <button class="nav-item" data-tab="products">Products / Store</button>
 
       <div class="spacer"></div>
 
@@ -41,7 +41,7 @@
     </nav>
   </aside>
 
-  <!-- MAIN AREA -->
+  <!-- MAIN -->
   <main class="main">
     <!-- TOP BAR -->
     <header class="topbar">
@@ -53,20 +53,19 @@
 
     <!-- CONTENT -->
     <section class="content" id="content">
-
       <!-- LOGIN CARD -->
       <div class="card" id="loginCard">
         <h2>Admin Login</h2>
-        <p class="notice">Use email magic link, Google, or Apple to sign in.</p>
+        <p class="notice">Sign in with an email magic link, Google, or Apple.</p>
 
         <div class="row">
           <input id="emailInput" class="input" placeholder="you@domain.com" />
           <button class="btn" id="emailSignIn">Send Magic Link</button>
         </div>
 
-        <div style="margin-top:12px; display:flex; gap:10px;">
-          <button class="btn" id="googleSignIn">Google</button>
-          <button class="btn" id="appleSignIn">Apple</button>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn" id="googleSignIn">Sign in with Google</button>
+          <button class="btn" id="appleSignIn">Sign in with Apple</button>
         </div>
 
         <p class="notice" style="margin-top:12px;">
@@ -75,16 +74,16 @@
         </p>
       </div>
 
-      <!-- Admin Content Area (hidden until authenticated admin) -->
+      <!-- ADMIN AREA (hidden until signed in) -->
       <div id="adminArea" class="hidden"></div>
 
-      <!-- Info Card -->
+      <!-- INFO CARD -->
       <div class="card">
         <h3>Admin Notes</h3>
         <ul>
-          <li>Create a <code>profiles</code> table with <code>is_admin</code> boolean.</li>
-          <li>All content tables require RLS allowing admins full access.</li>
-          <li>Use the left menu to manage events, scholarships, and members.</li>
+          <li>Make sure <code>profiles</code>, <code>events</code>, <code>scholarships</code>, <code>members</code>, <code>announcements</code>, <code>products</code>, and <code>membership_applications</code> exist (SQL already provided).</li>
+          <li>RLS must allow public read where needed and admins full access.</li>
+          <li>Create a Supabase Storage bucket named <code>public-assets</code> for event & product images.</li>
         </ul>
       </div>
     </section>
@@ -100,18 +99,15 @@
 <div id="modal" class="modal">
   <div class="modal-card card">
     <h3 id="modalTitle">Form</h3>
-
     <div id="modalBody"></div>
-
-    <div class="center" style="margin-top:15px;">
+    <div class="center" style="margin-top:16px;">
       <button class="btn" id="modalSave">Save</button>
       <button class="btn secondary" id="modalCancel">Cancel</button>
     </div>
   </div>
 </div>
 
-<!-- Scripts -->
+<!-- Admin logic -->
 <script src="admin.js" type="module"></script>
-
 </body>
 </html>
