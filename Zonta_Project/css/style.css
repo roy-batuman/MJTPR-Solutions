@@ -2826,17 +2826,24 @@ input.error, textarea.error {
 
 /* Cart Panel */
 .cart-panel {
+  display: none;            /* ← hides the cart initially */
   position: fixed;
-  top: 0; right: -400px;
-  width: 340px;
+  right: 0;
+  top: 0;
+  width: 380px;
   height: 100vh;
   background: #fff;
-  box-shadow: -5px 0 20px rgba(0,0,0,0.15);
-  z-index: 5000;
-  padding: 18px;
-  transition: .3s ease;
+  z-index: 9999;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+  padding: 20px;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
 }
-.cart-panel.open { right: 0; }
+
+.cart-panel.open {
+  display: block;
+}
+
 
 .cart-header {
   display: flex;
@@ -2867,15 +2874,15 @@ input.error, textarea.error {
 
 /* Modal */
 .overlay-backdrop {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.35);
-  visibility: hidden; opacity: 0;
-  transition: .3s;
-  z-index: 4000;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9998;
 }
 
-.overlay-backdrop.show {
-  visibility: visible; opacity: 1;
+.overlay-backdrop.visible {
+  display: block;
 }
 
 .product-modal {

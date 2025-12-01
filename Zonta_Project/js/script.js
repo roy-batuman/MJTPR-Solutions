@@ -888,3 +888,17 @@ checkoutBtn.addEventListener("click", () => {
 /* ---------- INIT ---------- */
 renderProducts();
 updateCart();
+function openCart() {
+  cartPanel.classList.add("open");
+  overlay.classList.add("visible");
+}
+
+function closeCart() {
+  cartPanel.classList.remove("open");
+  overlay.classList.remove("visible");
+}
+
+if (openCartBtn) openCartBtn.addEventListener("click", openCart);
+if (closeCartBtn) closeCartBtn.addEventListener("click", closeCart);
+if (overlay) overlay.addEventListener("click", closeCart);
+
