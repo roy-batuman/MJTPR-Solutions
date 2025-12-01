@@ -586,34 +586,92 @@ document.getElementById("zontaApplicationForm").addEventListener("submit", async
   }
 })();
 
+/******************************************************
+ * Zonta Club of Naples — Full Site Logic
+ * Handles navigation, carousel, animations, and forms
+ ******************************************************/
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  const shopPage = document.getElementById("page-shop");
-  const shopContainer = document.getElementById("shopContainer");
+  // ===== FADE-IN ELEMENTS =====
+  (function () {
+    const items = document.querySelectorAll(".fade-in, .fade-in-section");
+    if (!items || items.length === 0) return;
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    items.forEach(el => observer.observe(el));
+  })();
 
-  const products = [
-    { name: "T-Shirt", price: 25.00, img: "tshirt.jpg" },
-    { name: "Mug", price: 12.50, img: "mug.jpg" },
-    { name: "Hat", price: 18.00, img: "hat.jpg" }
-  ];
+  // ===== HAMBURGER MENU =====
+  const menuBtn = document.querySelector(".menu-btn");
+  const navLinks = document.querySelector(".nav-links");
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () =>
+      navLinks.classList.toggle("show")
+    );
+  }
 
-  products.forEach(p => {
-    const div = document.createElement("div");
-    div.style.width = "150px";
-    div.style.textAlign = "center";
-    div.innerHTML = `
-      <img src="${p.img}" alt="${p.name}" style="width:100%;">
-      <h3>${p.name}</h3>
-      <p>$${p.price.toFixed(2)}</p>
-      <button>Add to Cart</button>
-    `;
-    div.querySelector("button").addEventListener("click", () => {
-      alert(`${p.name} added to cart!`);
+  // ===== CAROUSEL =====
+  const slides = document.querySelectorAll(".carousel img");
+  if (slides.length) {
+    let current = 0;
+    slides[current].classList.add("active");
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 4000);
+  }
+
+  // ===== SINGLE-PAGE NAVIGATION =====
+  const pages = document.querySelectorAll(".page");
+  const navButtons = document.querySelectorAll("[data-nav]");
+
+  function hideAllPages() {
+    pages.forEach(p => p.style.display = "none");
+  }
+
+  function showPage(name) {
+    hideAllPages();
+    const el = document.getElementById("page-" + name);
+    if (el) el.style.display = "block";
+    window.location.hash = name;
+    window.scrollTo({ top: 0 });
+  }
+
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      showPage(btn.getAttribute("data-nav"));
+      if (navLinks && navLinks.classList.contains("show"))
+        navLinks.classList.remove("show");
     });
-    shopContainer.appendChild(div);
   });
 
+  const initialPage = window.location.hash.replace("#", "") || "home";
+  showPage(initialPage);
+
+  window.addEventListener("hashchange", () => {
+    const page = window.location.hash.replace("#", "");
+    showPage(page);
+  });
+
+  // ===== HERO BUTTONS =====
+  const joinBtn = document.getElementById("joinBtn");
+  const heroJoin = document.getElementById("heroJoin");
+  const donateBtn = document.getElementById("donateBtn");
+  const heroDonate = document.getElementById("heroDonate");
+
+  if (joinBtn) joinBtn.addEventListener("click", () => showPage("membership"));
+  if (heroJoin) heroJoin.addEventListener("click", () => showPage("membership"));
+  if (donateBtn) donateBtn.addEventListener("click", openDonate);
+  if (heroDonate) heroDonate.addEventListener("click", openDonate);
+
 });
-
-
 
