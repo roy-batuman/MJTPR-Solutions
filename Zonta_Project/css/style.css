@@ -2,7 +2,7 @@
   GLOBAL BASE
 ================================================== */
 :root {
-  --primary: #b43b4b;
+  --primary: #b56d77;
   --secondary: #f6d7d9;
   --accent: #c45a65;
   --text: #333;
@@ -25,67 +25,54 @@ html, body {
   padding: 24px;
 }
 
-/* ================================================
-  HEADER + NAVIGATION
-================================================== */
 header {
-  background: var(--primary);
-  color: white;
-  padding: 8px 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  background: #6a4a00;
   position: sticky;
   top: 0;
-  z-index: 100;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999; /* BE ABOVE ALL SECTIONS */
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between; /* Logo left, actions right */
+  height: 50px;
+  padding: 0 0px; /* Remove internal padding */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .logo {
-  height: 55px;
+  height: 35px;
   width: auto;
-  cursor: pointer;
+  margin-left: 15px; /* Hug left edge */
 }
 
-.site-title {
-  font-weight: 700;
-  font-size: 1.3rem;
-  font-family: "Callisto MT", "Montserrat", serif;
-}
-
-.site-subtitle {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Links */
 .nav-links {
   display: flex;
-  gap: 18px;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Perfectly center links */
+  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
   color: white;
   font-weight: 500;
+  padding: 5px 0;
   position: relative;
-  transition: var(--transition);
 }
 
 .nav-links a::after {
@@ -94,84 +81,86 @@ header {
   width: 0;
   height: 2px;
   left: 0;
-  bottom: -4px;
+  bottom: -2px;
   background: white;
-  transition: var(--transition);
+  transition: 0.3s;
 }
 
 .nav-links a:hover::after {
   width: 100%;
 }
 
-.nav-right-wrapper {
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  margin-right: 10px; /* Hug right edge */
 }
 
-.cta, .btn {
-  padding: 8px 14px;
-  border-radius: 6px;
+/* Right-side buttons */
+.cta {
+  background: white; /* Donate button white */
+  color: #6a4a00; /* Same color as navbar text */
+  padding: 5px 12px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
   font-weight: 600;
   text-decoration: none;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.cta {
-  background: white;
-  color: var(--primary);
 }
 
 .cta:hover {
-  background: var(--secondary);
+  background: #f6d7d9; /* Slight hover effect */
 }
 
 .btn {
-  background: var(--accent);
-  color: white;
-  border: none;
+  background: transparent !important; /* Transparent background */
+  color: white !important;            /* White text */
+  padding: 5px 12px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white !important; /* White border */
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  background: #a93444;
+  background: rgba(255, 255, 255, 0.1);
 }
-
-.btn.secondary {
-  background: white;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-}
-
-.menu-btn {
-  display: none;
+.search-btn, .menu-btn {
   background: none;
   border: none;
-  color: white;
-  font-size: 1.8rem;
+  color: var(--primary);
+  font-size: 1.5rem;
   cursor: pointer;
+  display: none;
 }
 
-/* Mobile nav */
+/* MOBILE NAVIGATION */
 @media (max-width: 880px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
-    background: var(--accent);
     position: absolute;
-    right: 16px;
-    top: 60px;
+    top: 50px;
+    right: 20px;
+    flex-direction: column;
+    display: none;
+    background: var(--accent);
     padding: 12px 16px;
     border-radius: 10px;
+    gap: 12px;
+    transform: none; /* Remove centering for mobile */
   }
   .nav-links.show {
     display: flex;
   }
   .menu-btn {
     display: block;
-  }
-  .nav-right {
-    display: none;
   }
 }
 
@@ -185,7 +174,7 @@ header {
   height: 480px;
   border-radius: 16px;
   margin: 24px 0;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,1);
 }
 
 .carousel img {
@@ -205,16 +194,28 @@ header {
 
 .carousel-title {
   position: absolute;
-  bottom: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Callisto MT", "Montserrat", serif;
-  background: rgba(255,255,255,0.85);
-  padding: 12px 18px;
-  border-radius: 12px;
-  font-size: 1.5rem;
-  color: var(--primary);
+  top: 50%;
+  left: 0;
+  width: 100%;                 /* full width */
+  transform: translateY(-50%); /* vertical centering */
+  
+  font-family: 'Cinzel', serif;
+  font-size: 5rem;
+  color: #a56c00;
+  
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+  
+  
+  padding: 10px 0;             /* vertical padding only */
+  text-align: center;           /* horizontally center text */
+  white-space: nowrap;          /* keep one line */
+  border-radius: 8px;           /* optional */
 }
+
+
 
 /* ================================================
   HERO SECTION
@@ -1137,118 +1138,103 @@ footer .container {
   box-sizing: border-box;
 }
 
-/* ================== SCHOLARSHIP INFO BAR ================== */
+/* ================== SCHOLARSHIP INFO BAR (CLEAN FIXED LAYOUT) ================== */
 .scholarship-info-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  position: relative;
-  padding: 30px 20px 30px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   background: linear-gradient(to right, #f8f5ef, #f2e7d8);
   border-left: 6px solid #b48a2c;
-  border-radius: 8px;
   border-right: 6px solid #b48a2c;
-  gap: 20px;
+  border-radius: 8px;
+  padding: 30px 25px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* left image | right content */
+  grid-template-rows: auto auto;    /* title row, then content row */
+  gap: 25px;
 }
 
-/* Card wrapper with subtle shadow */
-.scholarship-info-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin: 20px 0;
-  border: 3px solid rgba(0,0,0,0.1);
-}
-
-/* INFO BAR TITLE */
+/* TITLE — full width */
 .info-bar-title {
-  width: 100%;
+  grid-column: 1 / 3;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .info-bar-title h3 {
   font-family: "Playfair Display", serif;
   font-size: 2rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
   color: #6a4a00;
+  margin: 0;
 }
 
-/* BIG IMAGE */
+/* BIG IMAGE (LEFT SIDE) */
 .big {
-  width: 45%;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #6a4a00;
   border-radius: 8px;
-  flex-shrink: 0;
-  align-self: stretch;
-  align-items: flex-end;
-  margin-right: 20px;
-   border: 2px solid #6a4a00;
+  object-fit: cover;
 }
 
-/* RIGHT SIDE CONTAINER */
+/* RIGHT SIDE CONTENT */
 .right-side {
   display: flex;
   flex-direction: column;
-  flex: 1;
   justify-content: space-between;
-  gap: 15px;
+  gap: 20px;
 }
 
-/* TEXT AREA */
-.text-area {
-  max-width: 100%;
-}
-
+/* TEXT AREA (top right) */
 .text-area p {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: #5a4a3a;
-  line-height: 1.5;
-  margin-bottom: 10px;
+  line-height: 1.6;
 }
 
-/* SMALL IMAGES + BUTTON WRAPPER */
+/* SMALL IMAGES + BUTTON (bottom right) */
 .small-images-wrapper {
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   gap: 20px;
 }
 
-/* SMALL IMAGES HORIZONTAL STACK */
+/* Small images container */
 .small-images {
   display: flex;
-  gap: 20px;
-  align-items: flex-end;
+  gap: 15px;
 }
 
-.small-images .small {
-  max-height: 166px;
-  object-fit: contain;
+.small {
+  width: 150px;
+  height: 150px;
   border: 2px solid #6a4a00;
-  border-radius: 6px;
-  flex: 1;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
-/* GET MORE INFO BUTTON */
+/* BUTTON */
 .get-info-btn {
   background-color: #6a4a00;
   color: #f8f5ef;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  display: flex;
+  white-space: nowrap;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
 }
 
 .get-info-btn:hover {
   opacity: 0.85;
 }
+
 
 
 .scholarship-divider {
@@ -1278,14 +1264,13 @@ footer .container {
   margin: 0;
 }
 
-
 /* ================== SCHOLARSHIP ROWS AS HORIZONTAL CARDS ================== */
 
 /* Container for the rows to allow almost full width */
 .scholarship-section {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 15px; /* small horizontal padding */
+  padding: 0 15px;
   box-sizing: border-box;
 }
 
@@ -1299,13 +1284,11 @@ footer .container {
   margin: 25px 0;
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 
-  /* Almost full width with 10px side margins */
   width: calc(100vw - 100px);
   margin-left: calc(-50vw + 50% + 40px);
   margin-right: calc(-50vw + 50% + 40px);
   box-sizing: border-box;
 }
-
 
 /* MINI CAROUSEL INSIDE THE CARD */
 .mini-carousel {
@@ -1317,7 +1300,7 @@ footer .container {
   border-radius: 10px;
   flex-shrink: 0;
   background:none ;
-    box-shadow: 0 4px 2px -2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,0.3);
 }
 
 .mini-carousel-inner {
@@ -1332,12 +1315,12 @@ footer .container {
   height: 230px;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid #6a4a00; /* subtle border like info bar */
+  border: 2px solid #6a4a00;
 }
 
-/* Prev/Next buttons */
-.mini-prev,
-.mini-next {
+/* UPDATED Prev/Next buttons */
+.scholarship-mini-prev,
+.scholarship-mini-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1345,15 +1328,33 @@ footer .container {
   backdrop-filter: blur(3px);
   border: none;
   font-size: 1.8rem;
-  color: #6a4a00; /* match button and heading color */
+  color: #6a4a00;
   cursor: pointer;
   padding: 4px 5px;
   border-radius: 6px;
   user-select: none;
+  z-index: 20; 
 }
 
-.mini-prev { left: 10px; }
-.mini-next { right: 10px; }
+/* .scholarship-mini-prev,
+.scholarship-mini-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: RGBA(255, 255, 255, 0.65);
+  backdrop-filter: blur(3px);
+  border: none;
+  font-size: 1.8rem;
+  color: #6a4a00;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  user-select: none;
+  z-index: 20;      /* ← FIX: makes buttons appear above images */
+
+
+.scholarship-mini-prev { left: 10px; }
+.scholarship-mini-next { right: 10px; }
 
 .mini-caption {
   text-align: center;
@@ -1365,11 +1366,10 @@ footer .container {
   margin-top: 6px;
   color: #6a4a00;
   font-family: "Montserrat", sans-serif;
-  border-color:#6a4a00 ;
-  min-height: 3em;       /* ensures enough space for 2 lines */
-  line-height: 1.5em;    /* line height */
+  min-height: 3em;
+  line-height: 1.5em;
   display: flex;
-  align-items: center;    /* vertically centers single-line captions */
+  align-items: center;
   justify-content: center;
   box-shadow: #222;
 }
@@ -1382,18 +1382,17 @@ footer .container {
   flex: 1;
   gap: 12px;
   justify-content: flex-start;
-  align-items: flex-start; /* add this line */
+  align-items: flex-start;
 }
 
 
 .scholarship-info h3 {
-  font-family: "Playfair Display", serif;
   margin: 0;
   font-size: 2.5rem;
   color: #6a4a00;
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
-   text-align: left; 
+  text-align: left;
 }
 
 .scholarship-info p {
@@ -1401,19 +1400,18 @@ footer .container {
   font-size: 1.1rem;
   color: #4a3f3f;
   font-family: "Montserrat", sans-serif;
-   font-family: "Montserrat", sans-serif;
 }
 
-/* BUTTON */
-.scholarship-action {
+/* UPDATED BUTTON */
+.scholarship-info-action {
   display: flex;
   align-items: center;
   margin-top: 10px;
 }
 
-.info-btn {
-  background: #6a4a00; /* same golden tone as info bar line */
-  color: #fff;          /* white letters */
+.scholarship-info-btn {
+  background: #6a4a00;
+  color: #fff;
   padding: 10px 18px;
   border-radius: 8px;
   text-decoration: none;
@@ -1422,8 +1420,8 @@ footer .container {
   transition: 0.3s ease;
 }
 
-.info-btn:hover {
-  background: #9c741f; /* slightly darker on hover */
+.scholarship-info-btn:hover {
+  background: #9c741f;
 }
 
 /* Responsive adjustments */
@@ -1432,14 +1430,12 @@ footer .container {
     flex-direction: column;
     padding: 20px;
   }
-  
   .mini-carousel {
     width: 100%;
     max-width: 100%;
     margin-bottom: 15px;
   }
 }
-
 
 
 /* ================== SCHOLARSHIPS TOP CARD ================== */

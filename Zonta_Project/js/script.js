@@ -291,36 +291,7 @@ function revealInfo() {
 
 window.addEventListener('scroll', revealInfo);
 revealInfo();
-document.querySelectorAll('.mini-carousel').forEach(carousel => {
-  const inner = carousel.querySelector('.mini-carousel-inner');
-  const images = inner.querySelectorAll('img');
-  const caption = carousel.querySelector('.mini-caption');
-  let index = 0;
 
-  // Auto-slide every 5 seconds
-setInterval(() => {
-  index = (index + 1) % images.length;
-  updateCarousel();
-}, 5000);
-
-
-  function updateCarousel() {
-    inner.style.transform = `translateX(-${index * 100}%)`;
-    caption.textContent = images[index].dataset.caption;
-  }
-
-  carousel.querySelector('.mini-next').addEventListener('click', () => {
-    index = (index + 1) % images.length;
-    updateCarousel();
-  });
-
-  carousel.querySelector('.mini-prev').addEventListener('click', () => {
-    index = (index - 1 + images.length) % images.length;
-    updateCarousel();
-  });
-
-  updateCarousel(); // initialize
-});
 document.addEventListener("scroll", () => {
   const elements = document.querySelectorAll(".fade-in-section");
 
@@ -901,4 +872,39 @@ function closeCart() {
 if (openCartBtn) openCartBtn.addEventListener("click", openCart);
 if (closeCartBtn) closeCartBtn.addEventListener("click", closeCart);
 if (overlay) overlay.addEventListener("click", closeCart);
+
+
+
+document.querySelectorAll(".mini-carousel").forEach((carousel) => {
+    const inner = carousel.querySelector(".mini-carousel-inner");
+    const images = inner.querySelectorAll("img");
+    const captionBox = carousel.querySelector(".mini-caption");
+
+    let index = 0;
+    const total = images.length;
+
+    // Update carousel position + caption
+    function updateCarousel() {
+        inner.style.transform = `translateX(-${index * 100}%)`;
+        captionBox.textContent = images[index].dataset.caption;
+    }
+
+    // Prev button
+    const prevBtn = carousel.querySelector(".scholarship-mini-prev");
+    prevBtn.addEventListener("click", () => {
+        index = (index - 1 + total) % total;
+        updateCarousel();
+    });
+
+    // Next button
+    const nextBtn = carousel.querySelector(".scholarship-mini-next");
+    nextBtn.addEventListener("click", () => {
+        index = (index + 1) % total;
+        updateCarousel();
+    });
+
+    // Initialize
+    updateCarousel();
+});
+
 
